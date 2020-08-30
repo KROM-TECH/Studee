@@ -1,0 +1,176 @@
+<template>
+  <main>
+    <nav>
+  <div class="nav-wrapper pur">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="./home.html">Home</a></li>
+      <li><a href="./profile.html">Profile</a></li>
+      <li><a href="./price.html">price</a></li>
+      <li><a href="./payment.html">payment</a></li>
+      <li><a href="./support.html">Online Support</a></li>
+      <li><a id="signout">Sign Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <div class="pur" style=" height: 100%;"></div>
+      </div>
+      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
+      <a href="#name"><span class="white-text name"></span></a>
+      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+    </div>
+  </li>
+  <li><a href="./home.html">Home</a></li>
+  <li><a href="./profile.html">Profile</a></li>
+  <li><a href="./price.html">price</a></li>
+  <li><a href="./payment.html">payment</a></li>
+  <li><a href="./support.html">Online Support</a></li>
+  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
+</ul>
+
+<body class="grey lighten-2">
+  <p class="center hide-on-med-and-down">You currently signed in as <span class="blue-text" id="usermail2"></span></p>
+
+  <section class="flex">
+    <div id="ask a question">
+      <a data-target="ask-question" class="sidenav-trigger white-text">
+        <div class="row white hoverable card"
+          style=" border-radius: 1rem; margin: 1rem; background-color: #0088cc !important;">
+          <div class="col l3 s3 m3">
+            <br>
+            <img src="@/assets/telegram.png" alt="course outline" class='responsive-img'>
+          </div>
+
+          <div class="col l9 s9 m9 white-text">
+            <h4>Ask a question</h4>
+            <p>Ask a question and wait for a user to respond</p>
+          </div>
+        </div>
+      </a>
+      <div id="ask-question" class="sidenav side-form" style="width: 100%;">
+        <form class="add-recipe container section">
+          <h6>Ask a Question</h6>
+          <div class="divider"></div>
+          <div class="input-field">
+            <input placeholder="e.g Fourier Series" id="title" type="text" class="validate">
+            <label for="title">Question Header</label>
+          </div>
+          <div class="input-field">
+            <input placeholder="e.g. how can i solve this, image attached bellow" id="Question" type="text"
+              class="validate">
+            <label for="Question">Question</label>
+          </div>
+          <div class="input-field">
+            <input placeholder="e.g. University, Engineering, Electrical" id="tags" type="text" class="validate">
+            <label for="tags">Tags</label>
+          </div>
+          <div class="custom-upload">
+            <label class="btn btn-block pur" for="book" id="custom-upload-button"
+              data-element="custom-upload-button">Upload Files
+            </label>
+            <div id="status"></div>
+            <input class="custom-upload__input" id="book" type="file" style="display: none;"
+              data-behaviour="custom-upload-input" value="" required="">
+          </div>
+
+          <div class="input-field center">
+            <button class="btn-small pur">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="view questions card">
+      <a data-target="view-question" class="sidenav-trigger white-text">
+        <div class="row white hoverable card" href="#"
+          style=" border-radius: 1rem; margin: 1rem; background-color: #25d366 !important;">
+          <div class="col l3 s3 m3">
+            <br>
+            <img src="@/assets/whatsapp.png" alt="past questions" class="responsive-img">
+          </div>
+
+          <div class="col l9 s9 m9">
+            <h4>View Questions</h4>
+            <p>Ask questions, Socialize and learn</p>
+          </div>
+        </div>
+      </a>
+
+      <div id="view-question" class="sidenav view" style="width: 100%;">
+        <div class="center">
+          <input type="search" class="input-field" style="width: 85%;">
+          <button class="btn pur">Search</button>
+        </div>
+        
+        <div class="recipes container grey-text text-darken-1" >
+          <div class="card-panel recipe white row">
+            <i class="material-icons">book</i>
+            <div class="recipe-details">
+              <div class="recipe-title">Question Title</div>
+              <div class="recipe-ingredients">Question in details, how to find the cure to conavirus</div>
+              <div class="recipe-ingredients blue-text">Answered</div>
+            </div>
+            <div class="recipe-delete">
+              <i class="material-icons">forward</i>
+            </div>
+          </div>
+          <div class="card-panel recipe white row">
+            <i class="material-icons">book</i>
+            <div class="recipe-details">
+              <div class="recipe-title">Question Title</div>
+              <div class="recipe-ingredients">Question in details, how to find the cure to conavirus</div>
+              <div class="recipe-ingredients red-text">Unanswered</div>
+            </div>
+            <div class="recipe-delete">
+              <i class="material-icons">delete_outline</i>
+            </div>
+          </div>
+          <div class="card-panel recipe white row">
+            <i class="material-icons">book</i>
+            <div class="recipe-details">
+              <div class="recipe-title">Question Title</div>
+              <div class="recipe-ingredients">Question in details, how to find the cure to conavirus</div>
+              <div class="recipe-ingredients red-text">Unanswered</div>
+            </div>
+            <div class="recipe-delete">
+              <i class="material-icons">delete_outline</i>
+            </div>
+          </div>
+          <div class="card-panel recipe white row">
+            <i class="material-icons">book</i>
+            <div class="recipe-details">
+              <div class="recipe-title">Question Title</div>
+              <div class="recipe-ingredients">Question in details, how to find the cure to conavirus</div>
+              <div class="recipe-ingredients blue-text">Answered</div>
+            </div>
+            <div class="recipe-delete">
+              <i class="material-icons">delete_outline</i>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+</body>
+  </main>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

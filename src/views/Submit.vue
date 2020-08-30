@@ -1,0 +1,113 @@
+<template>
+  <main>
+    <nav>
+  <div class="nav-wrapper pur">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="sass.html">Sass</a></li>
+  <li><a href="badges.html">Components</a></li>
+  <li><a href="collapsible.html">Javascript</a></li>
+  <li><a href="mobile.html">Mobile</a></li>
+</ul>
+
+<body class="grey lighten-2">
+
+  <section>
+
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="university">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="unilag"  class="left">University of Lagos</option>
+        <option value="ui"  class="left">University of Ibadan</option>
+        <option value="uniben" class="left">University of Benin</option>
+      </select>
+      <label>Select Your University</label>
+    </div>
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="faculty">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="art" class="left">Arts</option>
+        <option value="bms" class="left">Basic Medical Sciences</option>
+        <option value="business" class="left">Business Administration</option>
+        <option value="clinical" class="left">Clinical Sciences</option>
+        <option value="dental" class="left">Dental Sciences</option>
+        <option value="education" class="left">Education</option>
+        <option value="engineering" class="left">Engineering</option>
+        <option value="environmental" class="left">Environmental Science</option>
+        <option value="law" class="left">Law</option>
+        <option value="pharmacy" class="left">Pharmacy</option>
+        <option value="science" class="left">Science</option>
+        <option value="social" class="left">Social Sciences</option>
+      </select>
+      <label>Select Your Faculty</label>
+    </div>
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="level">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="Year1" class="left">Year 1</option>
+        <option value="Year2" class="left">Year 2</option>
+        <option value="Year3" class="left">Year 3</option>
+        <option value="Year4" class="left">Year 4</option>
+        <option value="Year5" class="left">Year 5</option>
+      </select>
+      <label>Select Your Level</label>
+    </div>
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="semester">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="first" class="left">first</option>
+        <option value="second" class="left">second</option>
+
+      </select>
+      <label>Select the Semester</label>
+    </div>
+
+    <div class="row">
+      <div class="input-field " style="margin: 3rem;">
+        <input id="ct" type="text" class="validate">
+        <label for="ct">Course Title</label>
+        <span class="helper-text" data-error="wrong" data-success="right">There should be no space and it should be in small letters only i.e geg113</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field " style="margin: 3rem;">
+        <textarea id="coc" class="materialize-textarea"></textarea>
+        <label for="coc">Course Outline content</label>
+        <span class="helper-text" data-error="wrong" data-success="right">Separate each topic with a comma and a space i.e truss, integration, differentiation</span>
+      </div>
+    </div>
+
+    <div class="row center">
+      <a class="waves-effect waves-pur btn btn-large pur-text white " id="cosubmit"
+        style="border-radius: 5rem; width: 10rem;">Submit</a>
+    </div>
+  </section>
+
+</body>
+  </main>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

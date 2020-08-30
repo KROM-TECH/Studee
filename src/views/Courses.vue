@@ -1,0 +1,120 @@
+<template>
+  <main>
+    <nav>
+  <div class="nav-wrapper pur">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="./home.html">Home</a></li>
+      <li><a href="./profile.html">Profile</a></li>
+      <li><a href="./price.html">price</a></li>
+      <li><a href="./payment.html">payment</a></li>
+      <li><a href="./support.html">Online Support</a></li>
+      <li><a id="signout">Sign Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul  class="sidenav" id="mobile-demo">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <div class="pur" style=" height: 100%;"></div>
+      </div>
+      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
+      <a href="#name"><span class="white-text name"></span></a>
+      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+    </div>
+  </li>
+  <li><a href="./home.html">Home</a></li>
+  <li><a href="./profile.html">Profile</a></li>
+  <li><a href="./price.html">price</a></li>
+  <li><a href="./payment.html">payment</a></li>
+  <li><a href="./support.html">Online Support</a></li>
+  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
+</ul>
+
+<body class="grey lighten-2">
+  <p class="center hide-on-med-and-down">You currently signed in as <span class="blue-text" id="usermail2"></span></p>
+
+  <section class="fo">
+
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="university">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="unilag" class="left">University of Lagos</option>
+        <option value="ui" class="left">University of Ibadan</option>
+        <option value="uniben" class="left">University of Benin</option>
+      </select>
+      <label>Select Your University</label>
+    </div>
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="faculty">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="art" class="left">Arts</option>
+        <option value="bms" class="left">Basic Medical Sciences</option>
+        <option value="business" class="left">Business Administration</option>
+        <option value="clinical" class="left">Clinical Sciences</option>
+        <option value="dental" class="left">Dental Sciences</option>
+        <option value="education" class="left">Education</option>
+        <option value="engineering" class="left">Engineering</option>
+        <option value="environmental" class="left">Environmental Science</option>
+        <option value="law" class="left">Law</option>
+        <option value="pharmacy" class="left">Pharmacy</option>
+        <option value="science" class="left">Science</option>
+        <option value="social" class="left">Social Sciences</option>
+      </select>
+      <label>Select Your Faculty</label>
+    </div>
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons" id="level">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="Year1" class="left">Year 1</option>
+        <option value="Year2" class="left">Year 2</option>
+        <option value="Year3" class="left">Year 3</option>
+        <option value="Year4" class="left">Year 4</option>
+        <option value="Year5" class="left">Year 5</option>
+      </select>
+      <label>Select Your Level</label>
+    </div>
+
+    <div class="row center">
+      <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-trigger" id="coget" data-target="slide-out"
+        style="border-radius: 5rem; width: 10rem;">View</a>
+    </div>
+  </section>
+
+  <section  class="fo">
+
+    <ul class="sidenav side-menu " id="slide-out" style="width: 100%;">
+      <li><h4 class="subheader center">Course outline </h4></li> <br> <br>
+      <ul class="collapsible popout center" id="cocontent">
+
+
+      </ul>
+
+      <div class="row center">
+        <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-close" data-target="slide-out"
+          style="border-radius: 5rem; width: 10rem; margin: 3rem;">Done</a>
+      </div>
+    </ul>
+
+
+  </section>
+
+</body>
+  </main>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

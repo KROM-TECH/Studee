@@ -1,0 +1,106 @@
+<template>
+<main>
+  <nav>
+  <div class="nav-wrapper pur">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="./home.html">Home</a></li>
+      <li><a href="./profile.html">Profile</a></li>
+      <li><a href="./price.html">price</a></li>
+      <li><a href="./payment.html">payment</a></li>
+      <li><a href="./support.html">Online Support</a></li>
+      <li><a id="signout">Sign Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <div class="pur" style=" height: 100%;"></div>
+      </div>
+      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
+      <a href="#name"><span class="white-text name"></span></a>
+      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+    </div>
+  </li>
+  <li><a href="./home.html">Home</a></li>
+  <li><a href="./profile.html">Profile</a></li>
+  <li><a href="./price.html">price</a></li>
+  <li><a href="./payment.html">payment</a></li>
+  <li><a href="./support.html">Online Support</a></li>
+  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
+</ul>
+
+
+<body class="grey lighten-2">
+  <div class=" row center">
+    <a href=""><img id="profileImg2" class="circle responsive-img" src="@/assets/profile.png" style="width:200px;"></a>
+  </div>
+  <div class=" row center">
+    <h5>Subscription:- <span class="green-text">free sem</span></h5>
+  </div>
+  <br> <br>
+
+  <div class="card row ">
+    <h5 style="padding: 0.5rem;">Display Name: <span class="right green-text" id="userdis">Nill</span></h5>
+  </div>
+  <div class="card row ">
+    <h5 style="padding: 0.5rem;">Email: <span class="right green-text" id="usermail2">Nill</span></h5>
+  </div>
+  <div class="card row ">
+    <h5 style="padding: 0.5rem;">Phone Number: <span class="right green-text" id="usernum">Nill</span></h5>
+  </div>
+
+  <div class="row center">
+    <a class="waves-effect waves-light btn btn-large pur white-text modal-trigger" href="#modal1"
+      style="border-radius: 5rem; width: 10rem; margin: 3rem;">Update</a>
+  </div>
+
+  <!-- Modal structure -->
+  <div id="modal1" class="modal">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat right">Cancel</a>
+    <div class="modal-content center">
+      <h5>Profile Update</h5>
+      <p>fill in required details</p>
+
+      <div class="input-field ">
+        <input id="disName" type="text" placeholder="display Name" class="validate" required>
+        <label for="disName">Display Name</label>
+      </div>
+
+      <div class="input-field ">
+        <input id="pmail" type="text" placeholder="Email" class="validate" required>
+        <label for="pmail">Email</label>
+      </div>
+
+      <div class="input-field ">
+        <input id="phoneNum" type="text" placeholder="phone Number" class="validate" required>
+        <label for="phoneNum">Phone Number</label>
+      </div>
+      <div class="row center pur-text">
+        <p id="updateStat"></p>
+      </div>
+      <div class="row center">
+        <button type="submit" id="update" class="waves-effect waves-light btn btn-large pur-text white">
+          confirm</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</main>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

@@ -1,0 +1,143 @@
+<template>
+  <div>
+    <nav>
+  <div class="nav-wrapper pur">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="./home.html">Home</a></li>
+      <li><a href="./profile.html">Profile</a></li>
+      <li><a href="./price.html">price</a></li>
+      <li><a href="./payment.html">payment</a></li>
+      <li><a href="./support.html">Online Support</a></li>
+      <li><a id="signout">Sign Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <div class="pur" style=" height: 100%;"></div>
+      </div>
+      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
+      <a href="#name"><span class="white-text name"></span></a>
+      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+    </div>
+  </li>
+  <li><a href="./home.html">Home</a></li>
+  <li><a href="./profile.html">Profile</a></li>
+  <li><a href="./price.html">price</a></li>
+  <li><a href="./payment.html">payment</a></li>
+  <li><a href="./support.html">Online Support</a></li>
+  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
+</ul>
+
+<body class="grey lighten-2">
+  <p class="center hide-on-med-and-down">You currently signed in as <span class="blue-text" id="usermail2"></span></p>
+
+  <section>
+
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="" data-icon="images/sample-1.jpg" class="left">University of Lagos</option>
+        <option value="" data-icon="images/office.jpg" class="left">University of Ibadan</option>
+        <option value="" data-icon="images/yuna.jpg" class="left">University of Benin</option>
+      </select>
+      <label>Select Your University</label>
+    </div>
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="" data-icon="" class="left">Biomedical Engineering</option>
+        <option value="" data-icon="" class="left">Chemical Engineering</option>
+        <option value="" data-icon="" class="left">Civil Engineering</option>
+      </select>
+      <label>Select Your Department</label>
+    </div>
+
+    <div class="input-field col " style="margin: 3rem;">
+      <select class="icons">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="" class="left">Year 1</option>
+        <option value="" class="left" disabled>Year 2</option>
+        <option value="" class="left" disabled>Year 3</option>
+        <option value="" class="left" disabled>Year 4</option>
+        <option value="" class="left" disabled>Year 5</option>
+      </select>
+      <label>Select Your Level</label>
+    </div>
+
+    <div class="row center">
+      <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-trigger" data-target="slide-out"
+        style="border-radius: 5rem; width: 10rem;">View</a>
+    </div>
+    <div class="row center">
+      <a class="waves-effect waves-pur btn-flat">geg 113</a>
+      <a class="waves-effect waves-pur btn-flat">geg 115</a>
+      <a class="waves-effect waves-pur btn-flat">geg 117</a>
+      <a class="waves-effect waves-pur btn-flat">Meg 111</a>
+      <a class="waves-effect waves-pur btn-flat">fsc 112</a>
+      <a class="waves-effect waves-pur btn-flat">fsc 115</a>
+      <a class="waves-effect waves-pur btn-flat">fsc 115</a>
+      <a class="waves-effect waves-pur btn-flat">gst 102</a>
+      <a class="waves-effect waves-pur btn-flat">gst 105</a>
+    </div>
+  </section>
+
+  <section>
+
+
+
+
+    <div class="row sidenav side-menu" id="slide-out" style="width: 100%;">
+      <div class="col s12">
+        <div class="subheader center">Course outline for systems engineering</div> <br> <br>
+        <ul class="tabs pur-text">
+          <li class="tab col s6 pur-text"><a href="#question" class="active">Question</a></li>
+          <li class="tab col s6 pur-text"><a href="#solution">Solution</a></li>
+        </ul>
+      </div>
+
+
+
+      <div id="question" class="col s12">
+        <img src="@/assets/book.svg" alt="" class="responsive-img">
+        <img src="@/assets/problem.svg" alt="" class="responsive-img">
+        <img src="@/assets/verify.svg" alt="" class="responsive-img">
+
+      </div>
+      <div id="solution" class="col s12">
+                <img src="@/assets/CO.png" alt="" class="responsive-img">
+                <img src="@/assets/problem.svg" alt="" class="responsive-img">
+                <img src="@/assets/verify.svg" alt="" class="responsive-img">
+      </div>
+
+
+      <div class="row center">
+        <a class="waves-effect waves-light btn btn-large pur white-text sidenav-close" data-target="slide-out"
+          style="border-radius: 5rem; width: 10rem; margin: 3rem;">Done</a>
+      </div>
+
+    </div>
+
+
+  </section>
+
+</body>
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

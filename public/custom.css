@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+.fo {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'lobster Two', cursive;
+}
+
+.page-footer {
+  position: fixed;
+  bottom: 2em;
+  width: 100%;
+  height: 15%;
+  background-color: white;
+  padding-left: 0em;
+  margin-left: 0em;
+}
+
+/* label color */
+
+.input-field label {
+  color: #6C63FF;
+}
+
+/* label focus color */
+
+.input-field input[type=email]:focus+label {
+  color: #6C63FF;
+}
+
+/* label underline focus color */
+
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+/* valid color */
+
+.input-field input[type=email].valid {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+.input-field input[type=password].valid {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #6C63FF;
+  box-shadow: 0 1px 0 0 #6C63FF;
+}
+
+/* icon prefix focus color */
+
+.input-field .prefix {
+  color: #6C63FF;
+}
+
+.dis {
+  pointer-events: none;
+}
+
+
+.recipes {
+  margin-top: 20px;
+}
+
+.card-panel.recipe {
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 1px 3px rgba(90, 90, 90, 0.1);
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr;
+  grid-template-areas: "image details delete";
+  position: relative;
+}
+
+.recipe img {
+  grid-area: image;
+  max-width: 60px;
+}
+
+.recipe-details {
+  grid-area: details;
+  margin-top: 6px;
+}
+
+.recipe-delete {
+  grid-area: delete;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.recipe-delete i {
+  font-size: 18px;
+}
+
+.recipe-title {
+  font-weight: bold;
+}
+
+.recipe-ingredients {
+  font-size: 1em;
+}
+
+.card{
+  max-width: 40rem;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width:480px){
+  h3{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width:350px){
+  h3{
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
