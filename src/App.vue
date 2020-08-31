@@ -19,6 +19,7 @@
   margin: 0;
   padding: 0;
   font-family: 'lobster Two', cursive;
+  
 }
 @font-face {
   font-family: 'Material Icons';
@@ -26,6 +27,17 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
+body{
+  background-color: rgb(220, 220, 220);
+  overflow-x: hidden;
+}
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+  }
 
 .material-icons {
   font-family: 'Material Icons';
@@ -87,6 +99,9 @@
   border: 2px solid #795548;
   color: #795548 !important;
 }
+.input-field>label {
+  position: static!important;
+}
 @keyframes slide {
   from{
     left:100vw;
@@ -103,4 +118,5 @@
     opacity: 1;
   }
 }
+
 </style>

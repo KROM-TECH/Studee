@@ -1,106 +1,172 @@
 <template>
-<main>
-  <nav>
-  <div class="nav-wrapper pur">
-    <a href="#!" class="brand-logo">Logo</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="./home.html">Home</a></li>
-      <li><a href="./profile.html">Profile</a></li>
-      <li><a href="./price.html">price</a></li>
-      <li><a href="./payment.html">payment</a></li>
-      <li><a href="./support.html">Online Support</a></li>
-      <li><a id="signout">Sign Out</a></li>
-    </ul>
-  </div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-  <li>
-    <div class="user-view">
-      <div class="background">
-        <div class="pur" style=" height: 100%;"></div>
-      </div>
-      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
-      <a href="#name"><span class="white-text name"></span></a>
-      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+<div>
+    <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
+        <div class="row center-align sidebar"  v-if="!sideNav.show">
+     <div>
+        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
+     </div>
     </div>
-  </li>
-  <li><a href="./home.html">Home</a></li>
-  <li><a href="./profile.html">Profile</a></li>
-  <li><a href="./price.html">price</a></li>
-  <li><a href="./payment.html">payment</a></li>
-  <li><a href="./support.html">Online Support</a></li>
-  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
-</ul>
+    <main v-if="sideNav.show" class="fade"> 
+    <img src="@/assets/profile.png">
+    <h5>Subscription:- <span class="pur-text">free sem</span></h5>
 
-
-<body class="grey lighten-2">
-  <div class=" row center">
-    <a href=""><img id="profileImg2" class="circle responsive-img" src="@/assets/profile.png" style="width:200px;"></a>
+  <div class="card">
+    <h5>Display Name: <span class="right pur-text" id="userdis">Nill</span></h5>
   </div>
-  <div class=" row center">
-    <h5>Subscription:- <span class="green-text">free sem</span></h5>
+  <div class="card">
+    <h5>Email: <span class="right pur-text" id="usermail2">Nill</span></h5>
   </div>
-  <br> <br>
-
-  <div class="card row ">
-    <h5 style="padding: 0.5rem;">Display Name: <span class="right green-text" id="userdis">Nill</span></h5>
-  </div>
-  <div class="card row ">
-    <h5 style="padding: 0.5rem;">Email: <span class="right green-text" id="usermail2">Nill</span></h5>
-  </div>
-  <div class="card row ">
-    <h5 style="padding: 0.5rem;">Phone Number: <span class="right green-text" id="usernum">Nill</span></h5>
+  <div class="card">
+    <h5>Phone Number: <span class="right pur-text" id="usernum">Nill</span></h5>
   </div>
 
-  <div class="row center">
-    <a class="waves-effect waves-light btn btn-large pur white-text modal-trigger" href="#modal1"
-      style="border-radius: 5rem; width: 10rem; margin: 3rem;">Update</a>
-  </div>
+   <button 
+   class=" btn btn-large white pur-text" 
+   style=" width: 10rem; border: 2px solid #6C63FF;" 
+   @click="showModal = true">Update</button>
 
-  <!-- Modal structure -->
-  <div id="modal1" class="modal">
-    <a href="#!" class="modal-close waves-effect waves-green btn-flat right">Cancel</a>
-    <div class="modal-content center">
-      <h5>Profile Update</h5>
+       <transition name="slide" appear>
+  <div class="modall" v-if="showModal">
+    <h5>Profile Update</h5>
       <p>fill in required details</p>
 
       <div class="input-field ">
-        <input id="disName" type="text" placeholder="display Name" class="validate" required>
-        <label for="disName">Display Name</label>
+        <label>Display Name</label>
+        <input id="disName" type="text" placeholder="display Name"  required>
+        
       </div>
 
       <div class="input-field ">
-        <input id="pmail" type="text" placeholder="Email" class="validate" required>
-        <label for="pmail">Email</label>
+        <label>Email</label>
+        <input type="text" placeholder="Email"  required>
+        
       </div>
 
       <div class="input-field ">
-        <input id="phoneNum" type="text" placeholder="phone Number" class="validate" required>
-        <label for="phoneNum">Phone Number</label>
+        <label >Phone Number</label>
+        <input  type="text" placeholder="phone Number" required>
+        
       </div>
-      <div class="row center pur-text">
-        <p id="updateStat"></p>
+      <div >
+   <button class="btn pur white-text" style="border:2px solid" @click="showModal = false">
+    Close
+   </button>
+   <button class="btn pur white-text" style="border:2px solid" >
+    Update
+   </button>
       </div>
-      <div class="row center">
-        <button type="submit" id="update" class="waves-effect waves-light btn btn-large pur-text white">
-          confirm</button>
-      </div>
-    </div>
 
   </div>
-
-</body>
+ </transition>
 </main>
+
+
+</div>
+
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    data() {
+      return {
+        showModal: false,
+        sideNav: { show: 'true', sign: 'menu' }
+      };
+    },
+    methods: {
+      menu() {
+        this.sideNav.show = !this.sideNav.show;
+        if(this.sideNav.sign == 'close'){
+          this.sideNav.sign = 'menu'
+        }else{
+          this.sideNav.sign = 'close'
+        }
+      }
+    }
+  };
 </script>
 
-<style>
+<style scoped>
+.btn{
+  margin: 0px 1rem;
+}
+input{
+  width: 60vw !important;
+  display: block;
+}
+.modall {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ z-index: 99; 
+ width: 85%;
+ max-width: 100%;
+ background-color: #FFF;
+ border:1px solid #6c63ff;
+ border-radius: 16px; 
+ padding: 25px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+@media screen and (max-width:480px){
+  .modall{
+    width: 100%;
+  }
+}
+img{
+  max-width: 200px;
+      height: auto;
+      border-radius: 50%;
+}
+.card{
+  width: 90%;
+  padding: 0rem 1rem;
+  overflow: hidden;
+}
+main{
+   background-color: rgb(220, 220, 220);
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 3rem;
+}
+.button{
+  width: 22rem;
+  margin-bottom: 1rem;
+  display: block;
+  background-color: white;
+  font-weight: 500;
+}
+.fade-enter-active,
+.fade-leave-active {
+ transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+ opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+ transition: transform .5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+ transform: translateY(-50%) translateX(100vw);
+}
+
 
 </style>

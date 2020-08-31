@@ -9,8 +9,9 @@
           <div class="row">
             <div class="input-field ">
               <i class="material-icons prefix">account_circle</i>
+               <label for="email">Email</label>
               <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
+             
               <p class="center pur-text" id="resetmsg"></p>
             </div>
           </div>

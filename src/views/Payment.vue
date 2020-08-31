@@ -1,89 +1,94 @@
 <template>
   <div>
-    <nav>
-  <div class="nav-wrapper pur">
-    <a href="#!" class="brand-logo">Logo</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="./home.html">Home</a></li>
-      <li><a href="./profile.html">Profile</a></li>
-      <li><a href="./price.html">price</a></li>
-      <li><a href="./payment.html">payment</a></li>
-      <li><a href="./support.html">Online Support</a></li>
-      <li><a id="signout">Sign Out</a></li>
-    </ul>
-  </div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-  <li>
-    <div class="user-view">
-      <div class="background">
-        <div class="pur" style=" height: 100%;"></div>
+        <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
+        <div class="row center-align sidebar"  v-if="!sideNav.show">
+     <div>
+        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
+     </div>
+    </div>
+    <main  v-if="sideNav.show" class="fade">
+      <div class="input-field">
+        <label>Select Your Sem Plan</label>
+        <select>
+          <option value="" disabled selected>free Sem plan</option>
+          <option value="basic">Basic Sem Plan</option>
+          <option value="premium">Premium Sem plan</option>
+        </select>
       </div>
-      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
-      <a href="#name"><span class="white-text name"></span></a>
-      <a href="#email"><span class="white-text email" id="usermail"></span></a>
-    </div>
-  </li>
-  <li><a href="./home.html">Home</a></li>
-  <li><a href="./profile.html">Profile</a></li>
-  <li><a href="./price.html">price</a></li>
-  <li><a href="./payment.html">payment</a></li>
-  <li><a href="./support.html">Online Support</a></li>
-  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
-</ul>
 
-<body class="grey lighten-2">
-  <p class="center hide-on-med-and-down">You currently signed in as <span class="blue-text" id="usermail2"></span></p>
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Email" required/>
+      </div>
 
-  <section>
+      <div class="input-field">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" type="text" placeholder="full Name" required/>
+      </div>
 
+      <div class="input-field">
+        <label for="phoneNum">Phone Number</label>
+        <input id="phoneNum" type="text" placeholder="phone Number" required />
+      </div>
 
-    <div class="input-field col " style="margin: 3rem;">
-      <select class="icons" id="plan">
-        <option value="" disabled selected>free Sem plan</option>
-        <option value="basic" class="left">Basic Sem Plan</option>
-        <option value="premium" class=" left">Premium Sem plan</option>
-      </select>
-      <label>Select Your Sem Plan</label>
-    </div>
-
-    <div class="input-field" style="margin: 3rem;">
-      <input id="email" type="text" placeholder="Email" class="validate" required>
-      <label for="email">Email</label>
-    </div>
-
-    <div class="input-field" style="margin: 3rem;">
-      <input id="fullName" type="text" placeholder="full Name" class="validate" required>
-      <label for="fullName">Full Name</label>
-    </div>
-
-    <div class="input-field" style="margin: 3rem;">
-      <input id="phoneNum" type="text" placeholder="phone Number" class="validate" required>
-      <label for="phoneNum">Phone Number</label>
-    </div>
-
-
-
-
-    <div class="row center">
-      <a class="waves-effect waves-pur btn btn-large pur-text white " id="payment"
-        style="border-radius: 5rem; width: 10rem;">Pay</a>
-    </div>
-  </section>
-
-
-</body>
+      <button class=" btn btn-large white pur-text" style=" width: 10rem; border: 2px solid #6C63FF;">Pay</button>
+    </main>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    data() {
+      return {
+        showModal: false,
+        sideNav: { show: 'true', sign: 'menu' }
+      };
+    },
+    methods: {
+      menu() {
+        this.sideNav.show = !this.sideNav.show;
+        if(this.sideNav.sign == 'close'){
+          this.sideNav.sign = 'menu'
+        }else{
+          this.sideNav.sign = 'close'
+        }
+      }
+    }
+  };
 </script>
 
-<style>
-
+<style scoped>
+  select {
+    width: 80vw !important;
+    display: block;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    outline: none;
+    height: 3rem;
+    margin: 0 0 8px 0;
+  }
+  select:focus{
+    border-bottom: 1px solid #26a69a;
+  }
+  input {
+    width: 80vw !important;
+    display: block;
+  }
+  main {
+    background-color: rgb(220, 220, 220);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+  }
 </style>

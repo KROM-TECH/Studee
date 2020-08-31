@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="row center-align sidebar" v-if="!sideNav.show">
+    <div class="row center-align sidebar fade" v-if="!sideNav.show">
       <div>
         <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
         <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>

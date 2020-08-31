@@ -8,16 +8,17 @@
           <div class="row">
             <div class="input-field ">
               <i class="material-icons prefix">account_circle</i>
-              <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
+                            <label for="email">Email</label>
+              <input id="email" type="email">
             </div>
           </div>
 
           <div class="row">
             <div class="input-field ">
               <i class="material-icons prefix">lock</i>
-              <input id="password" type="password" class="validate">
               <label for="password">Password</label>
+              <input id="password" type="password">
+              
             </div>
           </div>
 

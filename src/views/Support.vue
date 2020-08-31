@@ -1,98 +1,91 @@
 <template>
 <div>
-  <nav>
-  <div class="nav-wrapper pur">
-    <a href="#!" class="brand-logo">Logo</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="./home.html">Home</a></li>
-      <li><a href="./profile.html">Profile</a></li>
-      <li><a href="./price.html">price</a></li>
-      <li><a href="./payment.html">payment</a></li>
-      <li><a href="./support.html">Online Support</a></li>
-      <li><a id="signout">Sign Out</a></li>
-    </ul>
-  </div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-  <li>
-    <div class="user-view">
-      <div class="background">
-        <div class="pur" style=" height: 100%;"></div>
-      </div>
-      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
-      <a href="#name"><span class="white-text name"></span></a>
-      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+       <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
+        <div class="row center-align sidebar"  v-if="!sideNav.show">
+     <div>
+        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
+        <a class="but btn white pur-text hoverable sign" style="margin: 1rem;">Sign Out </a>
+     </div>
     </div>
-  </li>
-  <li><a href="./home.html">Home</a></li>
-  <li><a href="./profile.html">Profile</a></li>
-  <li><a href="./price.html">price</a></li>
-  <li><a href="./payment.html">payment</a></li>
-  <li><a href="./support.html">Online Support</a></li>
-  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
-</ul>
-
-<body class="grey lighten-2">
-  <p class="center hide-on-med-and-down">You currently signed in as <span class="blue-text" id="usermail2"></span></p>
-
-  <section>
-    <a href="./courses.html" class="white-text">
-      <div class="row white hoverable" style=" border-radius: 1rem; margin: 1rem; background-color: #0088cc !important;">
+    
+  <main v-if="sideNav.show">
+     <div class="white-text">
+      <div class="row white hoverable card" style="background-color: #0088cc !important;">
         <div class="col l3 s3 m3">
           <br>
-          <img src="@/assets/telegram.png" alt="course outline" class='responsive-img'>
+          <img src="@/assets/telegram.png" alt="Telegram group" class='responsive-img'>
         </div>
-
         <div class="col l9 s9 m9">
-          <h4>Telegram Group</h4>
+         <h4>Telegram Group</h4>
           <p>blah blah blah blah blah blah blah</p>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a href="#" class="white-text" > 
-      <div class="row white hoverable" href="#" style=" border-radius: 1rem; margin: 1rem; background-color: #25d366 !important;">
+     <div class="white-text">
+      <div class="row white hoverable card" style="background-color: #25d366 !important;">
         <div class="col l3 s3 m3">
           <br>
-          <img src="@/assets/whatsapp.png" alt="past questions" class="responsive-img">
+          <img src="@/assets/whatsapp.png" alt="Whatsapp Group" class='responsive-img'>
         </div>
-
         <div class="col l9 s9 m9">
-          <h4>Whatsapp Group</h4>
+        <h4>Whatsapp Group</h4>
           <p>Ask questions, Socialize and learn</p>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a id="tut" href="ww.frgfg" class="pur-text">
-      <div class="row white hoverable" style=" border-radius: 1rem; margin: 1rem;">
+     <div class="pur-text">
+      <div class="row white hoverable card">
         <div class="col l3 s3 m3">
           <br>
-          <img src="@/assets/teacher.svg" alt="online support" class="responsive-img ">
+          <img src="@/assets/teacher.svg" alt="Online Group" class='responsive-img'>
         </div>
-
         <div class="col l9 s9 m9">
-          <h4>Personal tutors</h4>
+       <h4>Personal tutors</h4>
           <p>one 0n one personal tutors</p>
         </div>
       </div>
-    </a>
+    </div>
 
 
-  </section>
 
-</body>
+
+  </main>
+
 </div>
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    data() {
+      return {
+        sideNav: { show: 'true', sign: 'menu' }
+      };
+    },
+    methods: {
+      menu() {
+        this.sideNav.show = !this.sideNav.show;
+        if(this.sideNav.sign == 'close'){
+          this.sideNav.sign = 'menu'
+        }else{
+          this.sideNav.sign = 'close'
+        }
+      }
+    }
+  };
 </script>
 
-<style>
-
+<style scoped>
+.card{
+border-radius: 1rem;
+ margin: 1rem;
+}
 </style>
