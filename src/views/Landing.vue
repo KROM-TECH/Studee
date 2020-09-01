@@ -1,5 +1,5 @@
 <template>
-  <div class="container white" style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
+  <div class="container " style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
     <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
     <div class="row center-align" v-if="sideNav.show">
       <div class="col l7 s12" style="padding: 5%;">

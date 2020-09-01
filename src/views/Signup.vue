@@ -1,5 +1,5 @@
 <template>
-    <div class="container white" style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
+    <div class="container " style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
     <div class="row">
       <div class="col l7 s12 ">
         <h3 class="pur-text">Sign Up</h3>
@@ -8,16 +8,16 @@
           <div class="row">
             <div class="input-field ">
               <i class="material-icons prefix">account_circle</i>
-              <input id="email" type="email" class="validate">
               <label for="email">Email</label>
+              <input id="email" type="email">              
             </div>
           </div>
 
           <div class="row">
             <div class="input-field ">
               <i class="material-icons prefix">lock</i>
-              <input id="password" type="password" class="validate">
               <label for="password">Password</label>
+              <input id="password" type="password" >              
             </div>
           </div>
 

@@ -1,56 +1,33 @@
 <template>
-  <main>
-    <nav>
-  <div class="nav-wrapper pur">
-    <a href="#!" class="brand-logo">Logo</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="./home.html">Home</a></li>
-      <li><a href="./profile.html">Profile</a></li>
-      <li><a href="./price.html">price</a></li>
-      <li><a href="./payment.html">payment</a></li>
-      <li><a href="./support.html">Online Support</a></li>
-      <li><a id="signout">Sign Out</a></li>
-    </ul>
-  </div>
-</nav>
-
-<ul  class="sidenav" id="mobile-demo">
-  <li>
-    <div class="user-view">
-      <div class="background">
-        <div class="pur" style=" height: 100%;"></div>
-      </div>
-      <a href=""><img id="profileImg" class="circle" src="@/assets/profile.png"></a>
-      <a href="#name"><span class="white-text name"></span></a>
-      <a href="#email"><span class="white-text email" id="usermail"></span></a>
+<div>
+     <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
+        <div class="row center-align sidebar"  v-if="!sideNav.show">
+     <div>
+        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
+        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
+     </div>
     </div>
-  </li>
-  <li><a href="./home.html">Home</a></li>
-  <li><a href="./profile.html">Profile</a></li>
-  <li><a href="./price.html">price</a></li>
-  <li><a href="./payment.html">payment</a></li>
-  <li><a href="./support.html">Online Support</a></li>
-  <li class="page-footer"><a class="btn pur" id="signout2">Sign Out</a></li>
-</ul>
+  <main v-if="sideNav.show" class="fade">
 
-<body class="grey lighten-2">
-  <p class="center hide-on-med-and-down">You currently signed in as <span class="blue-text" id="usermail2"></span></p>
-
-  <section class="fo">
-
-
-    <div class="input-field col " style="margin: 3rem;">
+  <section>
+    <div class="input-field" style="margin: 3rem;">
+      <label>Select Your University</label>
       <select class="icons" id="university">
         <option value="" disabled selected>Choose your option</option>
         <option value="unilag" class="left">University of Lagos</option>
         <option value="ui" class="left">University of Ibadan</option>
         <option value="uniben" class="left">University of Benin</option>
       </select>
-      <label>Select Your University</label>
     </div>
 
-    <div class="input-field col " style="margin: 3rem;">
+    <div class="input-field" style="margin: 3rem;">
+      <label>Select Your Faculty</label>
       <select class="icons" id="faculty">
         <option value="" disabled selected>Choose your option</option>
         <option value="art" class="left">Arts</option>
@@ -66,10 +43,11 @@
         <option value="science" class="left">Science</option>
         <option value="social" class="left">Social Sciences</option>
       </select>
-      <label>Select Your Faculty</label>
+      
     </div>
 
-    <div class="input-field col " style="margin: 3rem;">
+    <div class="input-field" style="margin: 3rem;">
+      <label>Select Your Level</label>
       <select class="icons" id="level">
         <option value="" disabled selected>Choose your option</option>
         <option value="Year1" class="left">Year 1</option>
@@ -78,43 +56,153 @@
         <option value="Year4" class="left">Year 4</option>
         <option value="Year5" class="left">Year 5</option>
       </select>
-      <label>Select Your Level</label>
+      
     </div>
 
     <div class="row center">
-      <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-trigger" id="coget" data-target="slide-out"
-        style="border-radius: 5rem; width: 10rem;">View</a>
+      <button class="btn btn-large pur-text white" style="width: 10rem; border: 2px solid rgb(108, 99, 255);" @click="showModal = true">View</button>
     </div>
   </section>
 
-  <section  class="fo">
+  <section>
+       <transition name="slide" appear>
+  <div class="modall" v-if="showModal">
+    <h5>Course Outline</h5>
+      <p>fill in required details</p>
 
-    <ul class="sidenav side-menu " id="slide-out" style="width: 100%;">
-      <li><h4 class="subheader center">Course outline </h4></li> <br> <br>
-      <ul class="collapsible popout center" id="cocontent">
+           <details>
+          <summary><h5>geg 113</h5> <h5>first</h5></summary>
+         <p>representation of vectors:resultant of several vectors in Euclidean space:lines, planes and spheres , the dot and cross products, direction cosines, differentiation of vector functions, lami's theorem, polygon of forces, conditions of equilibrium of coplanar forces, newton's laws of motion, analytical treatment of static equilibrium of particles 
+           and rigid bodies, distributed forces, centroids and centres of gravity, moments of inertia, analysis of structures and trusses, forces in beams and tables, friction.</p>
+        </details>
+           <details>
+          <summary><h5>geg 115</h5> <h5>first</h5></summary>
+         <p>Axiomatic set theory.Operations on set,Boolean Algebra , switching circuits,logic circuits,and propositional logic.Transfinite induction and recursion.
+            Sequences.Monotonic sequences and Convergence.Cauchy criteria.series.power series.Tests for convergence.operations on power series.</p>
+        </details>
+           <details>
+          <summary><h5>geg 117</h5> <h5>first</h5></summary>
+         <p>Functions, limits, Continuity and Differentiability. Mean Value theorems. Techniques of differentiation for derivatives of algebraic, trigonometric, exponential and logarithmic functions; 
+           Curve sketching. L'Hospital rule. McLaurin's and Taylor's series. Applications of differentiation to rates of changes, maximum and minimum problems, application to rectilinear motion.,</p>
+        </details>
+           <details>
+          <summary><h5>meg 111</h5> <h5>first</h5></summary>
+         <p>Introduction to basic equipment in wood, machine, fitting and welding workshop.Element of safety practice with the various tools used in the workshop.General safety precautions.Principle governing the various workshop machines.
+           Selection and use of tools for specific operations in the various workshop.Practical demonstration of use of tools and machines in performing basic workshop processes.</p>
+        </details>
 
-
-      </ul>
-
-      <div class="row center">
-        <a class="waves-effect waves-pur btn btn-large pur-text white sidenav-close" data-target="slide-out"
-          style="border-radius: 5rem; width: 10rem; margin: 3rem;">Done</a>
+      <div >
+   <button class="btn pur white-text" style="border:2px solid; margin-top:1rem;" @click="showModal = false">
+    Close
+   </button>
       </div>
-    </ul>
+
+  </div>
+ </transition>
 
 
   </section>
 
-</body>
   </main>
+</div>
+
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    data() {
+      return {
+        showModal: false,
+        sideNav: { show: 'true', sign: 'menu' }
+      };
+    },
+    methods: {
+      menu() {
+        this.sideNav.show = !this.sideNav.show;
+        if(this.sideNav.sign == 'close'){
+          this.sideNav.sign = 'menu'
+        }else{
+          this.sideNav.sign = 'close'
+        }
+      }
+    }
+  };
 </script>
 
-<style>
+<style scoped>
+details{
+   text-align: center;
+      border-radius: 0.2rem;
+  width: 90vw;
+  background-color: white;
+    border: none;
+    height: auto;
+    margin: 0.1rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    color: #6c63ff;
+}
+details[open] summary{
+background-color: rgba(230, 230, 230, 0.802) ;
+}
+h5{
+  margin: 0.5rem 0rem !important;
+}
+summary {
+  border-radius: 0.2rem;
+  cursor: pointer;
+  outline: none;
+  padding: 0.2rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+  border: 1px solid;
+}
 
+p{
+  padding: 1rem;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+.modall {
+ position: fixed;
+ top: 0;
+ left: 0;
+ overflow-y: auto;
+ z-index: 99; 
+ width: 100%;
+ height: 100%;
+ max-width: 100%;
+ background-color: rgb(220, 220, 220);
+ border:1px solid #6c63ff;
+ padding: 25px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+  select {
+    width: 80vw !important;
+    display: block;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    outline: none;
+    height: 3rem;
+    margin: 0 0 8px 0;
+  }
+
+section{
+  font-family: 'Nunito Sans', sans-serif;
+}
+.slide-enter-active,
+.slide-leave-active {
+ transition: transform .5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+ transform: translateY(-50%) translateX(100vw);
+}
 </style>

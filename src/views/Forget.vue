@@ -1,6 +1,6 @@
 <template>
   
-  <div class="container white" style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
+  <div class="container" style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
     <div class="row">
       <div class="col l7 s12 ">
         <h3 class="pur-text">Forget Password</h3>
@@ -10,17 +10,12 @@
             <div class="input-field ">
               <i class="material-icons prefix">account_circle</i>
                <label for="email">Email</label>
-              <input id="email" type="email" class="validate">
-             
+              <input id="email" type="email" class="validate">             
               <p class="center pur-text" id="resetmsg"></p>
             </div>
           </div>
-
-
-
           <div class="row center">
-            <a class="waves-effect waves-light btn btn-large pur" id="reset"
-              style="border-radius: 5rem; width: 10rem;">Reset</a>
+          <button class=" btn btn-large white" style=" width: 10rem; border: 2px solid #6C63FF; color:#6C63FF ">Reset</button>
           </div>
 
         </form>

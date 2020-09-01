@@ -1,5 +1,5 @@
 <template>
-    <div class="container white" style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
+    <div class="container " style="margin-top: 3rem; margin-bottom: 3rem; border-radius: 3rem;">
     <div class="row">
       <div class="col l7 s12 ">
         <h3 class="pur-text">Login</h3>
