@@ -1,19 +1,7 @@
 <template>
 <div>
-    <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
-        <div class="row center-align sidebar"  v-if="!sideNav.show">
-     <div>
-        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
-     </div>
-    </div>
-    <main v-if="sideNav.show" class="fade"> 
+  <Menu></Menu>
+    <main  class="fade"> 
     <img src="@/assets/profile.png">
     <h5>Subscription:- <span class="pur-text">free sem</span></h5>
 
@@ -73,22 +61,18 @@
 </template>
 
 <script>
-  export default {
+   import Menu from "@/components/Menu";
+export default {
+  components: {
+    Menu,
+  },
     data() {
       return {
         showModal: false,
-        sideNav: { show: 'true', sign: 'menu' }
       };
     },
     methods: {
-      menu() {
-        this.sideNav.show = !this.sideNav.show;
-        if(this.sideNav.sign == 'close'){
-          this.sideNav.sign = 'menu'
-        }else{
-          this.sideNav.sign = 'close'
-        }
-      }
+ 
     }
   };
 </script>

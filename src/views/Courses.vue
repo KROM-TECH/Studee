@@ -1,18 +1,6 @@
 <template>
 <div>
-     <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
-        <div class="row center-align sidebar"  v-if="!sideNav.show">
-     <div>
-        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
-     </div>
-    </div>
+<Menu></Menu>
   <main v-if="sideNav.show" class="fade">
 
   <section>
@@ -109,22 +97,18 @@
 </template>
 
 <script>
+import Menu from '@/components/Menu'
   export default {
+    components:{
+      Menu
+    },
     data() {
       return {
         showModal: false,
-        sideNav: { show: 'true', sign: 'menu' }
       };
     },
     methods: {
-      menu() {
-        this.sideNav.show = !this.sideNav.show;
-        if(this.sideNav.sign == 'close'){
-          this.sideNav.sign = 'menu'
-        }else{
-          this.sideNav.sign = 'close'
-        }
-      }
+
     }
   };
 </script>
@@ -140,9 +124,11 @@ details{
     margin: 0.1rem;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     color: #6c63ff;
+    transition: 0.5s
 }
 details[open] summary{
-background-color: rgba(230, 230, 230, 0.802) ;
+background-color: rgba(230, 230, 230, 0.802);
+transition: 0.5s
 }
 h5{
   margin: 0.5rem 0rem !important;

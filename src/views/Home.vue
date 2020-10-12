@@ -1,21 +1,7 @@
 <template>
   <div>
-        <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
-        <div class="row center-align sidebar"  v-if="!sideNav.show">
-     <div>
-        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
-        <a class="but btn white pur-text hoverable sign" style="margin: 1rem;">Sign Out </a>
-     </div>
-    </div>
-
-  <main  v-if="sideNav.show">
+    <Menu></Menu>
+  <main>
     <div class="pur-text">
       <div class="row white hoverable card" style="  border-radius: 1rem; margin: 1rem;">
         <div class="col l3 s3 m3">
@@ -76,21 +62,17 @@
 </template>
 
 <script>
+import Menu from '@/components/Menu'
   export default {
+    components:{
+      Menu
+    },
     data() {
       return {
-        sideNav: { show: 'true', sign: 'menu' }
       };
     },
     methods: {
-      menu() {
-        this.sideNav.show = !this.sideNav.show;
-        if(this.sideNav.sign == 'close'){
-          this.sideNav.sign = 'menu'
-        }else{
-          this.sideNav.sign = 'close'
-        }
-      }
+  
     }
   };
 </script>
