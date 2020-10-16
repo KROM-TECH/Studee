@@ -2,8 +2,8 @@
   <div>
       <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
        <transition name="slide" appear>
-          <div class="row center-align sidebar fade" v-if="!sideNav.show">
-      <div >
+          <div class="sidebar fade" v-if="!sideNav.show">
+      <!-- <div >
         <router-link class="btn Obtn but" to="/home" style="margin: 1rem;">Home</router-link>
         <router-link class="btn Obtn but" to="/home" style="margin: 1rem;">Find a Tutor</router-link>
         <router-link class="btn Obtn but" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
@@ -15,7 +15,82 @@
         <router-link class="btn Obtn but" to="/profile" style="margin: 1rem; ">Profile</router-link>
         <router-link class="btn Obtn but" to="/payment" style="margin: 1rem;">Payment</router-link>
         <router-link class="btn Obtn but sign" to="/login" style="margin: 1rem;">Sign In </router-link>
+      </div> -->
+
+      <div class="row">
+        <div>
+          <router-link class="box" to="/" style="margin: 1rem;">
+          <img src="../assets/home.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Home</h3>
+        </div>
+
+        <div>
+          <router-link class="box" to="/pastquestions" style="margin: 1rem;">
+          <img src="../assets/pq.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Past Questions</h3>
+        </div>
+
+        <div>
+          <router-link class="box" to="/courses" style="margin: 1rem;">
+          <img src="../assets/outline.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Course Outline</h3>
+        </div>
       </div>
+
+      <div class="row">
+        <div>
+          <router-link class="box" to="/v" style="margin: 1rem;">
+          <img src="../assets/tutor.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Find a Tutor</h3>
+        </div>
+
+        <div>
+          <router-link class="box" to="/profile" style="margin: 1rem;">
+          <img src="../assets/account.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Profile</h3>
+        </div>
+
+        <div>
+          <router-link class="box" to="/questions" style="margin: 1rem;">
+          <img src="../assets/ask.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Ask Questions</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <router-link class="box" to="/v" style="margin: 1rem;">
+          <img src="../assets/chat.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Chat</h3>
+        </div>
+
+        <div>
+          <router-link class="box" to="/sd" style="margin: 1rem;">
+          <img src="../assets/notes.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">Notes</h3>
+        </div>
+
+        <div>
+          <router-link class="box" to="/df" style="margin: 1rem;">
+          <img src="../assets/Tte.svg" class="res-img" alt="" />
+          </router-link>
+          <h3 class="box-text">T/T/E</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <router-link class="btn Obtn but sign" to="/login" style="margin: 1rem;">Sign In </router-link>
+      </div>
+
+  
     </div>
        </transition>
   </div>
@@ -42,6 +117,57 @@
 </script>
 
 <style scoped>
+.box-text{
+  text-align: center;
+  color: #6C63FF !important;
+}
+.row{
+  display: flex;
+}
+.box{
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+  max-height: 120px;
+  background-color: #fff;
+  border-radius:10px;
+  margin: 15px 25px !important;
+  border: 1px solid #6c63ff;
+}
+@media screen and (max-width: 1300px) {
+.box{
+    width: 100px;
+  height: 100px;
+}
+.box-text{
+  font-size:15px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.box{
+    width: 70px;
+  height: 70px;
+}
+.box-text{
+  font-size:13px;
+}
+}
+@media screen and (max-width: 400px) {
+.box{
+    width: 50px;
+  height: 50px;
+}
+.box-text{
+  font-size:12px;
+}
+}
+.box:hover{
+    background: linear-gradient(180deg, #5A578A 0%, #150E89 100%);
+}
+a.box.router-link-exact-active.router-link-active{
+  background: linear-gradient(180deg, #5A578A 0%, #150E89 100%);
+}
 a{
   text-decoration: none;
   font-size:initial;
@@ -95,7 +221,7 @@ a{
     width: 100vw;
     height: 100vh;
     position: fixed;
-    overflow: hidden;
+    overflow-x: hidden;
     top: 0;
     left: 0;
     z-index: 3;

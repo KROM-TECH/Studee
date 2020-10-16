@@ -1,7 +1,7 @@
 <template>
 <div>
 <Menu></Menu>
-  <main v-if="sideNav.show" class="fade">
+  <main class="fade">
 
   <section>
     <div class="input-field" style="margin: 3rem;">
