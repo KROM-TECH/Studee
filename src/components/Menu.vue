@@ -1,20 +1,23 @@
 <template>
   <div>
       <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
-
+       <transition name="slide" appear>
           <div class="row center-align sidebar fade" v-if="!sideNav.show">
-      <div>
-        <router-link class="but btn white pur-text hoverable" to="/home" style="margin: 1rem;">Home</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/courses" style="margin: 1rem;">Course Outline</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/profile" style="margin: 1rem; ">Profile</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/price" style="margin: 1rem;">Price</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/payment" style="margin: 1rem;">Payment</router-link>
-        <router-link class="but btn white pur-text hoverable" to="/contact" style="margin: 1rem;">Contact</router-link>
-        <router-link class="but btn white pur-text hoverable sign" to="/login" style="margin: 1rem;">Sign In </router-link>
+      <div >
+        <router-link class="btn Obtn but" to="/home" style="margin: 1rem;">Home</router-link>
+        <router-link class="btn Obtn but" to="/home" style="margin: 1rem;">Find a Tutor</router-link>
+        <router-link class="btn Obtn but" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
+        <router-link class="btn Obtn but" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
+        <router-link class="btn Obtn but" to="/courses" style="margin: 1rem;">Course Outline</router-link>
+        <router-link class="btn Obtn but" to="/" style="margin: 1rem;">Chats</router-link>
+        <router-link class="btn Obtn but" to="/" style="margin: 1rem;">Notes</router-link>
+        <router-link class="btn Obtn but" to="/" style="margin: 1rem;">T/T/E</router-link>      
+        <router-link class="btn Obtn but" to="/profile" style="margin: 1rem; ">Profile</router-link>
+        <router-link class="btn Obtn but" to="/payment" style="margin: 1rem;">Payment</router-link>
+        <router-link class="btn Obtn but sign" to="/login" style="margin: 1rem;">Sign In </router-link>
       </div>
     </div>
+       </transition>
   </div>
 </template>
 
@@ -39,6 +42,16 @@
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+  font-size:initial;
+  color:inherit;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -51,6 +64,7 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
@@ -71,6 +85,11 @@
     cursor: pointer;
     
   }
+  @media screen and (max-width: 445px) {
+    .menu{
+      padding: 0.4rem;
+    }
+  }
   .sidebar{
     background-color: rgb(220, 220, 220);
     width: 100vw;
@@ -84,6 +103,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: slide 0.5s    forwards ;
+    animation: slideIn 0.5s    forwards ;
+}
+
+
+
+.slide-enter-active,
+.slide-leave-active {
+ transition: .8s;
+}
+
+.slide-enter,
+.slide-leave-to {
+ transform:  translateX(100vw);
 }
 </style>
