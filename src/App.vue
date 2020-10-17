@@ -57,6 +57,22 @@ main {
   align-items: center;
   padding-top: 3rem;
 }
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
 
 .fade {
   animation: fade 0.5s forwards;
@@ -75,7 +91,7 @@ main {
 .Obtn {
   background-color: #ffffff;
   color: #6c63ff !important;
-  border: 1px solid #6c63ff;
+  border: 1.7px solid #6c63ff;
 }
 .but:hover {
   border: 1.5px solid #6c63ff;
