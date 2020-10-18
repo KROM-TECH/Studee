@@ -47,8 +47,8 @@
       
     </div>
 
-    <div class="row center">
-      <button class="btn btn-large pur-text white" style="width: 10rem; border: 2px solid rgb(108, 99, 255);" @click="showModal = true">View</button>
+    <div class="center">
+      <button class="btn Obtn btn-large" style="width: 10rem; border: 2px solid rgb(108, 99, 255);" @click="showModal = true">View</button>
     </div>
   </section>
 
@@ -114,6 +114,12 @@ export default {
 </script>
 
 <style scoped>
+.center{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 details{
    text-align: center;
       border-radius: 0.2rem;
@@ -171,14 +177,15 @@ summary::-webkit-details-marker {
     display: block;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #9e9e9e;
+    border-bottom: 1px solid #6c63ff;
     outline: none;
     height: 3rem;
+    background-color: rgba(152, 145, 246, 0.2);
     margin: 0 0 8px 0;
   }
 
-section{
-  font-family: 'Nunito Sans', sans-serif;
+label{
+  color: #6c63ff;
 }
 .slide-enter-active,
 .slide-leave-active {
@@ -187,6 +194,6 @@ section{
 
 .slide-enter,
 .slide-leave-to {
- transform: translateY(-50%) translateX(100vw);
+ transform: translateY(-100vw);
 }
 </style>

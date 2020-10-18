@@ -3,19 +3,7 @@
       <div class="right material-icons menu" @click="menu">{{ sideNav.sign }}</div>
        <transition name="slide" appear>
           <div class="sidebar fade" v-if="!sideNav.show">
-      <!-- <div >
-        <router-link class="btn Obtn but" to="/home" style="margin: 1rem;">Home</router-link>
-        <router-link class="btn Obtn but" to="/home" style="margin: 1rem;">Find a Tutor</router-link>
-        <router-link class="btn Obtn but" to="/questions" style="margin: 1rem;">Ask Questions</router-link>
-        <router-link class="btn Obtn but" to="/pastquestions" style="margin: 1rem;">Past Questions</router-link>
-        <router-link class="btn Obtn but" to="/courses" style="margin: 1rem;">Course Outline</router-link>
-        <router-link class="btn Obtn but" to="/" style="margin: 1rem;">Chats</router-link>
-        <router-link class="btn Obtn but" to="/" style="margin: 1rem;">Notes</router-link>
-        <router-link class="btn Obtn but" to="/" style="margin: 1rem;">T/T/E</router-link>      
-        <router-link class="btn Obtn but" to="/profile" style="margin: 1rem; ">Profile</router-link>
-        <router-link class="btn Obtn but" to="/payment" style="margin: 1rem;">Payment</router-link>
-        <router-link class="btn Obtn but sign" to="/login" style="margin: 1rem;">Sign In </router-link>
-      </div> -->
+
 
       <div class="row">
         <div>
@@ -42,7 +30,7 @@
 
       <div class="row">
         <div>
-          <router-link class="box" to="/v" style="margin: 1rem;">
+          <router-link class="box" to="/tutor" style="margin: 1rem;">
           <img src="../assets/tutor.svg" class="res-img" alt="" />
           </router-link>
           <h3 class="box-text">Find a Tutor</h3>
@@ -65,21 +53,21 @@
 
       <div class="row">
         <div>
-          <router-link class="box" to="/v" style="margin: 1rem;">
+          <router-link class="box" to="/chat" style="margin: 1rem;">
           <img src="../assets/chat.svg" class="res-img" alt="" />
           </router-link>
           <h3 class="box-text">Chat</h3>
         </div>
 
         <div>
-          <router-link class="box" to="/sd" style="margin: 1rem;">
+          <router-link class="box" to="/note" style="margin: 1rem;">
           <img src="../assets/notes.svg" class="res-img" alt="" />
           </router-link>
           <h3 class="box-text">Notes</h3>
         </div>
 
         <div>
-          <router-link class="box" to="/df" style="margin: 1rem;">
+          <router-link class="box" to="/tte" style="margin: 1rem;">
           <img src="../assets/Tte.svg" class="res-img" alt="" />
           </router-link>
           <h3 class="box-text">T/T/E</h3>

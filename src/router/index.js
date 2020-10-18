@@ -35,7 +35,7 @@ const routes = [
       import("../views/Verify.vue")
   },
   {
-    path: "/home",
+    path: "/home", 
     name: "Home",
     component: () =>
       import("../views/Home.vue")
@@ -47,22 +47,34 @@ const routes = [
       import("../views/Courses.vue")
   },
   {
-    path: "/support",
-    name: "Support",
+    path: "/tutor",
+    name: "Tutor",
     component: () =>
-      import("../views/Support.vue")
+      import("../views/Tutor.vue")
+  },
+  {
+    path: "/chat",
+    name: "Chat",
+    component: () =>
+      import("../views/Chat.vue")
+  },
+  {
+    path: "/tte",
+    name: "Tte",
+    component: () =>
+      import("../views/Tte.vue")
+  },
+  {
+    path: "/note",
+    name: "Note",
+    component: () =>
+      import("../views/Note.vue")
   },
   {
     path: "/Pastquestions",
     name: "PastQuestions",
     component: () =>
       import("../views/PastQuestions.vue")
-  },
-  {
-    path: "/questions",
-    name: "Questions",
-    component: () =>
-      import("../views/Questions.vue")
   },
   {
     path: "/profile",
@@ -76,13 +88,6 @@ const routes = [
     component: () =>
       import("../views/Payment.vue")
   },
-  {
-    path: "/price",
-    name: "Price",
-    component: () =>
-      import("../views/Price.vue")
-  },
-
 ];
 
 const router = new VueRouter({

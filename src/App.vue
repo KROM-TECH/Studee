@@ -19,11 +19,26 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
   font-size: 16px;
+  outline: none;
   margin: 1rem;
   cursor: pointer;
-
 }
-.btn:hover{
+.btn:hover {
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.65);
+}
+.btn-large {
+  width: 220px;
+  height: 45px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  font-size: 16px;
+  margin: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-large:hover {
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.65);
 }
 .res-img {
@@ -55,10 +70,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -69,8 +84,8 @@ main {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  font-feature-settings: 'liga';
-  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
 

@@ -1,156 +1,174 @@
 <template>
-<div>
-  <Menu></Menu>
-    <main  class="fade"> 
-    <img src="@/assets/profile.png">
-    <h5>Subscription:- <span class="pur-text">free sem</span></h5>
-
-  <div class="card">
-    <h5>Display Name: <span class="right pur-text" id="userdis">Nill</span></h5>
-  </div>
-  <div class="card">
-    <h5>Email: <span class="right pur-text" id="usermail2">Nill</span></h5>
-  </div>
-  <div class="card">
-    <h5>Phone Number: <span class="right pur-text" id="usernum">Nill</span></h5>
-  </div>
-
-   <button 
-   class=" btn btn-large white pur-text" 
-   style=" width: 10rem; border: 2px solid #6C63FF;" 
-   @click="showModal = true">Update</button>
-
-       <transition name="slide" appear>
-  <div class="modall" v-if="showModal">
-    <h5>Profile Update</h5>
-      <p>fill in required details</p>
-
-      <div class="input-field ">
-        <label>Display Name</label>
-        <input id="disName" type="text" placeholder="display Name"  required>
-        
+  <div>
+    <Menu></Menu>
+    <main class="fade">
+      <img src="@/assets/profile.png" />
+      <div class="contain">
+        <div class="box">
+          <p class="head">Display Name</p>
+          <input type="text" placeholder="Enter your Display Name" :disabled="!active" :class="active ? 'active':''" />
+        </div>
+        <div class="box">
+          <p class="head">Email</p>
+          <input type="email" placeholder="Enter your Mail" :disabled="!active" :class="active ? 'active':''"/>
+        </div>
+      </div>
+      <div class="contain">
+        <div class="box">
+          <p class="head">Phone Number</p>
+          <input type="number" placeholder="Enter your number" :disabled="!active" :class="active ? 'active':''"/>
+        </div>
+        <div class="box">
+          <p class="head">Availability</p>
+          <select name="" id="" :disabled="!active" :class="active ? 'active':''">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="yes" class="left">Yes</option>
+            <option value="no" class="left">No</option>
+          </select>
+        </div>
+      </div>
+      <div class="contain">
+        <div class="box">
+          <p class="head">University / Location</p>
+          <input type="text" placeholder="Enter your Location" :disabled="!active" :class="active ? 'active':''"/>
+        </div>
+        <div class="box">
+          <p class="head">Courses / Subjects</p>
+          <input type="email" placeholder="Enter the Subjects you teach" :disabled="!active" :class="active ? 'active':''"/>
+        </div>
+      </div>
+      <div class="contain">
+        <div class="box">
+          <p class="head">Bio</p>
+          <textarea type="text" placeholder="A little bit about you" :disabled="!active" :class="active ? 'active':''"></textarea>
+        </div>
+     
       </div>
 
-      <div class="input-field ">
-        <label>Email</label>
-        <input type="text" placeholder="Email"  required>
-        
-      </div>
-
-      <div class="input-field ">
-        <label >Phone Number</label>
-        <input  type="text" placeholder="phone Number" required>
-        
-      </div>
-      <div >
-   <button class="btn pur white-text" style="border:2px solid" @click="showModal = false">
-    Close
-   </button>
-   <button class="btn pur white-text" style="border:2px solid" >
-    Update
-   </button>
-      </div>
-
+      <button v-if="!active" class="btn Obtn" style="padding:10px;" @click="active=!active">
+        Update
+      </button>
+      <button v-if="active" class="btn Obtn" style="padding:10px;" @click="active=!active">
+        Save
+      </button>
+    </main>
   </div>
- </transition>
-</main>
-
-
-</div>
-
 </template>
 
 <script>
-   import Menu from "@/components/Menu";
+import Menu from "@/components/Menu";
 export default {
   components: {
     Menu,
   },
-    data() {
-      return {
-        showModal: false,
-      };
-    },
-    methods: {
- 
-    }
-  };
+  data() {
+    return {
+      active:false
+    };
+  },
+};
 </script>
 
 <style scoped>
-.btn{
-  margin: 0px 1rem;
+
+.box {
+  margin: 5px 30px;
 }
-input{
-  width: 60vw !important;
-  display: block;
+.contain {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.modall {
- position: fixed;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- z-index: 99; 
- width: 85%;
- max-width: 100%;
- background-color: #FFF;
- border:1px solid #6c63ff;
- border-radius: 16px; 
- padding: 25px;
- display: flex;
- flex-direction: column;
- align-items: center;
+input {
+  width: 180px !important;
+  height: 34px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 0px 1rem;
+  text-align: center;
 }
-@media screen and (max-width:480px){
-  .modall{
-    width: 100%;
-  }
+select {
+  width: 212px !important;
+  height: 34px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 0px 1rem;
+  text-align: center;
 }
-img{
+textarea {
+  width: 300px;
+  max-width: 512px !important;
+  height: 34px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 5px 1rem;
+  text-align: center;
+}
+input:disabled {
+ background-color: #fff;
+}
+select:disabled {
+ background-color: #fff;
+}
+textarea:disabled {
+ background-color: #fff;
+}
+.head {
+  line-height: 47px;
+  text-align: center;
+  color: #6c63ff;
+  text-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  font-weight: 700;
+}
+
+
+img {
   max-width: 200px;
-      height: auto;
-      border-radius: 50%;
+  height: auto;
+  border-radius: 50%;
 }
-.card{
-  width: 90%;
-  padding: 0rem 1rem;
-  overflow: hidden;
+
+main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
 }
-main{
-   background-color: rgb(220, 220, 220);
-   width: 100vw;
-   height: 100vh;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding-top: 3rem;
-}
-.button{
-  width: 22rem;
-  margin-bottom: 1rem;
-  display: block;
-  background-color: white;
-  font-weight: 500;
+.active{
+      border: none;
+    border-bottom: 1.9px solid #6c63ff;
+    background-color: rgba(151, 145, 246, 0.3);
+    max-width: 20rem;
+    max-height: 2.4rem;
+    outline: none;
+    border-radius: 0px;
 }
 .fade-enter-active,
 .fade-leave-active {
- transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 
 .fade-enter,
 .fade-leave-to {
- opacity: 0;
+  opacity: 0;
 }
 
 .slide-enter-active,
 .slide-leave-active {
- transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 .slide-enter,
 .slide-leave-to {
- transform: translateY(-50%) translateX(100vw);
+  transform: translateY(-50%) translateX(100vw);
 }
-
-
 </style>
