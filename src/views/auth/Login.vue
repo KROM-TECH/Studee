@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="rowOne">
-        <img src="../assets/Logo.svg" class="res-img" alt="" />
+        <img src="@/assets/Logo.svg" class="res-img" alt="" />
        <h1 class="title">Login</h1>
 
        <form>
@@ -27,20 +27,20 @@
 
          <div class="social">
            <button class="btn-large" style="border: 2px solid #b23121; color:#b23121">
-             <img src="../assets/google-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
+             <img src="@/assets/google-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
              Google</button>
            <button class="btn-large" style="border: 2px solid #00acee; color:#00acee">
-             <img src="../assets/twitter-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
+             <img src="@/assets/twitter-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
              Twitter</button>
            <button class="btn-large" style="border: 1px solid #3b5998; color:#3b5998">
-             <img src="../assets/facebook-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
+             <img src="@/assets/facebook-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
              Facebook</button>
          </div>
        </form>
 
       </div>
       <div class="rowTwo">
-        <img src="../assets/book.svg" style="width:100%" class="res-img book" alt="" />
+        <img src="@/assets/book.svg" style="width:100%" class="res-img book" alt="" />
       </div>
     </div>
   </div>

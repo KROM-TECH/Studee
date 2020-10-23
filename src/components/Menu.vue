@@ -54,21 +54,21 @@
       <div class="row">
         <div>
           <router-link class="box" to="/chat" style="margin: 1rem;">
-          <img src="../assets/chat.svg" class="res-img" alt="" />
+          <img src="@/assets/chat.svg" class="res-img" alt="" />
           </router-link>
           <h3 class="box-text">Chat</h3>
         </div>
 
         <div>
           <router-link class="box" to="/note" style="margin: 1rem;">
-          <img src="../assets/notes.svg" class="res-img" alt="" />
+          <img src="@/assets/notes.svg" class="res-img" alt="" />
           </router-link>
           <h3 class="box-text">Notes</h3>
         </div>
 
         <div>
           <router-link class="box" to="/tte" style="margin: 1rem;">
-          <img src="../assets/Tte.svg" class="res-img" alt="" />
+          <img src="@/assets/Tte.svg" class="res-img" alt="" />
           </router-link>
           <h3 class="box-text">T/T/E</h3>
         </div>
