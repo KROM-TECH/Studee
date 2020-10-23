@@ -1,9 +1,10 @@
 <template>
   <div>
-    <Menu></Menu>
+    <Loader />
+    <Menu />
     <div class="container">
       <div class="rowOne">
-        <img src="../assets/Logo.svg" class="res-img" alt="" />
+        <img src="@/assets/Logo.svg" class="res-img" alt="" />
         <div style="max-width:100rem">
           <p style="padding:1rem; max-width:30rem">
             Studee is a platform created by Kromtech to help out students in their academic
@@ -54,9 +55,11 @@
 
 <script>
 import Menu from "@/components/Menu";
+import Loader from "@/components/Loader";
 export default {
   components: {
     Menu,
+    Loader,
   },
 };
 </script>
@@ -69,7 +72,7 @@ export default {
   .container {
     flex-direction: column;
   }
-  .more{
+  .more {
     font-size: 35px !important;
     font-weight: 600 !important;
   }
