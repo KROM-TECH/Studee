@@ -68,6 +68,8 @@
                 <h5>first</h5></summary
               >
               <p>
+                <span class="topic">physics of Objects</span>
+
                 representation of vectors:resultant of several vectors in Euclidean space:lines,
                 planes and spheres , the dot and cross products, direction cosines, differentiation
                 of vector functions, lami's theorem, polygon of forces, conditions of equilibrium of
@@ -96,6 +98,8 @@
 
 <script>
 import Menu from "@/components/Menu";
+// import firebase from "firebase/app";
+// import "firebase/firestore";
 export default {
   components: {
     Menu,
@@ -113,14 +117,19 @@ export default {
     view_course_outline() {
       this.showModal = true;
       console.log(this.university, this.faculty, this.level);
-
-      
     },
   },
 };
 </script>
 
 <style scoped>
+.topic {
+  display: block;
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
 h1 {
   color: #6c63ff;
   text-align: center;

@@ -56,6 +56,14 @@ const routes = [
     },
   },
   {
+    path: "/submit",
+    name: "Submit",
+    component: () => import("../views/Submit.vue"),
+    // meta: {
+    //   requiresAuth: true,
+    // },
+  },
+  {
     path: "/courses",
     name: "Courses",
     component: () => import("../views/Courses.vue"),
