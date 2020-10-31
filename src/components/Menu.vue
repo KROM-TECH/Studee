@@ -73,7 +73,10 @@
         </div>
 
         <div class="row">
-          <router-link class="btn Obtn but sign" to="/login" style="margin: 1rem;"
+          <button v-if="auth" @click="signOut" class="btn Obtn but sign" style="margin: 1rem;">
+            Sign Out
+          </button>
+          <router-link v-else class="btn Obtn but sign" to="/login" style="margin: 1rem;"
             >Sign In
           </router-link>
         </div>
@@ -83,13 +86,28 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/auth";
+
 export default {
   data() {
     return {
       sideNav: { show: "false", sign: "menu" },
+      auth: "",
     };
   },
   methods: {
+    signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ path: "login" });
+        });
+      // .catch((error) {
+      //   // An error happened.
+      // });
+    },
     menu() {
       this.sideNav.show = !this.sideNav.show;
       if (this.sideNav.sign == "close") {
@@ -98,6 +116,16 @@ export default {
         this.sideNav.sign = "close";
       }
     },
+    checkauth() {
+      if (firebase.auth().currentUser) {
+        this.auth = true;
+      } else {
+        this.auth = false;
+      }
+    },
+  },
+  created() {
+    this.checkauth();
   },
 };
 </script>
@@ -205,7 +233,7 @@ a {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: 0.8s;
+  transition: 0.5s;
 }
 
 .slide-enter,

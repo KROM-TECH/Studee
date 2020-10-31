@@ -1,43 +1,73 @@
 <template>
   <div>
+    <Loader v-show="loader" />
     <div class="container">
       <div class="rowOne">
         <img src="@/assets/Logo.svg" class="res-img" alt="" />
-       <h1 class="title">Login</h1>
+        <h1 class="title">Login</h1>
+        <p class="err">{{ Error }}</p>
+        <form @submit.prevent="handleSubmit">
+          <div class="form-input">
+            <label> Username</label>
+            <input type="text" v-model="Email" placeholder="Enter your Username" />
+          </div>
 
-       <form>
-         <div class="form-input">
-           <label> Username</label>
-           <input type="text" placeholder="Enter your Username">
-         </div>
+          <div class="form-input">
+            <label> password</label>
+            <input type="password" v-model="Password" placeholder="Enter Your password" />
+          </div>
 
-         <div class="form-input">
-           <label> password</label>
-           <input type="password" placeholder="Enter Your password">
-         </div>
+          <div class="extra">
+            <a href="/forgot">Forgot Password</a>
+            <a href="/signup">Create Account</a>
+          </div>
 
-         <div class="extra">
-           <a href="/forgot">Forgot Password</a>
-           <a href="/signup">Create Account</a>
-         </div>
+          <button class="btn Obtn">Login</button>
+          <p class="alt-text">Or</p>
+          <p class="alt-text">Login With</p>
 
-         <button class="btn Obtn">Login</button>
-         <p class="alt-text">Or</p>
-         <p class="alt-text">Login With</p>
-
-         <div class="social">
-           <button class="btn-large" style="border: 2px solid #b23121; color:#b23121">
-             <img src="@/assets/google-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
-             Google</button>
-           <button class="btn-large" style="border: 2px solid #00acee; color:#00acee">
-             <img src="@/assets/twitter-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
-             Twitter</button>
-           <button class="btn-large" style="border: 1px solid #3b5998; color:#3b5998">
-             <img src="@/assets/facebook-icon.svg" class="res-img book" style="width:20px; margin-right:8%" alt="" />
-             Facebook</button>
-         </div>
-       </form>
-
+          <div class="social">
+            <button
+              type="button"
+              class="btn-large"
+              style="border: 2px solid #b23121; color:#b23121"
+            >
+              <img
+                src="@/assets/google-icon.svg"
+                class="res-img book"
+                style="width:20px; margin-right:8%"
+                alt=""
+              />
+              Google
+            </button>
+            <button
+              type="button"
+              class="btn-large"
+              style="border: 2px solid #00acee; color:#00acee"
+            >
+              <img
+                src="@/assets/twitter-icon.svg"
+                class="res-img book"
+                style="width:20px; margin-right:8%"
+                alt=""
+              />
+              Twitter
+            </button>
+            <button
+              type="button"
+              class="btn-large"
+              style="border: 1px solid #3b5998; color:#3b5998"
+            >
+              <img
+                src="@/assets/facebook-icon.svg"
+                class="res-img book"
+                style="width:20px; margin-right:8%"
+                alt=""
+              />
+              Facebook
+            </button>
+          </div>
+        </form>
       </div>
       <div class="rowTwo">
         <img src="@/assets/book.svg" style="width:100%" class="res-img book" alt="" />
@@ -47,72 +77,107 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/auth";
+import Loader from "@/components/Loader";
 export default {
-
+  components: {
+    Loader,
+  },
+  data() {
+    return {
+      Email: "",
+      Password: "",
+      Error: "",
+      loader: false,
+    };
+  },
+  methods: {
+    handleSubmit() {
+      this.loader = true;
+      console.log(this.Email, this.Password);
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.Email, this.Password)
+        .then(() => {
+          this.$router.go({ path: "/home" });
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log(error.message);
+          this.Error = error.message;
+        });
+    },
+  },
 };
 </script>
 
 <style scoped>
-a{
+.err {
+  color: red;
+  width: 80%;
+  margin: 1rem;
+}
+a {
   text-decoration: none;
   color: inherit;
 }
-label{
+label {
   margin-bottom: -8px;
   color: #6c63ff;
 }
 
-.extra{
+.extra {
   display: flex;
   font-size: 12px;
   color: #6c63ff;
   justify-content: space-between;
   width: 100%;
 }
-.social{
+.social {
   display: flex;
   flex-direction: column;
 }
-.alt-text{
-  color: #6c63ff
+.alt-text {
+  color: #6c63ff;
 }
 input:-internal-autofill-selected {
-    appearance: menulist-button;
-    background-color: rgba(151, 145, 246, 0.1) !important;
-    background-image: none !important;
-    color: -internal-light-dark(black, white) !important;
+  appearance: menulist-button;
+  background-color: rgba(151, 145, 246, 0.1) !important;
+  background-image: none !important;
+  color: -internal-light-dark(black, white) !important;
 }
-form{
+form {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-left: 4%;
 }
-.form-input{
+.form-input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-input{
-      border: none;
-    border-bottom: 1.9px solid #6c63ff;
-    margin: 10px 2px;
-    background-color: rgba(151, 145, 246, 0.3);
-    width: 20rem;
-    height: 2.4rem;
-    max-width: 20rem;
-    max-height: 2.4rem;
-    outline: none;
-    padding: 0px 5px;
+input {
+  border: none;
+  border-bottom: 1.9px solid #6c63ff;
+  margin: 10px 2px;
+  background-color: rgba(151, 145, 246, 0.3);
+  width: 20rem;
+  height: 2.4rem;
+  max-width: 20rem;
+  max-height: 2.4rem;
+  outline: none;
+  padding: 0px 5px;
 }
-input:focus{
+input:focus {
   background-color: rgba(151, 145, 246, 0.5);
 }
-.title{
-      font-weight: 100 !important;
-    width: 45%;
-    color: #6c63ff;
+.title {
+  font-weight: 100 !important;
+  width: 45%;
+  color: #6c63ff;
 }
 @media screen and (max-width: 865px) {
   .rowTwo {
@@ -121,7 +186,7 @@ input:focus{
   .container {
     flex-direction: column;
   }
-  .more{
+  .more {
     font-size: 35px !important;
     font-weight: 600 !important;
   }

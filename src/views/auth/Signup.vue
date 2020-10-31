@@ -1,19 +1,21 @@
 <template>
   <div>
+    <Loader v-show="loader" />
     <div class="container">
       <div class="rowOne">
         <img src="@/assets/Logo.svg" class="res-img" alt="" />
         <h1 class="title">Sign Up</h1>
 
-        <form>
+        <p class="err">{{ Error }}</p>
+        <form @submit.prevent="handleSubmit">
           <div class="form-input">
             <label> Username</label>
-            <input type="text" placeholder="Enter your Username" />
+            <input type="text" v-model="Email" placeholder="Enter your Username" />
           </div>
 
           <div class="form-input">
             <label> password</label>
-            <input type="password" placeholder="Enter Your password" />
+            <input type="password" v-model="Password" placeholder="Enter Your password" />
           </div>
 
           <div class="extra">
@@ -64,10 +66,47 @@
 </template>
 
 <script>
-export default {};
+import firebase from "firebase/app";
+import "firebase/auth";
+import Loader from "@/components/Loader";
+export default {
+  components: {
+    Loader,
+  },
+  data() {
+    return {
+      Email: "",
+      Password: "",
+      Error: "",
+      loader: false,
+    };
+  },
+  methods: {
+    handleSubmit() {
+      this.loader = true;
+      console.log(this.Email, this.Password);
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.Email, this.Password)
+        .then(() => {
+          this.$router.go({ path: "/verify" });
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log(error.message);
+          this.Error = error.message;
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
+.err {
+  color: red;
+  width: 80%;
+  margin: 1rem;
+}
 a {
   text-decoration: none;
   color: inherit;

@@ -12,6 +12,7 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
+  overflow-x: hidden;
 }
 .btn {
   width: 155px;
@@ -117,6 +118,9 @@ main {
 }
 .input-field > label {
   position: static !important;
+}
+.pur-text {
+  color: #6c63ff !important;
 }
 
 @keyframes fade {

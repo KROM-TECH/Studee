@@ -1,32 +1,13 @@
 <template>
-  <div v-show="loader" class="body">
-    <img src="@/assets/Logo.svg" class="res-img grow" alt="" />
-  </div>
+  <transition name="slide" appear>
+    <div class="body">
+      <img src="@/assets/Logo.svg" class="res-img grow" alt="" />
+    </div>
+  </transition>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      loader: true,
-    };
-  },
-  methods: {
-    check() {
-      document.addEventListener("readystatechange", () => {
-        console.log(document.readyState);
-        if (document.readyState == "complete") {
-          this.loader = false;
-        } else {
-          this.loader = true;
-        }
-      });
-    },
-  },
-  created() {
-    this.check();
-  },
-};
+export default {};
 </script>
 
 <style scoped>
@@ -57,5 +38,14 @@ export default {
   100% {
     transform: scale(1);
   }
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: 0.5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: scale(1);
 }
 </style>

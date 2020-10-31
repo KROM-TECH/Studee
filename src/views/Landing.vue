@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Loader />
+    <!-- <Loader /> -->
     <Menu />
     <div class="container">
       <div class="rowOne">
@@ -45,7 +45,7 @@
         <p class="more-min">So what are you waiting for</p>
 
         <div>
-          <button class="btn Bbtn">Create an Account</button>
+          <a href="/signup"> <button class="btn Bbtn">Create an Account</button></a>
           <button class="btn Wbtn">Tell a Friend</button>
         </div>
       </div>
@@ -55,11 +55,11 @@
 
 <script>
 import Menu from "@/components/Menu";
-import Loader from "@/components/Loader";
+// import Loader from "@/components/Loader";
 export default {
   components: {
     Menu,
-    Loader,
+    // Loader,
   },
 };
 </script>
