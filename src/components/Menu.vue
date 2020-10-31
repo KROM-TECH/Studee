@@ -4,7 +4,13 @@
     <transition name="slide" appear>
       <div class="sidebar fade" v-show="!sideNav.show">
         <div class="row">
-          <div>
+          <div v-if="auth">
+            <router-link class="box" to="/home" style="margin: 1rem;">
+              <img src="../assets/home.svg" class="res-img" alt="" />
+            </router-link>
+            <h3 class="box-text">Home</h3>
+          </div>
+          <div v-else>
             <router-link class="box" to="/" style="margin: 1rem;">
               <img src="../assets/home.svg" class="res-img" alt="" />
             </router-link>
