@@ -18,7 +18,7 @@ export default {};
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  z-index: 100000;
+  z-index: 10000;
   position: fixed;
   overflow-x: hidden;
   top: 0;
