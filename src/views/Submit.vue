@@ -60,12 +60,17 @@
         </div>
 
         <div class="input-field" style="margin: 3rem;">
+          <label>Course Unit</label>
+          <input type="text" v-model="course_unit" />
+        </div>
+
+        <div class="input-field" style="margin: 3rem;">
           <label>Course Title</label>
           <input type="text" v-model="course_title" />
         </div>
 
         <div class="input-field" style="margin: 3rem;">
-          <label>Course Title</label>
+          <label>Course Outline</label>
           <input type="text" v-model="course_outline" />
         </div>
 
@@ -81,7 +86,8 @@
                 !semester ||
                 !course_code ||
                 !course_title ||
-                !course_outline
+                !course_outline ||
+                !course_unit
             "
           >
             Upload
@@ -105,10 +111,11 @@ export default {
       university: "",
       faculty: "",
       level: "",
-      semester: "",
+      semester: "First",
       course_code: "",
       course_title: "",
       course_outline: "",
+      course_unit: "",
     };
   },
   methods: {
@@ -121,18 +128,21 @@ export default {
         this.course_code,
         this.course_title,
         this.course_outline,
+        this.course_unit,
       );
       firebase
         .firestore()
         .collection(`course_outline`)
         .doc(this.university)
         .collection(this.faculty)
-        .doc(this.level)
+        .doc(this.course_code)
         .set({
-          code: this.course_code,
+          level: this.level,
+          code: this.course_code.toUpperCase(),
           title: this.course_title,
           outline: this.course_outline,
           semester: this.semester,
+          Unit: this.course_unit.toLowerCase(),
         })
         .then(() => {
           location.reload();
