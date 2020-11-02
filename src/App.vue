@@ -123,6 +123,20 @@ main {
   color: #6c63ff !important;
 }
 
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px #7570e2;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px #100c64;
+}
+
 @keyframes fade {
   from {
     opacity: 0;

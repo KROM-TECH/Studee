@@ -209,7 +209,7 @@ a {
   position: fixed;
   right: 1.5rem;
   top: 1rem;
-  z-index: 5;
+  z-index: 500000;
 }
 .menu:hover {
   background-color: #6c63ff;
@@ -229,7 +229,7 @@ a {
   overflow-x: hidden;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 300;
   display: flex;
   flex-direction: column;
   align-items: center;
