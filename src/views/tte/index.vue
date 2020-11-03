@@ -40,13 +40,13 @@ export default {
 <style scoped>
 .box-text {
   text-align: center;
-  color: #372FAF;
+  color: #372faf;
   font-size: 20px;
 }
 .box-img {
   max-width: 4.5rem;
   height: auto;
-  margin: 1rem
+  margin: 1rem;
 }
 .box {
   background-color: #ffffff;
@@ -55,29 +55,30 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   padding: 1rem;
   margin: 2rem;
   cursor: pointer;
+  box-shadow: 1px 1px 4px rgba(104, 104, 104, 0.3);
 }
-.box:hover{
-    background-color: #6c63ff34;
+.box:hover {
+  background-color: #6c63ff34;
 }
-@media screen and (max-width:580px) {
-  .box{
-      flex-direction: row;
-      width:200px;
-      height: 15px;
-      justify-content: flex-start;
-  }  
+@media screen and (max-width: 580px) {
+  .box {
+    flex-direction: row;
+    width: 200px;
+    height: 15px;
+    justify-content: flex-start;
+  }
   .box-img {
-  max-width: 2rem;
-  height: auto;
-  margin: 1rem
-}
+    max-width: 2rem;
+    height: auto;
+    margin: 1rem;
+  }
 }
 .contain {
-margin-top: 3rem;
+  margin-top: 3rem;
   width: 100%;
   display: flex;
   justify-content: center;

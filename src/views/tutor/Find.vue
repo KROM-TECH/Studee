@@ -3,50 +3,67 @@
     <Loader v-show="loader" />
     <Menu />
     <main class="fade">
-      <h1>Find Your University Course Outline</h1>
+      <h1>Find A tutor</h1>
       <section>
         <div class="input-field">
-          <label>Select Your University</label>
-          <select v-model="university" id="university">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="unilag" class="left">University of Lagos</option>
-            <option value="ui" class="left">University of Ibadan</option>
-            <option value="uniben" class="left">University of Benin</option>
+          <label>Select Your Type</label>
+          <select v-model="type" id="university">
+            <option value="" disabled>Search by University / State</option>
+            <option value="university">University</option>
+            <option value="state">State</option>
           </select>
         </div>
 
-        <div class="input-field">
-          <label>Select Your Faculty</label>
-          <select v-model="faculty" id="faculty">
-            <option value="" disabled selected>Choose your option</option>
-            <option
-              v-for="faculty in Faculties"
-              :key="faculty.value"
-              :value="faculty.value"
-              class="left"
-              >{{ faculty.name }}</option
-            >
-          </select>
-        </div>
+        <div v-show="type == 'university'">
+          <div class="input-field">
+            <label>Select Your University</label>
+            <select v-model="university" id="faculty">
+              <option value="" disabled selected>Choose your option</option>
+              <option
+                v-for="university in Universities"
+                :key="university.name"
+                :value="university.name"
+                class="left"
+                >{{ university.name }}</option
+              >
+            </select>
+          </div>
 
-        <div class="input-field">
-          <label>Select Your Level</label>
-          <select v-model="level" id="level">
-            <option value="" disabled selected>Choose your option</option>
-            <option v-for="Level in Levels" :key="Level.value" :value="Level.value" class="left">{{
-              Level.name
-            }}</option>
-          </select>
-        </div>
+          <div class="input-field">
+            <label>Select Your Faculty</label>
+            <select v-model="faculty" id="faculty">
+              <option value="" disabled selected>Choose your option</option>
+              <option
+                v-for="faculty in Faculties"
+                :key="faculty.value"
+                :value="faculty.value"
+                class="left"
+                >{{ faculty.name }}</option
+              >
+            </select>
+          </div>
 
+          <div class="input-field">
+            <label>Select Your Level</label>
+            <select v-model="level" id="level">
+              <option value="" disabled selected>Choose your option</option>
+              <option
+                v-for="level in Levels"
+                :key="level.value"
+                :value="level.value"
+                class="left"
+                >{{ level.name }}</option
+              >
+            </select>
+          </div>
+        </div>
         <div class="center">
           <button
             class="btn Obtn btn-large"
             style="width: 10rem; border: 2px solid rgb(108, 99, 255);"
-            @click="view_course_outline"
-            :disabled="!university || !faculty || !level"
+            :disabled="!type || !university || !faculty || !level"
           >
-            View
+            Find
           </button>
         </div>
       </section>
@@ -97,11 +114,12 @@
 
 <script>
 import Menu from "@/components/Menu";
-import firebase from "firebase/app";
-import "firebase/firestore";
-import Loader from "@/components/Loader";
-import Levels from "@/helpers/level";
 import Faculties from "@/helpers/faculties";
+import Levels from "@/helpers/level";
+import Universities from "@/helpers/universities";
+// import firebase from "firebase/app";
+// import "firebase/firestore";
+import Loader from "@/components/Loader";
 export default {
   components: {
     Menu,
@@ -109,43 +127,20 @@ export default {
   },
   data() {
     return {
-      Levels,
       Faculties,
+      Levels,
+      Universities,
       empty: "",
+      type: "",
       university: "",
-      faculty: "",
       level: "",
+      faculty: "",
       showModal: false,
       loader: false,
       course_Outline: [],
     };
   },
-  methods: {
-    view_course_outline() {
-      this.course_Outline = [];
-      this.loader = true;
-      this.showModal = true;
-      console.log(this.university, this.faculty, this.level);
-      firebase
-        .firestore()
-        .collection(`course_outline`)
-        .doc(this.university)
-        .collection(this.faculty)
-        .where("level", "==", this.level)
-        .get()
-        .then((querySnapshot) => {
-          console.log(querySnapshot.docs);
-          querySnapshot.forEach((doc) => {
-            this.course_Outline.push(doc.data());
-          });
-          console.log(this.course_Outline);
-          this.loader = false;
-        })
-        .catch(function(error) {
-          console.log("Error getting documents: ", error);
-        });
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -175,6 +170,7 @@ a {
 }
 .input-field {
   margin: 2.5rem 1rem;
+  margin-bottom: inherit;
 }
 .left {
   float: left;

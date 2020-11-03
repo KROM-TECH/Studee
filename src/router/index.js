@@ -74,7 +74,15 @@ const routes = [
   {
     path: "/tutor",
     name: "Tutor",
-    component: () => import("../views/tutor/Tutor.vue"),
+    component: () => import("../views/tutor"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/tutor/find",
+    name: "Find",
+    component: () => import("../views/tutor/Find.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -82,7 +90,7 @@ const routes = [
   {
     path: "/chat",
     name: "Chat",
-    component: () => import("../views/chat/Chat.vue"),
+    component: () => import("../views/chat/"),
     meta: {
       requiresAuth: true,
     },
@@ -90,7 +98,7 @@ const routes = [
   {
     path: "/tte",
     name: "Tte",
-    component: () => import("../views/tte/Tte.vue"),
+    component: () => import("../views/tte/"),
     meta: {
       requiresAuth: true,
     },
@@ -98,7 +106,7 @@ const routes = [
   {
     path: "/note",
     name: "Note",
-    component: () => import("../views/note/Note.vue"),
+    component: () => import("../views/note/"),
     meta: {
       requiresAuth: true,
     },

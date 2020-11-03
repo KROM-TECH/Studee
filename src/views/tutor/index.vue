@@ -2,21 +2,18 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img src="@/assets/Cnote.svg" class="img" />
+      <img src="@/assets/Ctutor.svg" class="img" />
 
       <div class="contain">
         <div class="box">
-          <img src="@/assets/Ncreate.svg" class="box-img" />
-          <p class="box-text">Message</p>
+          <img src="@/assets/tutor_profile.svg" class="box-img" />
+          <p class="box-text">Your Profile</p>
           <div></div>
         </div>
-        <div class="box">
-          <img src="@/assets/Nview.svg" class="box-img" />
-          <p class="box-text">Voice</p>
-        </div>
-        <div class="box">
-          <img src="@/assets/Ntrain.svg" class="box-img" />
-          <p class="box-text">Video</p>
+
+        <div class="box" @click="find_tutor">
+          <img src="@/assets/tutor_search.svg" class="box-img" />
+          <p class="box-text">Find Tutor</p>
         </div>
       </div>
     </main>
@@ -34,19 +31,24 @@ export default {
       active: false,
     };
   },
+  methods: {
+    find_tutor() {
+      this.$router.push({ name: "Find" });
+    },
+  },
 };
 </script>
 
 <style scoped>
 .box-text {
   text-align: center;
-  color: #372FAF;
+  color: #372faf;
   font-size: 20px;
 }
 .box-img {
   max-width: 4.5rem;
   height: auto;
-  margin: 1rem
+  margin: 1rem;
 }
 .box {
   background-color: #ffffff;
@@ -55,29 +57,31 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   padding: 1rem;
   margin: 2rem;
   cursor: pointer;
+  overflow: hidden;
+  box-shadow: 1px 1px 4px rgba(104, 104, 104, 0.3);
 }
-.box:hover{
-    background-color: #6c63ff34;
+.box:hover {
+  background-color: #6c63ff34;
 }
-@media screen and (max-width:580px) {
-  .box{
-      flex-direction: row;
-      width:200px;
-      height: 15px;
-      justify-content: flex-start;
-  }  
+@media screen and (max-width: 580px) {
+  .box {
+    flex-direction: row;
+    width: 200px;
+    height: 15px;
+    justify-content: flex-start;
+  }
   .box-img {
-  max-width: 2rem;
-  height: auto;
-  margin: 1rem
-}
+    max-width: 2rem;
+    height: auto;
+    margin: 1rem;
+  }
 }
 .contain {
-margin-top: 3rem;
+  margin-top: 3rem;
   width: 100%;
   display: flex;
   justify-content: center;

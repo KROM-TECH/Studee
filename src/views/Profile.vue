@@ -6,21 +6,36 @@
       <div class="contain">
         <div class="box">
           <p class="head">Display Name</p>
-          <input type="text" placeholder="Enter your Display Name" :disabled="!active" :class="active ? 'active':''" />
+          <input
+            type="text"
+            placeholder="Enter your Display Name"
+            :disabled="!active"
+            :class="active ? 'active' : ''"
+          />
         </div>
         <div class="box">
           <p class="head">Email</p>
-          <input type="email" placeholder="Enter your Mail" :disabled="!active" :class="active ? 'active':''"/>
+          <input
+            type="email"
+            placeholder="Enter your Mail"
+            :disabled="!active"
+            :class="active ? 'active' : ''"
+          />
         </div>
       </div>
       <div class="contain">
         <div class="box">
           <p class="head">Phone Number</p>
-          <input type="number" placeholder="Enter your number" :disabled="!active" :class="active ? 'active':''"/>
+          <input
+            type="number"
+            placeholder="Enter your number"
+            :disabled="!active"
+            :class="active ? 'active' : ''"
+          />
         </div>
         <div class="box">
           <p class="head">Availability</p>
-          <select name="" id="" :disabled="!active" :class="active ? 'active':''">
+          <select name="" id="" :disabled="!active" :class="active ? 'active' : ''">
             <option value="" disabled selected>Choose your option</option>
             <option value="yes" class="left">Yes</option>
             <option value="no" class="left">No</option>
@@ -30,25 +45,39 @@
       <div class="contain">
         <div class="box">
           <p class="head">University / Location</p>
-          <input type="text" placeholder="Enter your Location" :disabled="!active" :class="active ? 'active':''"/>
+          <input
+            type="text"
+            placeholder="Enter your Location"
+            :disabled="!active"
+            :class="active ? 'active' : ''"
+          />
         </div>
         <div class="box">
           <p class="head">Courses / Subjects</p>
-          <input type="email" placeholder="Enter the Subjects you teach" :disabled="!active" :class="active ? 'active':''"/>
+          <input
+            type="email"
+            placeholder="Enter the Subjects you teach"
+            :disabled="!active"
+            :class="active ? 'active' : ''"
+          />
         </div>
       </div>
       <div class="contain">
         <div class="box">
           <p class="head">Bio</p>
-          <textarea type="text" placeholder="A little bit about you" :disabled="!active" :class="active ? 'active':''"></textarea>
+          <textarea
+            type="text"
+            placeholder="A little bit about you"
+            :disabled="!active"
+            :class="active ? 'active' : ''"
+          ></textarea>
         </div>
-     
       </div>
 
-      <button v-if="!active" class="btn Obtn" style="padding:10px;" @click="active=!active">
+      <button v-if="!active" class="btn Obtn" style="padding:10px;" @click="active = !active">
         Update
       </button>
-      <button v-if="active" class="btn Obtn" style="padding:10px;" @click="active=!active">
+      <button v-if="active" class="btn Obtn" style="padding:10px;" @click="active = !active">
         Save
       </button>
     </main>
@@ -63,14 +92,13 @@ export default {
   },
   data() {
     return {
-      active:false
+      active: false,
     };
   },
 };
 </script>
 
 <style scoped>
-
 .box {
   margin: 5px 30px;
 }
@@ -83,7 +111,7 @@ export default {
 input {
   width: 180px !important;
   height: 34px;
-  border: none;
+  border: 1px solid #6c63ff;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -93,7 +121,7 @@ input {
 select {
   width: 212px !important;
   height: 34px;
-  border: none;
+  border: 1px solid #6c63ff;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -104,7 +132,7 @@ textarea {
   width: 300px;
   max-width: 512px !important;
   height: 34px;
-  border: none;
+  border: 1px solid #6c63ff;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -112,13 +140,16 @@ textarea {
   text-align: center;
 }
 input:disabled {
- background-color: #fff;
+  background-color: #fff;
+  border: none;
 }
 select:disabled {
- background-color: #fff;
+  background-color: #fff;
+  border: none;
 }
 textarea:disabled {
- background-color: #fff;
+  background-color: #fff;
+  border: none;
 }
 .head {
   line-height: 47px;
@@ -128,8 +159,9 @@ textarea:disabled {
   backdrop-filter: blur(4px);
   font-weight: 700;
 }
-
-
+button {
+  overflow: hidden;
+}
 img {
   max-width: 200px;
   height: auto;
@@ -143,14 +175,14 @@ main {
   align-items: center;
   padding-top: 3rem;
 }
-.active{
-      border: none;
-    border-bottom: 1.9px solid #6c63ff;
-    background-color: rgba(151, 145, 246, 0.3);
-    max-width: 20rem;
-    max-height: 2.4rem;
-    outline: none;
-    border-radius: 0px;
+.active {
+  border: none;
+  border-bottom: 1.9px solid #6c63ff;
+  background-color: rgba(151, 145, 246, 0.3);
+  max-width: 20rem;
+  max-height: 2.4rem;
+  outline: none;
+  border-radius: 0px;
 }
 .fade-enter-active,
 .fade-leave-active {
