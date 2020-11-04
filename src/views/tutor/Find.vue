@@ -11,6 +11,7 @@
             <option value="" disabled>Search by University / State</option>
             <option value="university">University</option>
             <option value="state">State</option>
+            <option value="remote">Remote</option>
           </select>
         </div>
 
@@ -57,11 +58,61 @@
             </select>
           </div>
         </div>
+
+        <div v-show="type == 'state'">
+          <div class="input-field">
+            <label>Select Your State</label>
+            <select v-model="state" id="faculty">
+              <option value="" disabled selected>Choose your option</option>
+              <option v-for="state in States" :key="state.name" :value="state.name" class="left">{{
+                state.name
+              }}</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Select Your Class</label>
+            <select v-model="Class" id="faculty">
+              <option value="" disabled selected>Choose your option</option>
+              <option
+                v-for="Class in Classes"
+                :key="Class.name"
+                :value="Class.value"
+                class="left"
+                >{{ Class.name }}</option
+              >
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Select Your Subject</label>
+            <select v-model="subject" id="faculty">
+              <option value="" disabled selected>Choose your option</option>
+              <option
+                v-for="subject in Subjects"
+                :key="subject.name"
+                :value="subject.name"
+                class="left"
+                >{{ subject.name }}</option
+              >
+            </select>
+          </div>
+        </div>
+
         <div class="center">
           <button
+            v-show="type == 'university'"
             class="btn Obtn btn-large"
             style="width: 10rem; border: 2px solid rgb(108, 99, 255);"
-            :disabled="!type || !university || !faculty || !level"
+            :disabled="!university || !faculty || !level"
+          >
+            Find
+          </button>
+          <button
+            v-show="type == 'state'"
+            class="btn Obtn btn-large"
+            style="width: 10rem; border: 2px solid rgb(108, 99, 255);"
+            :disabled="!state || !Class || !subject"
           >
             Find
           </button>
@@ -117,6 +168,9 @@ import Menu from "@/components/Menu";
 import Faculties from "@/helpers/faculties";
 import Levels from "@/helpers/level";
 import Universities from "@/helpers/universities";
+import States from "@/helpers/states";
+import Classes from "@/helpers/classes";
+import Subjects from "@/helpers/subject";
 // import firebase from "firebase/app";
 // import "firebase/firestore";
 import Loader from "@/components/Loader";
@@ -130,11 +184,17 @@ export default {
       Faculties,
       Levels,
       Universities,
+      States,
+      Classes,
+      Subjects,
       empty: "",
       type: "",
       university: "",
       level: "",
       faculty: "",
+      state: "",
+      Class: "",
+      subject: "",
       showModal: false,
       loader: false,
       course_Outline: [],

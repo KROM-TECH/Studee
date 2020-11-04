@@ -88,6 +88,14 @@ const routes = [
     },
   },
   {
+    path: "/tutor/find/:id",
+    name: "Find",
+    component: () => import("../views/tutor/Query_Tutors.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/chat",
     name: "Chat",
     component: () => import("../views/chat/"),
