@@ -3,9 +3,9 @@
     <!--elements are in reversed order, to allow "previous sibling selectors" in CSS-->
     <input type="radio" name="rating" value="5" id="5" /><label for="5">☆</label>
     <input type="radio" name="rating" value="4" id="4" /><label for="4">☆</label>
-    <input type="radio" name="rating" value="3" id="3" /><label for="3">☆</label>
-    <input type="radio" name="rating" value="2" id="2" /><label for="2">☆</label>
-    <input type="radio" name="rating" value="1" id="1" /><label for="1">☆</label>
+    <input type="radio" name="rating" value="3" id="3" disabled /><label for="3">☆</label>
+    <input type="radio" name="rating" value="2" id="2" disabled /><label for="2">☆</label>
+    <input type="radio" name="rating" value="1" id="1" disabled /><label for="1">☆</label>
   </div>
 </template>
 
@@ -41,18 +41,21 @@ export default {};
   opacity: 0;
 }
 /*overlays a filled start character to the hovered element and all previous siblings*/
-.rating > label:hover:before,
+/* .rating > label:hover:before,
 .rating > label:hover ~ label:before {
   opacity: 1 !important;
-}
+} */
 
 /*overlays a filled start character on the selected element and all previous siblings*/
-.rating > input:checked ~ label:before {
+/* .rating > input:checked ~ label:before {
+  opacity: 1;
+} */
+.rating > input:disabled ~ label:before {
   opacity: 1;
 }
 
 /*when an element is selected and pointer re-enters the rating container, selected rate and siblings get semi transparent, as reminder of current selection*/
-.rating:hover > input:checked ~ label:before {
+/* .rating:hover > input:checked ~ label:before {
   opacity: 0.4;
-}
+} */
 </style>
