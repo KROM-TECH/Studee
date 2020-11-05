@@ -3,6 +3,7 @@
     <Menu></Menu>
     <main class="fade">
       <img src="@/assets/profile.png" />
+      <!-- <img src="https://miro.medium.com/max/587/1*JeI9eP6upNk-1uQ3Z62Tvw.png" /> -->
       <div class="contain">
         <div class="box">
           <p class="head">Display Name</p>
@@ -34,6 +35,16 @@
           />
         </div>
         <div class="box">
+          <p class="head">Availability</p>
+          <select name="" id="" :disabled="!active" :class="active ? 'active' : ''">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="yes" class="left">Yes</option>
+            <option value="no" class="left">No</option>
+          </select>
+        </div>
+      </div>
+      <div class="contain">
+        <div class="box">
           <p class="head">University / Location</p>
           <input
             type="text"
@@ -42,8 +53,16 @@
             :class="active ? 'active' : ''"
           />
         </div>
+        <div class="box">
+          <p class="head">Courses / Subjects</p>
+          <input
+            type="email"
+            placeholder="Enter the Subjects you teach"
+            :disabled="!active"
+            :class="active ? 'active' : ''"
+          />
+        </div>
       </div>
-
       <div class="contain">
         <div class="box">
           <p class="head">Bio</p>
@@ -146,8 +165,9 @@ button {
 }
 img {
   max-width: 200px;
-  height: auto;
+  height: 200px;
   border-radius: 50%;
+  box-shadow: 0 0 1pc black;
 }
 
 main {

@@ -28,6 +28,7 @@ export default {};
 /*style the empty stars, sets position:relative as base for pseudo-elements*/
 .rating > label {
   position: relative;
+  overflow: hidden;
   width: 1.1em;
   font-size: 20px;
   color: #6c63ff;
