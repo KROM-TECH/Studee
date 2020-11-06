@@ -2,94 +2,61 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img src="@/assets/profile.png" />
+      <img class="profile_img" src="@/assets/profile.png" />
+      <Rating :selected="5" style="margin-top:4px" />
+      <p class="rate">5.0 / 5.0</p>
       <!-- <img src="https://miro.medium.com/max/587/1*JeI9eP6upNk-1uQ3Z62Tvw.png" /> -->
       <div class="contain">
         <div class="box">
           <p class="head">Display Name</p>
-          <input
-            type="text"
-            placeholder="Enter your Display Name"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-          />
+          <p class="det">John Doe</p>
         </div>
-        <div class="box">
-          <p class="head">Email</p>
-          <input
-            type="email"
-            placeholder="Enter your Mail"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-          />
-        </div>
-      </div>
-      <div class="contain">
-        <div class="box">
-          <p class="head">Phone Number</p>
-          <input
-            type="number"
-            placeholder="Enter your number"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-          />
-        </div>
-        <div class="box">
-          <p class="head">Availability</p>
-          <select name="" id="" :disabled="!active" :class="active ? 'active' : ''">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="yes" class="left">Yes</option>
-            <option value="no" class="left">No</option>
-          </select>
-        </div>
-      </div>
-      <div class="contain">
         <div class="box">
           <p class="head">University / Location</p>
-          <input
-            type="text"
-            placeholder="Enter your Location"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-          />
-        </div>
-        <div class="box">
-          <p class="head">Courses / Subjects</p>
-          <input
-            type="email"
-            placeholder="Enter the Subjects you teach"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-          />
-        </div>
-      </div>
-      <div class="contain">
-        <div class="box">
-          <p class="head">Bio</p>
-          <textarea
-            type="text"
-            placeholder="A little bit about you"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-          ></textarea>
+          <p class="det">University of Lagos</p>
         </div>
       </div>
 
-      <button v-if="!active" class="btn Obtn" @click="active = !active">
-        Update
-      </button>
-      <button v-if="active" class="btn Obtn" @click="active = !active">
-        Save
-      </button>
+      <div class="contain">
+        <div class="box">
+          <p class="head">Courses / Subjects</p>
+          <p class="det">French, Yoruba</p>
+        </div>
+        <div class="box">
+          <p class="head">Rate</p>
+          <p class="det">200 per hour</p>
+        </div>
+      </div>
+      <div class="contain">
+        <div class="box">
+          <p class="head">Review</p>
+          <div class="review_box">
+            <Review v-for="n in 3" :key="n" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button v-if="!active" class="btn Obtn" @click="active = !active">
+          Update
+        </button>
+        <button v-if="active" class="btn Obtn" @click="active = !active">
+          Save
+        </button>
+      </div>
     </main>
   </div>
 </template>
 
 <script>
 import Menu from "@/components/Menu";
+import Rating from "@/components/Rating";
+import Review from "@/components/review";
 export default {
   components: {
     Menu,
+    Rating,
+    Review,
   },
   data() {
     return {
@@ -100,6 +67,17 @@ export default {
 </script>
 
 <style scoped>
+.review_box {
+  background-color: white;
+  max-width: 500px;
+  border: 1px solid #6c63ff;
+  width: 80vw;
+}
+.rate {
+  font-weight: 550;
+  color: #6c63ff;
+  font-size: 18px;
+}
 .box {
   margin: 5px 30px;
 }
@@ -109,49 +87,18 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
 }
-input {
+.det {
   width: 180px !important;
-  height: 34px;
   border: 1px solid #6c63ff;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  padding: 0px 1rem;
+  padding: 0.4rem 1rem;
   text-align: center;
+  color: #1f1890;
+  font-weight: 600;
 }
-select {
-  width: 212px !important;
-  height: 34px;
-  border: 1px solid #6c63ff;
-  outline: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  padding: 0px 1rem;
-  text-align: center;
-}
-textarea {
-  width: 300px;
-  max-width: 512px !important;
-  height: 34px;
-  border: 1px solid #6c63ff;
-  outline: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  padding: 5px 1rem;
-  text-align: center;
-}
-input:disabled {
-  background-color: #fff;
-  border: none;
-}
-select:disabled {
-  background-color: #fff;
-  border: none;
-}
-textarea:disabled {
-  background-color: #fff;
-  border: none;
-}
+
 .head {
   line-height: 47px;
   text-align: center;
@@ -163,11 +110,12 @@ textarea:disabled {
 button {
   overflow: hidden;
 }
-img {
-  max-width: 200px;
-  height: 200px;
+
+.profile_img {
+  width: 200px;
+  height: auto;
   border-radius: 50%;
-  box-shadow: 0 0 1pc black;
+  box-shadow: 0 0 0.5pc black;
 }
 
 main {
