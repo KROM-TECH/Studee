@@ -2,20 +2,20 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img src="@/assets/Ctte.svg" class="img" />
+      <img src="@/assets/tte/Ctte.svg" class="img" />
 
       <div class="contain">
         <div class="box">
-          <img src="@/assets/table.svg" class="box-img" />
+          <img src="@/assets/tte/table.svg" class="box-img" />
           <p class="box-text">TimeTable</p>
           <div></div>
         </div>
         <div class="box">
-          <img src="@/assets/todo.svg" class="box-img" />
+          <img src="@/assets/tte/todo.svg" class="box-img" />
           <p class="box-text">To-do</p>
         </div>
         <div class="box">
-          <img src="@/assets/reminder.svg" class="box-img" />
+          <img src="@/assets/tte/reminder.svg" class="box-img" />
           <p class="box-text">Reminder</p>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <div>
     <Menu />
     <main>
-      <img src="../assets/Female.png" style="width:15rem" alt="" />
+      <img src="@/assets/general/Female.png" style="width:15rem" alt="" />
       <div class="dotsContainer">
         <span id="dot1" :class="{ listening_style: listening }"></span>
         <span id="dot2" :class="{ listening_style: listening }"></span>

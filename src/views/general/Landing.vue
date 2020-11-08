@@ -4,7 +4,7 @@
     <Menu />
     <div class="container">
       <div class="rowOne">
-        <img src="@/assets/Logo.svg" class="res-img" alt="logo" />
+        <img src="@/assets/general/Logo.svg" class="res-img" alt="logo" />
         <div style="max-width:100rem">
           <p style="padding:1rem; max-width:30rem">
             Studee is a platform created by Kromtech to help out students in their academic
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="rowTwo">
-        <img src="@/assets/book.svg" class="res-img book" alt="image" />
+        <img src="@/assets/auth/book.svg" class="res-img book" alt="image" />
 
         <h1 class="more">And So Much More</h1>
         <p class="more-min">So what are you waiting for</p>

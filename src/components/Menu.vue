@@ -6,27 +6,27 @@
         <div class="row">
           <div v-if="auth">
             <router-link class="box" to="/home" style="margin: 1rem;">
-              <img src="../assets/home.svg" class="res-img" alt="" />
+              <img src="../assets/menu/home.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Home</h3>
           </div>
           <div v-else>
             <router-link class="box" to="/" style="margin: 1rem;">
-              <img src="../assets/home.svg" class="res-img" alt="" />
+              <img src="../assets/menu/home.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Home</h3>
           </div>
 
           <div>
             <router-link class="box" to="/pastquestions" style="margin: 1rem;">
-              <img src="../assets/pq.svg" class="res-img" alt="" />
+              <img src="../assets/menu/pq.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Past Questions</h3>
           </div>
 
           <div>
             <router-link class="box" to="/courses" style="margin: 1rem;">
-              <img src="../assets/outline.svg" class="res-img" alt="" />
+              <img src="../assets/menu/outline.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Course Outline</h3>
           </div>
@@ -35,21 +35,21 @@
         <div class="row">
           <div>
             <router-link class="box" to="/tutor" style="margin: 1rem;">
-              <img src="../assets/tutor.svg" class="res-img" alt="" />
+              <img src="../assets/menu/tutor.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Find a Tutor</h3>
           </div>
 
           <div>
             <router-link class="box" to="/profile" style="margin: 1rem;">
-              <img src="../assets/account.svg" class="res-img" alt="" />
+              <img src="../assets/menu/account.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Profile</h3>
           </div>
 
           <div>
             <router-link class="box" to="/questions" style="margin: 1rem;">
-              <img src="../assets/ask.svg" class="res-img" alt="" />
+              <img src="../assets/menu/ask.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Ask Questions</h3>
           </div>
@@ -58,21 +58,21 @@
         <div class="row">
           <div>
             <router-link class="box" to="/chat" style="margin: 1rem;">
-              <img src="@/assets/chat.svg" class="res-img" alt="" />
+              <img src="@/assets/menu/chat.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Chat</h3>
           </div>
 
           <div>
             <router-link class="box" to="/note" style="margin: 1rem;">
-              <img src="@/assets/notes.svg" class="res-img" alt="" />
+              <img src="@/assets/menu/notes.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Notes</h3>
           </div>
 
           <div>
             <router-link class="box" to="/tte" style="margin: 1rem;">
-              <img src="@/assets/Tte.svg" class="res-img" alt="" />
+              <img src="@/assets/menu/Tte.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">T/T/E</h3>
           </div>

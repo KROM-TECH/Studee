@@ -2,20 +2,20 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img src="@/assets/Cchat.svg" class="img" />
+      <img src="@/assets/chat/Cchat.svg" class="img" />
 
       <div class="contain">
         <div class="box">
-          <img src="@/assets/message.svg" class="box-img" />
+          <img src="@/assets/chat/message.svg" class="box-img" />
           <p class="box-text">Message</p>
           <div></div>
         </div>
         <div class="box">
-          <img src="@/assets/voice.svg" class="box-img" />
+          <img src="@/assets/chat/voice.svg" class="box-img" />
           <p class="box-text">Voice</p>
         </div>
         <div class="box">
-          <img src="@/assets/video.svg" class="box-img" />
+          <img src="@/assets/chat/video.svg" class="box-img" />
           <p class="box-text">Video</p>
         </div>
       </div>

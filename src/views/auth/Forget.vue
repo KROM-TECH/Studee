@@ -3,7 +3,7 @@
     <Loader v-show="loader" />
     <div class="container">
       <div class="rowOne">
-        <img src="@/assets/Logo.svg" class="res-img" alt="" />
+        <img src="@/assets/general/Logo.svg" class="res-img" alt="" />
         <h2 style="margin:1rem" class="title">Forgot Password</h2>
         <p class="err">{{ Error }}</p>
         <form @submit.prevent="handleSubmit">
@@ -23,7 +23,7 @@
         </form>
       </div>
       <div class="rowTwo">
-        <img src="@/assets/book.svg" style="width:100%" class="res-img book" alt="" />
+        <img src="@/assets/auth/book.svg" style="width:100%" class="res-img book" alt="" />
       </div>
     </div>
   </div>

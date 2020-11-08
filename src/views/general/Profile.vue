@@ -2,7 +2,7 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img src="@/assets/profile.png" />
+      <img src="@/assets/general/profile.png" />
       <div class="contain">
         <div class="box">
           <p class="head">Display Name</p>

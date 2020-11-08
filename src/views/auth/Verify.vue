@@ -3,7 +3,7 @@
     <Menu />
     <Loader v-show="loader" />
     <div class="content">
-      <img class="responsive-img" src="@/assets/verify.svg" alt="" />
+      <img class="responsive-img" src="@/assets/auth/verify.svg" alt="" />
       <h2 style="margin:0" class="center">
         verify your Email to Proceed
       </h2>
@@ -40,7 +40,7 @@ export default {
           this.loader = false;
           this.btn = false;
           this.msg = `A Verification Link has been sent to Your Email @${
-            firebase.auth().currentUser.Email  
+            firebase.auth().currentUser.Email
           }`;
         })
         .catch(() => {

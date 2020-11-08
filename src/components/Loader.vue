@@ -1,7 +1,7 @@
 <template>
   <transition name="slide" appear>
     <div class="body">
-      <img src="@/assets/Logo.svg" class="res-img grow" alt="" />
+      <img src="@/assets/general/Logo.svg" class="res-img grow" alt="" />
     </div>
   </transition>
 </template>

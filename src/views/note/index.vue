@@ -2,20 +2,20 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img src="@/assets/Cnote.svg" class="img" />
+      <img src="@/assets/note/Cnote.svg" class="img" />
 
       <div class="contain">
         <div class="box">
-          <img src="@/assets/Ncreate.svg" class="box-img" />
+          <img src="@/assets/note/Ncreate.svg" class="box-img" />
           <p class="box-text">Create</p>
           <div></div>
         </div>
         <div class="box">
-          <img src="@/assets/Nview.svg" class="box-img" />
+          <img src="@/assets/note/Nview.svg" class="box-img" />
           <p class="box-text">View</p>
         </div>
         <div class="box">
-          <img src="@/assets/Ntrain.svg" class="box-img" />
+          <img src="@/assets/note/Ntrain.svg" class="box-img" />
           <p class="box-text">Train</p>
         </div>
       </div>

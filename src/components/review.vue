@@ -1,7 +1,7 @@
 <template>
   <div class="ireview">
     <div class="rev_box">
-      <img class="review_img" src="@/assets/profile.png" />
+      <img class="review_img" src="@/assets/general/profile.png" />
       <div class="content">
         <p class="name">Sakura Chan</p>
         <div class="rline">

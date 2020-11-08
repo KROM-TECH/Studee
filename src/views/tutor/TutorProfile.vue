@@ -2,9 +2,14 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img class="profile_img" src="@/assets/profile.png" />
+      <img class="profile_img" src="@/assets/general/profile.png" />
       <Rating :selected="5" style="margin-top:4px" />
       <p class="rate">5.0 / 5.0</p>
+      <p class="bio">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, quae ab nam ipsa fugiat
+        molestiae dolor quisquam dolore dignissimos illum, autem cum eum inventore accusantium esse
+        quas atque corrupti. Ipsam!
+      </p>
       <!-- <img src="https://miro.medium.com/max/587/1*JeI9eP6upNk-1uQ3Z62Tvw.png" /> -->
       <div class="contain">
         <div class="box">
@@ -76,7 +81,14 @@ export default {
 .rate {
   font-weight: 550;
   color: #6c63ff;
+  font-size: 16px;
+}
+.bio {
+  color: #6c63ff;
   font-size: 18px;
+  width: 90vw;
+  max-width: 450px;
+  text-align: center;
 }
 .box {
   margin: 5px 30px;

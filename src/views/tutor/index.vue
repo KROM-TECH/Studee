@@ -2,17 +2,17 @@
   <div>
     <Menu></Menu>
     <main class="fade">
-      <img src="@/assets/Ctutor.svg" class="img" />
+      <img src="@/assets/tutor/tutor.svg" class="img" />
 
       <div class="contain">
-        <div class="box">
-          <img src="@/assets/tutor_profile.svg" class="box-img" />
+        <div class="box" @click="your_profile">
+          <img src="@/assets/tutor/tutor_profile.svg" class="box-img" />
           <p class="box-text">Your Profile</p>
           <div></div>
         </div>
 
         <div class="box" @click="find_tutor">
-          <img src="@/assets/tutor_search.svg" class="box-img" />
+          <img src="@/assets/tutor/tutor_search.svg" class="box-img" />
           <p class="box-text">Find Tutor</p>
         </div>
       </div>
@@ -34,6 +34,9 @@ export default {
   methods: {
     find_tutor() {
       this.$router.push({ name: "Find" });
+    },
+    your_profile() {
+      this.$router.push({ name: "YourProfile" });
     },
   },
 };

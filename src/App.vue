@@ -61,7 +61,7 @@ body {
 }
 
 .bg {
-  background: url(assets/bg.svg);
+  background: url(assets/general/bg.svg);
   position: absolute;
   background-size: cover;
   min-width: 100vw;

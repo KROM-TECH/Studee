@@ -140,7 +140,7 @@
             </div>
 
             <div class="empty" v-else>
-              <img src="@/assets/empty.svg" class="img" alt="" />
+              <img src="@/assets/general/empty.svg" class="img" alt="" />
               <p>
                 Oops, Not Found,
                 <a href="http://">Click here </a> to make a request

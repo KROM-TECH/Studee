@@ -1,12 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Landing from "../views/Landing.vue";
+import Landing from "@/views/general/Landing.vue";
 import firebase from "firebase/app";
 import "firebase/auth";
+import tutorRoutes from './tutor'
 
 Vue.use(VueRouter);
 
 const routes = [
+  ...tutorRoutes,
   {
     path: "/",
     name: "Landing",
@@ -18,15 +20,15 @@ const routes = [
   {
     path: "/signup",
     name: "Signup",
-    component: () => import("../views/auth/Signup.vue"),
+    component: () => import("@/views/auth/Signup.vue"),
     meta: {
       requiresGuest: true,
     },
   },
-  {
+  { 
     path: "/login",
     name: "Login",
-    component: () => import("../views/auth/Login.vue"),
+    component: () => import("@/views/auth/Login.vue"),
     meta: {
       requiresGuest: true,
     },
@@ -34,7 +36,7 @@ const routes = [
   {
     path: "/forgot",
     name: "Forgot",
-    component: () => import("../views/auth/Forget.vue"),
+    component: () => import("@/views/auth/Forget.vue"),
     meta: {
       requiresGuest: true,
     },
@@ -42,7 +44,7 @@ const routes = [
   {
     path: "/verify",
     name: "Verify",
-    component: () => import("../views/auth/Verify.vue"),
+    component: () => import("@/views/auth/Verify.vue"),
     meta: {
       requiresVerify: true,
     },
@@ -50,7 +52,7 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    component: () => import("../views/Home.vue"),
+    component: () => import("@/views/general/Home.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -58,7 +60,7 @@ const routes = [
   {
     path: "/submit",
     name: "Submit",
-    component: () => import("../views/Submit.vue"),
+    component: () => import("@/views/general/Submit.vue"),
     // meta: {
     //   requiresAuth: true,
     // },
@@ -66,47 +68,16 @@ const routes = [
   {
     path: "/courses",
     name: "Courses",
-    component: () => import("../views/Courses.vue"),
+    component: () => import("@/views/general/Courses.vue"),
     meta: {
       requiresAuth: true,
     },
   },
-  {
-    path: "/tutor",
-    name: "Tutor",
-    component: () => import("../views/tutor"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/tutor/find",
-    name: "Find",
-    component: () => import("../views/tutor/Find.vue"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/tutor/profile/:id",
-    name: "TutorProfile",
-    component: () => import("../views/tutor/TutorProfile.vue"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/tutor/find/:id",
-    name: "Find",
-    component: () => import("../views/tutor/Query_Tutors.vue"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
+  
   {
     path: "/chat",
     name: "Chat",
-    component: () => import("../views/chat/"),
+    component: () => import("@/views/chat/"),
     meta: {
       requiresAuth: true,
     },
@@ -114,7 +85,7 @@ const routes = [
   {
     path: "/tte",
     name: "Tte",
-    component: () => import("../views/tte/"),
+    component: () => import("@/views/tte/"),
     meta: {
       requiresAuth: true,
     },
@@ -122,7 +93,7 @@ const routes = [
   {
     path: "/note",
     name: "Note",
-    component: () => import("../views/note/"),
+    component: () => import("@/views/note/"),
     meta: {
       requiresAuth: true,
     },
@@ -130,7 +101,7 @@ const routes = [
   {
     path: "/Pastquestions",
     name: "PastQuestions",
-    component: () => import("../views/PastQuestions.vue"),
+    component: () => import("@/views/general/PastQuestions.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -138,7 +109,7 @@ const routes = [
   {
     path: "/profile",
     name: "Profile",
-    component: () => import("../views/Profile.vue"),
+    component: () => import("@/views/general/Profile.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -146,7 +117,7 @@ const routes = [
   {
     path: "/payment",
     name: "Payment",
-    component: () => import("../views/Payment.vue"),
+    component: () => import("@/views/general/Payment.vue"),
     meta: {
       requiresAuth: true,
     },

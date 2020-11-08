@@ -3,7 +3,7 @@
     <Loader v-show="loader" />
     <div class="container">
       <div class="rowOne">
-        <img src="@/assets/Logo.svg" class="res-img" alt="" />
+        <img src="@/assets/general/Logo.svg" class="res-img" alt="" />
         <h1 class="title">Login</h1>
         <p class="err">{{ Error }}</p>
         <form @submit.prevent="handleSubmit">
@@ -33,7 +33,7 @@
               style="border: 2px solid #b23121; color:#b23121"
             >
               <img
-                src="@/assets/google-icon.svg"
+                src="@/assets/auth/google-icon.svg"
                 class="res-img book"
                 style="width:20px; margin-right:8%"
                 alt=""
@@ -46,7 +46,7 @@
               style="border: 2px solid #00acee; color:#00acee"
             >
               <img
-                src="@/assets/twitter-icon.svg"
+                src="@/assets/auth/twitter-icon.svg"
                 class="res-img book"
                 style="width:20px; margin-right:8%"
                 alt=""
@@ -59,7 +59,7 @@
               style="border: 1px solid #3b5998; color:#3b5998"
             >
               <img
-                src="@/assets/facebook-icon.svg"
+                src="@/assets/auth/facebook-icon.svg"
                 class="res-img book"
                 style="width:20px; margin-right:8%"
                 alt=""
@@ -70,7 +70,7 @@
         </form>
       </div>
       <div class="rowTwo">
-        <img src="@/assets/book.svg" style="width:100%" class="res-img book" alt="" />
+        <img src="@/assets/auth/book.svg" style="width:100%" class="res-img book" alt="" />
       </div>
     </div>
   </div>
