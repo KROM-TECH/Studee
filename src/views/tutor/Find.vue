@@ -62,7 +62,7 @@
         <div v-show="type == 'state'">
           <div class="input-field">
             <label>Select Your State</label>
-            <select v-model="state" id="faculty">
+            <select v-model="state">
               <option value="" disabled selected>Choose your option</option>
               <option v-for="state in States" :key="state.name" :value="state.name" class="left">{{
                 state.name
@@ -72,7 +72,7 @@
 
           <div class="input-field">
             <label>Select Your Class</label>
-            <select v-model="Class" id="faculty">
+            <select v-model="Class" >
               <option value="" disabled selected>Choose your option</option>
               <option
                 v-for="Class in Classes"
@@ -86,7 +86,7 @@
 
           <div class="input-field">
             <label>Select Your Subject</label>
-            <select v-model="subject" id="faculty">
+            <select v-model="subject" >
               <option value="" disabled selected>Choose your option</option>
               <option
                 v-for="subject in Subjects"
@@ -173,7 +173,7 @@ import Classes from "@/helpers/classes";
 import Subjects from "@/helpers/subject";
 // import firebase from "firebase/app";
 // import "firebase/firestore";
-import Loader from "@/components/Loader";
+import Loader from "@/components/Loader"; 
 export default {
   components: {
     Menu,

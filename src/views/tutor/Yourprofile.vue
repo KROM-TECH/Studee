@@ -31,6 +31,7 @@
         <div class="toggle-switch"></div>
         <span class="toggle-label" :class="{ NA: !available }">Available</span>
       </label>
+
       <div class="contain">
         <div class="box">
           <p class="head">Display Name</p>
@@ -43,36 +44,116 @@
           />
         </div>
         <div class="box">
-          <p class="head">University / Location</p>
-          <input
-            type="email"
-            placeholder="Enter your University / Location"
+          <p class="head">Select Your Type</p>
+          <select
             :disabled="!active"
             :class="active ? 'active' : ''"
-            v-model="uni_location"
-          />
+            v-model="type"
+            id="university"
+          >
+            <option value="" disabled>Type</option>
+            <option value="university">University</option>
+            <option value="state">State</option>
+            <option value="remote">Remote</option>
+          </select>
         </div>
       </div>
-      <div class="contain">
-        <div class="box">
-          <p class="head">Courses / Subjects</p>
-          <input
-            v-model="courses_subjects"
-            type="text"
-            placeholder="Enter your Courses / Subjects"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-          />
+      <div v-show="type == 'university'">
+        <div class="contain">
+          <div class="box">
+            <p class="head">Select Your University</p>
+            <select
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="uni_location"
+              id="university"
+            >
+              <option value="" disabled selected>Choose your option</option>
+              <option
+                v-for="university in Universities"
+                :key="university.name"
+                :value="university.name"
+                >{{ university.name }}</option
+              >
+            </select>
+          </div>
+          <div class="box">
+            <p class="head">Select Your Faculty</p>
+            <select :disabled="!active" :class="active ? 'active' : ''" v-model="faculty">
+              <option value="" disabled selected>Choose your option</option>
+              <option v-for="faculty in Faculties" :key="faculty.value" :value="faculty.value">{{
+                faculty.name
+              }}</option>
+            </select>
+          </div>
         </div>
-        <div class="box">
-          <p class="head">Rate per hour</p>
-          <input
-            type="number"
-            placeholder="Enter your Rate per hour"
-            :disabled="!active"
-            :class="active ? 'active' : ''"
-            v-model="rate"
-          />
+
+        <div class="contain" v-show="type == 'university'">
+          <div class="box">
+            <p class="head">Select Your Level</p>
+            <select :disabled="!active" :class="active ? 'active' : ''" v-model="level">
+              <option value="" disabled selected>Choose your option</option>
+              <option v-for="level in Levels" :key="level.value" :value="level.value">{{
+                level.name
+              }}</option>
+            </select>
+          </div>
+          <div class="box">
+            <p class="head">Rate per hour</p>
+            <input
+              type="number"
+              placeholder="Enter your Rate per hour"
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="rate"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <div v-show="type == 'state'">
+        <div class="contain">
+          <div class="box">
+            <p class="head">Select Your state</p>
+            <select :disabled="!active" :class="active ? 'active' : ''" v-model="uni_location">
+              <option value="" disabled selected>Choose your option</option>
+              <option v-for="state in States" :key="state.name" :value="state.name">{{
+                state.name
+              }}</option>
+            </select>
+          </div>
+          <div class="box">
+            <p class="head">Select Your Class</p>
+            <select :disabled="!active" :class="active ? 'active' : ''" v-model="Class">
+              <option value="" disabled selected>Choose your option</option>
+              <option v-for="Class in Classes" :key="Class.name" :value="Class.value">{{
+                Class.name
+              }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="contain" v-show="type == 'state'">
+          <div class="box">
+            <p class="head">Select Your Subject</p>
+            <select :disabled="!active" :class="active ? 'active' : ''" v-model="subject">
+              <option value="" disabled selected>Choose your option</option>
+              <option v-for="subject in Subjects" :key="subject.name" :value="subject.name">{{
+                subject.name
+              }}</option>
+            </select>
+          </div>
+          <div class="box">
+            <p class="head">Rate per hour</p>
+            <input
+              type="number"
+              placeholder="Enter your Rate per hour"
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="rate"
+            />
+          </div>
         </div>
       </div>
 
@@ -95,7 +176,7 @@
       <button
         v-if="active"
         class="btn Obtn"
-        :disabled="!display_name || !uni_location || !courses_subjects || !rate || !bio"
+        :disabled="!display_name || !uni_location || !rate || !bio"
         @click="save"
       >
         Save
@@ -116,6 +197,12 @@
 import Menu from "@/components/Menu";
 import Loader from "@/components/Loader";
 import firebase from "firebase/app";
+import Faculties from "@/helpers/faculties";
+import Levels from "@/helpers/level";
+import Universities from "@/helpers/universities";
+import States from "@/helpers/states";
+import Classes from "@/helpers/classes";
+import Subjects from "@/helpers/subject";
 import "firebase/firestore";
 import "firebase/auth";
 
@@ -126,13 +213,26 @@ export default {
   },
   data() {
     return {
+      Faculties,
+      Levels,
+      Universities,
+      States,
+      Classes,
+      Subjects,
+
       err: "",
+
+      faculty: "",
+      level: "",
+      Class: "",
+      subject: "",
       showModal: false,
-      loader: false,
+      loader: true,
       empty: true,
       active: false,
       available: true,
 
+      type: "",
       display_name: "",
       uni_location: "",
       courses_subjects: "",
@@ -149,10 +249,14 @@ export default {
       this.loader = true;
       this.active = !this.active;
       const profile = {
+        type: this.type,
         available: this.available,
         display_name: this.display_name,
         uni_location: this.uni_location,
-        courses_subjects: this.courses_subjects,
+        faculty: this.faculty,
+        level: this.level,
+        Class: this.Class,
+        subject: this.subject,
         rate: this.rate,
         bio: this.bio,
       };
@@ -178,14 +282,33 @@ export default {
         .collection(`tutors`)
         .doc(firebase.auth().currentUser.uid)
         .get()
-        .then(() => {
-          console.log("object");
+        .then((snapshot) => {
+          if (snapshot.exists) {
+            this.available = snapshot.data().available;
+            this.display_name = snapshot.data().display_name;
+            this.uni_location = snapshot.data().uni_location;
+            this.rate = snapshot.data().rate;
+            this.type = snapshot.data().type;
+            this.faculty = snapshot.data().faculty;
+            this.level = snapshot.data().level;
+            this.Class = snapshot.data().Class;
+            this.subject = snapshot.data().subject;
+
+            this.empty = false;
+            this.loader = false;
+          } else {
+            this.loader = false;
+          }
         })
         .catch((error) => {
           this.loader = false;
           console.log("Error getting documents: ", error);
         });
     },
+  },
+
+  created() {
+    this.fetch_tutor();
   },
 };
 </script>

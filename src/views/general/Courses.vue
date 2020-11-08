@@ -127,7 +127,7 @@ export default {
       this.showModal = true;
       console.log(this.university, this.faculty, this.level);
       firebase
-        .firestore()
+        .firestore() 
         .collection(`course_outline`)
         .doc(this.university)
         .collection(this.faculty)
