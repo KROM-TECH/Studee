@@ -78,7 +78,7 @@
             </select>
           </div>
           <div class="box">
-            <p class="head">Select Your Faculty</p>
+            <p class="head">Select the Faculty you teach</p>
             <select :disabled="!active" :class="active ? 'active' : ''" v-model="faculty">
               <option value="" disabled selected>Choose your option</option>
               <option v-for="faculty in Faculties" :key="faculty.value" :value="faculty.value">{{
@@ -90,7 +90,7 @@
 
         <div class="contain" v-show="type == 'university'">
           <div class="box">
-            <p class="head">Select Your Level</p>
+            <p class="head">Select the Level you teach</p>
             <select :disabled="!active" :class="active ? 'active' : ''" v-model="level">
               <option value="" disabled selected>Choose your option</option>
               <option v-for="level in Levels" :key="level.value" :value="level.value">{{
@@ -115,7 +115,7 @@
       <div v-show="type == 'state'">
         <div class="contain">
           <div class="box">
-            <p class="head">Select Your state</p>
+            <p class="head">Select the state you at</p>
             <select :disabled="!active" :class="active ? 'active' : ''" v-model="uni_location">
               <option value="" disabled selected>Choose your option</option>
               <option v-for="state in States" :key="state.name" :value="state.name">{{
@@ -124,7 +124,7 @@
             </select>
           </div>
           <div class="box">
-            <p class="head">Select Your Class</p>
+            <p class="head">Select the Classes you teach</p>
             <select :disabled="!active" :class="active ? 'active' : ''" v-model="Class">
               <option value="" disabled selected>Choose your option</option>
               <option v-for="Class in Classes" :key="Class.name" :value="Class.value">{{
@@ -136,7 +136,7 @@
 
         <div class="contain" v-show="type == 'state'">
           <div class="box">
-            <p class="head">Select Your Subject</p>
+            <p class="head">Select the Subject you teach</p>
             <select :disabled="!active" :class="active ? 'active' : ''" v-model="subject">
               <option value="" disabled selected>Choose your option</option>
               <option v-for="subject in Subjects" :key="subject.name" :value="subject.name">{{
@@ -247,7 +247,6 @@ export default {
     },
     save() {
       this.loader = true;
-      this.active = !this.active;
       const profile = {
         type: this.type,
         available: this.available,
@@ -268,11 +267,13 @@ export default {
         .doc(firebase.auth().currentUser.uid)
         .set(profile)
         .then(() => {
+          this.active = !this.active;
           this.loader = false;
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log(err);
           this.loader = false;
-          this.err = `Oop Something went wrong <br> try again`;
+          this.err = `Oop Something went wrong  try again`;
         });
     },
 

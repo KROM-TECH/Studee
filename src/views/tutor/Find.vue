@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Loader v-show="loader" />
+    <Loader v-if="loader" />
     <Menu />
     <main class="fade">
       <h1>Find A tutor</h1>
@@ -72,7 +72,7 @@
 
           <div class="input-field">
             <label>Select Your Class</label>
-            <select v-model="Class" >
+            <select v-model="Class">
               <option value="" disabled selected>Choose your option</option>
               <option
                 v-for="Class in Classes"
@@ -86,7 +86,7 @@
 
           <div class="input-field">
             <label>Select Your Subject</label>
-            <select v-model="subject" >
+            <select v-model="subject">
               <option value="" disabled selected>Choose your option</option>
               <option
                 v-for="subject in Subjects"
@@ -105,6 +105,7 @@
             class="btn Obtn btn-large"
             style="width: 10rem; border: 2px solid rgb(108, 99, 255);"
             :disabled="!university || !faculty || !level"
+            @click="find_uni_tutor"
           >
             Find
           </button>
@@ -122,24 +123,7 @@
       <section>
         <transition name="slide" appear>
           <div class="modall" v-if="showModal">
-            <h1 class="h1">Course Outline</h1>
-            <div class="coursebox" v-if="course_Outline.length">
-              <details v-for="courses in course_Outline" :key="courses.title">
-                <summary
-                  ><h5>{{ courses.code }}</h5>
-                  <h5>{{ courses.semester }}</h5></summary
-                >
-                <p>
-                  <span class="topic">
-                    <span class="left">{{ courses.title }}</span>
-                    <span class="right">{{ courses.Unit }}</span></span
-                  >
-                  {{ courses.outline }}
-                </p>
-              </details>
-            </div>
-
-            <div class="empty" v-else>
+            <div class="empty">
               <img src="@/assets/general/empty.svg" class="img" alt="" />
               <p>
                 Oops, Not Found,
@@ -165,19 +149,21 @@
 
 <script>
 import Menu from "@/components/Menu";
+// import Query from "@/views/tutor/Query_Tutors";
 import Faculties from "@/helpers/faculties";
 import Levels from "@/helpers/level";
 import Universities from "@/helpers/universities";
 import States from "@/helpers/states";
 import Classes from "@/helpers/classes";
 import Subjects from "@/helpers/subject";
-// import firebase from "firebase/app";
-// import "firebase/firestore";
-import Loader from "@/components/Loader"; 
+import firebase from "firebase/app";
+import "firebase/firestore";
+import Loader from "@/components/Loader";
 export default {
   components: {
     Menu,
     Loader,
+    // Query,
   },
   data() {
     return {
@@ -197,10 +183,35 @@ export default {
       subject: "",
       showModal: false,
       loader: false,
-      course_Outline: [],
+      tutors: [],
     };
   },
-  methods: {},
+  methods: {
+    find_uni_tutor() {
+      this.loader = true;
+      firebase
+        .firestore()
+        .collection(`tutors`)
+        .where("uni_location", "==", this.university)
+        .where("faculty", "==", this.faculty)
+        .where("level", "==", this.level)
+        .get()
+        .then((querySnapshot) => {
+          console.log(querySnapshot.docs);
+          querySnapshot.forEach((doc) => {
+            this.tutors.push(doc.data());
+          });
+          console.log(this.tutors);
+          localStorage.setItem("querytutor", JSON.stringify(this.tutors));
+          this.$router.push({ name: "QueriedTutors" });
+          this.loader = false;
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log("Error getting documents: ", error);
+        });
+    },
+  },
 };
 </script>
 

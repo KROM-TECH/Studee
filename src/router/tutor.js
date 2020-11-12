@@ -25,7 +25,7 @@ export default [
       },
       {
         path: "/tutor/find/:id",
-        name: "Find",
+        name: "QueriedTutors",
         component: () => import("../views/tutor/Query_Tutors.vue"),
         meta: {
           requiresAuth: true,
