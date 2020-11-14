@@ -164,7 +164,7 @@ input {
   border-bottom: 1.9px solid #6c63ff;
   margin: 10px 2px;
   background-color: rgba(151, 145, 246, 0.3);
-  width: 20rem;
+  width: 300px;
   height: 2.4rem;
   max-width: 20rem;
   max-height: 2.4rem;
@@ -180,6 +180,9 @@ input:focus {
   color: #6c63ff;
 }
 @media screen and (max-width: 865px) {
+  input {
+    max-width: 95vw;
+  }
   .rowTwo {
     display: none;
   }

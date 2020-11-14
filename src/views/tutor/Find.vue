@@ -14,6 +14,7 @@
             <option value="remote">Remote</option>
           </select>
         </div>
+      
 
         <div v-show="type == 'university'">
           <div class="input-field">
