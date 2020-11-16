@@ -14,6 +14,9 @@
   transition: 0.3s;
   overflow-x: hidden;
 }
+.box {
+  overflow: hidden;
+}
 .btn {
   width: 155px;
   height: 37px;
@@ -66,6 +69,7 @@ body {
   background-size: cover;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 main {
   display: flex;

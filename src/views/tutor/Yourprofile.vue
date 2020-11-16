@@ -1,6 +1,7 @@
 <template>
   <div>
     <Menu />
+    <Error v-if="error" />
     <Loader v-show="loader" />
     <div class="modal">
       <transition name="slide" appear>
@@ -196,6 +197,7 @@
 <script>
 import Menu from "@/components/Menu";
 import Loader from "@/components/Loader";
+import Error from "@/components/Error";
 import firebase from "firebase/app";
 import Faculties from "@/helpers/faculties";
 import Levels from "@/helpers/level";
@@ -210,6 +212,7 @@ export default {
   components: {
     Menu,
     Loader,
+    Error,
   },
   data() {
     return {
@@ -221,6 +224,7 @@ export default {
       Subjects,
 
       err: "",
+      error: false,
 
       faculty: "",
       level: "",
@@ -302,6 +306,7 @@ export default {
           }
         })
         .catch((error) => {
+          this.error = true;
           this.loader = false;
           console.log("Error getting documents: ", error);
         });

@@ -4,11 +4,13 @@ import Landing from "@/views/general/Landing.vue";
 import firebase from "firebase/app";
 import "firebase/auth";
 import tutorRoutes from './tutor'
+import askQuestionsRoutes from './askQuestions'
 
 Vue.use(VueRouter);
 
 const routes = [
   ...tutorRoutes,
+  ...askQuestionsRoutes,
   {
     path: "/",
     name: "Landing",

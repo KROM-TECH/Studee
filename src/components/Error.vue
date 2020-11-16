@@ -1,24 +1,43 @@
 <template>
   <transition name="slide" appear>
     <div class="body">
-      <img src="@/assets/general/Logo.svg" class="res-img grow" alt="" />
+      <img src="@/assets/general/error.svg" class="res-img grow" alt="" />
+      <p class="text">
+        Oops, Looks like something went wrong <br />Check your network and wifi connection and try
+        again
+      </p>
+      <button class="btn Obtn btn-large" style="border:2px solid; margin-top:1rem;" @click="reload">
+        Reload
+      </button>
     </div>
   </transition>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    reload() {
+      location.reload();
+    },
+  },
+};
 </script>
 
 <style scoped>
+.text {
+  text-align: center;
+  color: #6c63ff;
+  font-weight: 550;
+  margin: 15px 4px;
+}
 .body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
   position: fixed;
   overflow-x: hidden;
   top: 0;
@@ -26,19 +45,16 @@ export default {};
   background-color: rgb(220, 220, 220);
 }
 .grow {
-  animation: grow 3s forwards infinite;
+  width: 35%;
+  height: auto;
 }
-@keyframes grow {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
+
+@media screen and (max-width: 640px) {
+  .grow {
+    width: 65%;
   }
 }
+
 .slide-enter-active,
 .slide-leave-active {
   transition: 1s;
