@@ -23,5 +23,13 @@ export default [
           requiresAuth: true,
         },
       },
+    {
+        path: "/questions/answer/:id",
+        name: "Answer",
+        component: () => import("@/views/askQuestions/Details"),
+        meta: {
+          requiresAuth: true,
+        },
+      },
       
 ]

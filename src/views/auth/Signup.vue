@@ -89,7 +89,7 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.Email, this.Password)
         .then(() => {
-          this.$router.go({ path: "/verify" });
+          this.$router.push({ path: "/verify" });
         })
         .catch((error) => {
           this.loader = false;
