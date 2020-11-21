@@ -101,6 +101,8 @@ export default {
         .signInWithEmailAndPassword(this.Email, this.Password)
         .then(() => {
           this.$router.push({ path: "/home" });
+        console.log()  
+          this.loader = false;
         })
         .catch((error) => {
           this.loader = false;

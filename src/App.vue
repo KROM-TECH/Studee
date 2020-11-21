@@ -14,6 +14,22 @@
   transition: 0.3s;
   overflow-x: hidden;
 }
+.badge {
+  border-radius: 0.2rem;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0.375rem 0.5625rem;
+  font-weight: normal;
+  color: #fff;
+  background: #6c63ff;
+  margin-right: 12px;
+  margin-top: 4px;
+}
+.badges {
+  display: flex;
+  margin: 7px 0px;
+  flex-wrap: wrap;
+}
 .box {
   overflow: hidden;
 }

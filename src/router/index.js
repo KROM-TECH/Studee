@@ -5,12 +5,14 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import tutorRoutes from './tutor'
 import askQuestionsRoutes from './askQuestions'
+import tte from './tte'
 
 Vue.use(VueRouter);
 
 const routes = [
   ...tutorRoutes,
   ...askQuestionsRoutes,
+  ...tte,
   {
     path: "/",
     name: "Landing",
@@ -84,14 +86,7 @@ const routes = [
       requiresAuth: true,
     },
   },
-  {
-    path: "/tte",
-    name: "Tte",
-    component: () => import("@/views/tte/"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
+
   {
     path: "/note",
     name: "Note",
@@ -132,31 +127,28 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  //check for requiredAuth guard
-  if (to.matched.some((record) => record.meta.requiresAuth) && !firebase.auth().currentUser) {
-    next({
-      name: "Login",
-      query: { redirect: to.fullPath },
+
+
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth && !await firebase.getCurrentUser()){
+    console.log(firebase.getCurrentUser())
+    next({name: "Login"});
+  }else if (
+        to.matched.some((record) => record.meta.requiresAuth) &&
+        !firebase.auth().currentUser.emailVerified
+      ) {
+        next({
+          name: "Verify",
+        });
+      } else if (
+        to.matched.some((record) => record.meta.requiresGuest) &&
+        await firebase.getCurrentUser()
+      ) {
+        next({
+          name: "Home",
+        });
+      } else next();
     });
-  } else if (
-    to.matched.some((record) => record.meta.requiresAuth) &&
-    !firebase.auth().currentUser.emailVerified
-  ) {
-    // console.log(firebase.auth().currentUser.emailVerified)
-    next({
-      name: "Verify",
-      query: { redirect: to.fullPath },
-    });
-  } else if (
-    to.matched.some((record) => record.meta.requiresGuest) &&
-    firebase.auth().currentUser
-  ) {
-    next({
-      name: "Home",
-      query: { redirect: to.fullPath },
-    });
-  } else next();
-});
 
 export default router;

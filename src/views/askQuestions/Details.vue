@@ -11,13 +11,24 @@
         molestiae dolor quisquam dolore dignissimos illum, autem cum eum inventore accusantium esse
         quas atque corrupti. Ipsam!
       </p>
-      <!-- <img src="https://miro.medium.com/max/587/1*JeI9eP6upNk-1uQ3Z62Tvw.png" /> -->
+      <div class="badges">
+        <p class="badge">Math</p>
+        <p class="badge">Unilag</p>
+        <p class="badge">Engineering</p>
+        <p class="badge">Engineering</p>
+        <p class="badge">Engineering</p>
+      </div>
+
+      <div class="badges">
+        <button class="btn  Obtn">Share</button>
+        <button class="btn  Obtn">Answer</button>
+      </div>
 
       <div class="contain">
         <div class="box">
-          <p class="head">Review</p>
+          <p class="head">Answer</p>
           <div class="review_box">
-            <Review v-for="n in 2" :key="n" />
+            <Review v-for="n in 2" :key="n" style="margin:1rem 0.2rem" />
           </div>
         </div>
       </div>
@@ -51,6 +62,10 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+  background-color: #1f1890;
+  color: white !important;
+}
 .review_box {
   background-color: white;
   max-width: 500px;

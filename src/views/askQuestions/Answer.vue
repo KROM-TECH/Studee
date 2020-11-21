@@ -22,6 +22,7 @@
             <p class="badge">Engineering</p>
             <p class="badge">Engineering</p>
           </div>
+
           <p class="date">Posted: 20th November 2016</p>
         </div>
         <div class="opt">
@@ -106,22 +107,7 @@ export default {
   text-align: left;
   color: #372faf;
 }
-.badge {
-  border-radius: 0.2rem;
-  font-size: 12px;
-  line-height: 1;
-  padding: 0.375rem 0.5625rem;
-  font-weight: normal;
-  color: #fff;
-  background: #6c63ff;
-  margin-right: 12px;
-  margin-top: 4px;
-}
-.badges {
-  display: flex;
-  margin: 7px 0px;
-  flex-wrap: wrap;
-}
+
 .content {
   display: flex;
   flex-direction: column;
