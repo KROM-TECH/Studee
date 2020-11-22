@@ -15,6 +15,14 @@ export default [
           requiresAuth: true,
         },
       },
+    {
+        path: "/tte/timetable/:id",
+        name: "ViewTimetable",
+        component: () => import("@/views/tte/ViewTimetable"),
+        meta: {
+          requiresAuth: true,
+        },
+      },
 
       
 ]

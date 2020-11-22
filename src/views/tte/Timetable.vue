@@ -1,8 +1,9 @@
 <template>
   <div>
-    <fab type="timetable" />
+    <Menu />
+    <Fab type="timetable" />
     <main>
-      <div class="card" v-for="n in content" :key="n.text">
+      <div class="card" v-for="n in content" :key="n.text" @click="changePage(n.text)">
         <img :src="n.image" class="img" />
         <span class="text">{{ n.text }}</span>
       </div>
@@ -12,9 +13,10 @@
 
 <script>
 import Fab from "@/components/tte/Fab.vue";
+import Menu from "@/components/Menu.vue";
 
 export default {
-  components: { Fab },
+  components: { Fab, Menu },
   data() {
     return {
       content: [
@@ -27,6 +29,14 @@ export default {
         { image: require("@/assets/tte/sun.svg"), text: "Sunday" },
       ],
     };
+  },
+  methods: {
+    changePage(day) {
+      this.$router.push({
+        name: "ViewTimetable",
+        query: { day: day },
+      });
+    },
   },
 };
 </script>
