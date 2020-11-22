@@ -8,28 +8,13 @@ export default [
         },
       },
     {
-        path: "/questions/ask",
-        name: "Ask",
-        component: () => import("@/views/askQuestions/Ask"),
+        path: "/tte/timetable",
+        name: "Timetable",
+        component: () => import("@/views/tte/Timetable"),
         meta: {
           requiresAuth: true,
         },
       },
-    {
-        path: "/questions/answer",
-        name: "Answer",
-        component: () => import("@/views/askQuestions/Answer"),
-        meta: {
-          requiresAuth: true,
-        },
-      },
-    {
-        path: "/questions/answer/:id",
-        name: "Answer",
-        component: () => import("@/views/askQuestions/Details"),
-        meta: {
-          requiresAuth: true,
-        },
-      },
+
       
 ]

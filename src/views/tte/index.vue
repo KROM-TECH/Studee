@@ -5,7 +5,7 @@
       <img src="@/assets/tte/Ctte.svg" class="img" />
 
       <div class="contain">
-        <div class="box">
+        <div class="box" @click="timetable">
           <img src="@/assets/tte/table.svg" class="box-img" />
           <p class="box-text">TimeTable</p>
           <div></div>
@@ -33,6 +33,11 @@ export default {
     return {
       active: false,
     };
+  },
+  methods: {
+    timetable() {
+      this.$router.push({ name: "Timetable" });
+    },
   },
 };
 </script>
