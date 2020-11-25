@@ -10,7 +10,7 @@ export default [
     {
         path: "/tte/timetable",
         name: "Timetable",
-        component: () => import("@/views/tte/Timetable"),
+        component: () => import("@/views/tte/timetable/Timetable"),
         meta: {
           requiresAuth: true,
         },
@@ -18,7 +18,15 @@ export default [
     {
         path: "/tte/timetable/:id",
         name: "ViewTimetable",
-        component: () => import("@/views/tte/ViewTimetable"),
+        component: () => import("@/views/tte/timetable/ViewTimetable"),
+        meta: {
+          requiresAuth: true,
+        },
+      },
+    {
+        path: "/tte/todo",
+        name: "Todo",
+        component: () => import("@/views/tte/Todo"),
         meta: {
           requiresAuth: true,
         },

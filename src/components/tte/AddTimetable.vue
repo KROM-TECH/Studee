@@ -148,6 +148,7 @@ form {
   overflow: hidden;
 }
 input {
+  background-color: #fff;
   width: 212px !important;
   height: 34px;
   border: 1px solid #6c63ff;
@@ -160,6 +161,7 @@ input {
   color: #6c63ff;
 }
 select {
+  background-color: #fff;
   width: 246px !important;
   height: 34px;
   border: 1px solid #6c63ff;

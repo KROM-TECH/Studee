@@ -10,7 +10,7 @@
           <p class="box-text">TimeTable</p>
           <div></div>
         </div>
-        <div class="box">
+        <div class="box" @click="todo">
           <img src="@/assets/tte/todo.svg" class="box-img" />
           <p class="box-text">To-do</p>
         </div>
@@ -41,6 +41,9 @@ export default {
   methods: {
     timetable() {
       this.$router.push({ name: "Timetable" });
+    },
+    todo() {
+      this.$router.push({ name: "Todo" });
     },
   },
 };
