@@ -16,7 +16,11 @@
         </div>
         <div class="box">
           <img src="@/assets/tte/reminder.svg" class="box-img" />
-          <p class="box-text">Reminder</p>
+          <p class="box-text">Events</p>
+        </div>
+        <div class="box">
+          <img src="@/assets/tte/goals.svg" class="box-img" />
+          <p class="box-text">Goals</p>
         </div>
       </div>
     </main>

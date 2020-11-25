@@ -133,7 +133,8 @@ label {
   margin-bottom: 5px;
 }
 .input_elem {
-  margin: 10px 0px;
+  margin-top: 10px;
+  overflow: hidden;
 }
 ::-webkit-input-placeholder {
   font-size: 16px;
@@ -144,6 +145,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 input {
   width: 212px !important;
