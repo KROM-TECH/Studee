@@ -1,21 +1,54 @@
 <template>
   <div class="modal">
     <transition name="slide" appear>
-      <div class="modall" v-if="show">
+      <div class="modall" v-if="show" @click="close($event)">
         <div class="modal_box">
-          <h3 class="modal_text">Are you sure you want to edit your profile ?</h3>
-          <div class="modal_button">
-            <button class="btn bb Obtn" style="border:2px solid; margin-top:1rem;">
-              Yes
-            </button>
-            <button
-              class="btn bb Obtn"
-              style="border:2px solid; margin-top:1rem;"
-              @click="$emit('close')"
-            >
-              No
-            </button>
-          </div>
+          <form @submit.prevent="save">
+            <div class="input_elem">
+              <label for="day">Day</label>
+              <select v-model="day" id="day" required>
+                <option value="" disabled selected>What day of the week ?</option>
+                <option v-for="day in days" :key="day" :value="day">{{ day }}</option>
+              </select>
+            </div>
+            <div class="input_elem">
+              <label for="day">Subject</label>
+              <input
+                type="text"
+                v-model="subject"
+                required
+                placeholder="What subject do you have ?"
+              />
+            </div>
+            <div class="input_elem">
+              <label for="day">Start Time</label>
+              <input
+                type="time"
+                v-model="Start_Time"
+                required
+                placeholder="What time does this start ?"
+              />
+            </div>
+            <div class="input_elem">
+              <label for="day">End Time</label>
+              <input
+                type="time"
+                v-model="End_Time"
+                required
+                placeholder="What time does this end ?"
+              />
+            </div>
+
+            <div class="input_elem">
+              <label for="day">Importance</label>
+              <select v-model="Importance" id="" required>
+                <option value="" disabled selected>how important is this subject</option>
+                <option v-for="item in important" :key="item" :value="item">{{ item }}</option>
+              </select>
+            </div>
+
+            <button type="submit" class="Obtn btn">Save</button>
+          </form>
         </div>
       </div>
     </transition>
@@ -23,13 +56,119 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from "uuid";
 export default {
   name: "AddTimetable",
   props: ["show"],
+  data() {
+    return {
+      day: "",
+      subject: "",
+      Start_Time: "",
+      End_Time: "",
+      Importance: "",
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      important: ["Extremely", "Normal", "Not"],
+    };
+  },
+  computed: {
+    timetable() {
+      return {
+        id: uuidv4(),
+        day: this.day,
+        subject: this.subject,
+        start: this.Start_Time,
+        end: this.End_Time,
+        importance: this.Importance,
+      };
+    },
+  },
+  methods: {
+    close(e) {
+      if (e.target.className == "modall") {
+        this.$emit("close");
+      }
+    },
+    reset() {
+      this.day = "";
+      this.subject = "";
+      this.Start_Time = "";
+      this.End_Time = "";
+      this.Importance = "";
+    },
+    addToLocalStorageArray(value) {
+      var existing_timetable = localStorage.getItem("timeTable");
+
+      if (existing_timetable == null) {
+        existing_timetable = [];
+        // Add new data to localStorage Array
+        existing_timetable.push(value);
+        // Save back to localStorage
+        localStorage.setItem("timeTable", JSON.stringify(existing_timetable));
+      } else {
+        existing_timetable = JSON.parse(existing_timetable);
+        // Add new data to localStorage Array
+        existing_timetable.push(value);
+        // Save back to localStorage
+        localStorage.setItem("timeTable", JSON.stringify(existing_timetable));
+      }
+    },
+    save() {
+      this.addToLocalStorageArray(this.timetable);
+      this.$emit("close");
+      this.$store.commit("updateTimetable");
+      this.reset();
+    },
+  },
 };
 </script>
 
 <style scoped>
+label {
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+  color: #6c63ff;
+  letter-spacing: 0px;
+  margin-bottom: 5px;
+}
+.input_elem {
+  margin: 10px 0px;
+}
+::-webkit-input-placeholder {
+  font-size: 16px;
+  text-align: start;
+  color: #6c63ff;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  width: 212px !important;
+  height: 34px;
+  border: 1px solid #6c63ff;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 0px 1rem;
+  font-size: 16px;
+  text-align: start;
+  color: #6c63ff;
+}
+select {
+  width: 246px !important;
+  height: 34px;
+  border: 1px solid #6c63ff;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 0px 1rem;
+  font-size: 16px;
+  text-align: center;
+  color: #6c63ff;
+}
 .modal_box {
   background-color: #fff;
   display: flex;
@@ -37,8 +176,8 @@ export default {
   align-items: center;
   justify-content: center;
   width: 84vw;
+  padding: 2.2rem 0rem;
   max-width: 480px;
-  height: 185px;
 }
 .modal_text {
   color: #6c63ff;

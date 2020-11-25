@@ -22,7 +22,7 @@ export default {
       content: [
         { image: require("@/assets/tte/mon.svg"), text: "Monday" },
         { image: require("@/assets/tte/tue.svg"), text: "Tuesday" },
-        { image: require("@/assets/tte/wed.svg"), text: "Wesnesday" },
+        { image: require("@/assets/tte/wed.svg"), text: "Wednesday" },
         { image: require("@/assets/tte/thur.svg"), text: "Thursday" },
         { image: require("@/assets/tte/fri.svg"), text: "Friday" },
         { image: require("@/assets/tte/sat.svg"), text: "Saturday" },

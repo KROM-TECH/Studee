@@ -96,6 +96,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 export default {
+  name: "Menu",
   data() {
     return {
       sideNav: { show: "false", sign: "menu" },

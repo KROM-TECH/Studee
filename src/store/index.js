@@ -4,8 +4,15 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    timetable:[],
+  },
+  mutations: {
+    updateTimetable(state){
+      state.timetable = JSON.parse(localStorage.getItem("timeTable"))
+      console.log('hello')
+    }
+  },
   actions: {},
   modules: {
   }

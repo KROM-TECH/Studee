@@ -123,9 +123,9 @@ main {
 .dotsContainer #dot2,
 .dotsContainer #dot3 {
   width: 10px;
-  height: 25px;
+  height: 10px;
   background: #6c63ff;
-  border-radius: 20%;
+  border-radius: 100%;
   margin: 5px;
   transition: all 0.5s ease-in-out;
 }
