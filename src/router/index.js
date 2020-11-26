@@ -95,8 +95,31 @@ const routes = [
       requiresAuth: true,
     },
   },
-
-]; 
+  {
+    path: "/Pastquestions",
+    name: "PastQuestions",
+    component: () => import("@/views/general/PastQuestions.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => import("@/views/general/Profile.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/payment",
+    name: "Payment",
+    component: () => import("@/views/general/Payment.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+];
 
 const router = new VueRouter({
   mode: "history",
