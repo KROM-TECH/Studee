@@ -7,7 +7,7 @@
       <h2 style="margin:0" class="center">
         verify your Email to Proceed
       </h2>
-      <button v-if="btn" class="btn Obtn " @click="verify">Verify</button>
+      <button v-if="user" class="btn Obtn " @click="verify">Verify</button>
       <p v-else class="center pur-text">{{ msg }}</p>
     </div>
   </div>
@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       msg: "",
-      btn: true,
       loader: false,
+      user: null,
     };
   },
   methods: {
@@ -37,16 +37,15 @@ export default {
         .auth()
         .currentUser.sendEmailVerification()
         .then(() => {
+          console.log(firebase.auth().currentUser.Email);
           this.loader = false;
-          this.btn = false;
-          this.msg = `A Verification Link has been sent to Your Email @${
-            firebase.auth().currentUser.Email
-          }`;
+          this.user = false;
+          this.msg = `A Verification Link has been sent to Your Email`;
         })
         .catch((error) => {
           console.log(error.message);
           this.loader = false;
-          this.btn = false;
+          this.user = false;
           this.msg = `Something went wrong, check your network and then reload the page`;
         });
     },
@@ -55,7 +54,8 @@ export default {
     if (!firebase.auth().currentUser) {
       this.$router.push({ path: "login" });
     } else {
-      return;
+      this.user = firebase.auth().currentUser;
+      console.log(this.user);
     }
   },
 };

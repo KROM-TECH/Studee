@@ -49,19 +49,21 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (requiresAuth && !store.getters.isloggedin){
+  if (requiresAuth && !store.getters.user){
     console.log('1')
     next({name: "Login"});
-  }else if (
-    requiresAuth && !store.getters.verified
-      ) {
-        console.log('2')
-        next({
-          name: "Verify",
-        });
-      } else if (
+  }
+  // else if (
+  //   requiresAuth && !store.getters.verified
+  //     ) {
+  //       console.log('2')
+  //       next({
+  //         name: "Verify",
+  //       });
+  //     } 
+      else if (
         to.matched.some((record) => record.meta.requiresGuest) &&
-        store.getters.isloggedin
+        store.getters.user
       ) {
         console.log('3')
         next({

@@ -5,20 +5,20 @@
       <div class="rowOne">
         <img src="@/assets/general/Logo.svg" class="res-img" alt="" />
         <h1 class="title">Login</h1>
-        <p class="err">{{ Error }}</p>
+        <p class="err">{{ error }}</p>
         <form @submit.prevent="handleSubmit">
           <div class="form-input">
             <label> Username</label>
-            <input type="text" v-model="Email" placeholder="Enter your Username" />
+            <input type="text" v-model="email" required placeholder="Enter your Username" />
           </div>
 
           <div class="form-input">
             <label> password</label>
-            <input type="password" v-model="Password" placeholder="Enter Your password" />
+            <input type="password" v-model="password" required placeholder="Enter Your password" />
           </div>
 
           <div class="extra">
-            <a href="/forgot">Forgot Password</a>
+            <a href="/forgot">Forgot password</a>
             <a href="/signup">Create Account</a>
           </div>
 
@@ -77,8 +77,6 @@
 </template>
 
 <script>
-import firebase from "firebase/app";
-import "firebase/auth";
 import Loader from "@/components/Loader";
 export default {
   components: {
@@ -86,29 +84,34 @@ export default {
   },
   data() {
     return {
-      Email: "",
-      Password: "",
-      Error: "",
-      loader: false,
+      email: "",
+      password: "",
     };
   },
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    },
+    error() {
+      return this.$store.getters.error;
+    },
+    loader() {
+      return this.$store.getters.loading;
+    },
+  },
+  watch: {
+    user(value) {
+      this.$router.go({ path: "/verify" });
+      if (value !== null && value !== undefined) {
+        this.$router.go({ path: "/home" });
+      }
+    },
+  },
   methods: {
-    handleSubmit() {
-      this.loader = true;
-      console.log(this.Email, this.Password);
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.Email, this.Password)
-        .then((user) => {
-          this.$store.commit("setUser", user);
-          this.$router.go({ path: "/home" });
-          this.loader = false;
-        })
-        .catch((error) => {
-          this.loader = false;
-          console.log(error.message);
-          this.Error = error.message;
-        });
+    async handleSubmit() {
+      console.log("32");
+      await this.$store.dispatch("signUserIn", { email: this.email, password: this.password });
+      console.log("23");
     },
   },
 };
