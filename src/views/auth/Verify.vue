@@ -39,9 +39,7 @@ export default {
         .then(() => {
           this.loader = false;
           this.btn = false;
-          this.msg = `A Verification Link has been sent to Your Email @${
-            firebase.auth().currentUser.Email
-          }`;
+          this.msg = `A Verification Link has been sent to Your Email `;
         })
         .catch(() => {
           this.loader = false;
