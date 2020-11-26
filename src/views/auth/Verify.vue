@@ -39,8 +39,8 @@ export default {
         .then(() => {
           console.log(firebase.auth().currentUser.Email);
           this.loader = false;
-          this.user = false;
-          this.msg = `A Verification Link has been sent to Your Email`;
+          this.btn = false;
+          this.msg = `A Verification Link has been sent to Your Email `;
         })
         .catch((error) => {
           console.log(error.message);

@@ -168,6 +168,9 @@ main {
   align-items: center;
   justify-content: center;
 }
+.bb {
+  width: 100px !important;
+}
 .slide-enter-active,
 .slide-leave-active {
   transition: transform 0.5s;

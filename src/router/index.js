@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Landing from "@/views/general/Landing.vue";
 import firebase from "firebase/app";
 import "firebase/auth";
 import tutorRoutes from './tutor'

@@ -6,27 +6,27 @@
         <div class="row">
           <div v-if="auth">
             <router-link class="box" to="/home" style="margin: 1rem;">
-              <img src="../assets/menu/home.svg" class="res-img" alt="" />
+              <img src="@/assets/menu/home.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Home</h3>
           </div>
           <div v-else>
             <router-link class="box" to="/" style="margin: 1rem;">
-              <img src="../assets/menu/home.svg" class="res-img" alt="" />
+              <img src="@/assets/menu/home.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Home</h3>
           </div>
 
           <div>
             <router-link class="box" to="/pastquestions" style="margin: 1rem;">
-              <img src="../assets/menu/pq.svg" class="res-img" alt="" />
+              <img src="@/assets/menu/pq.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Past Questions</h3>
           </div>
 
           <div>
             <router-link class="box" to="/courses" style="margin: 1rem;">
-              <img src="../assets/menu/outline.svg" class="res-img" alt="" />
+              <img src="@/assets/menu/outline.svg" class="res-img" alt="" />
             </router-link>
             <h3 class="box-text">Course Outline</h3>
           </div>

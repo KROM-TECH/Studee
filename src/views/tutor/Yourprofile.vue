@@ -307,7 +307,7 @@ export default {
         })
         .catch((error) => {
           this.error = true;
-          this.loader = false;
+          this.loader = false; 
           console.log("Error getting documents: ", error);
         });
     },
