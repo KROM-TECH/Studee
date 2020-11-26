@@ -30,7 +30,7 @@ firebase.getCurrentUser = () => {
       const unsubscribe = firebase.auth().onAuthStateChanged(user => {
           unsubscribe();
           resolve(user);
-      }, reject); 
+      }, reject);
   })
 };
 
