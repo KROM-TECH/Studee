@@ -99,9 +99,9 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.Email, this.Password)
-        .then(() => {
-          this.$router.push({ path: "/home" });
-        console.log()  
+        .then((user) => {
+          this.$store.commit("setUser", user);
+          this.$router.go({ path: "/home" });
           this.loader = false;
         })
         .catch((error) => {

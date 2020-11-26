@@ -29,7 +29,7 @@ export default {
 
   watch: {
     timetable() {
-      this.getSchedules();
+      this.getSchedules(); 
     },
   },
 

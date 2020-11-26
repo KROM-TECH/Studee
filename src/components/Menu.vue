@@ -109,7 +109,8 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push({ path: "login" });
+          this.$store.commit("clearUserData");
+          this.$router.go({ path: "login" });
         });
       // .catch((error) {
       //   // An error happened.
@@ -124,7 +125,7 @@ export default {
       }
     },
     checkauth() {
-      if (firebase.auth().currentUser) {
+      if (this.$store.getters.isloggedin) {
         this.auth = true;
       } else {
         this.auth = false;

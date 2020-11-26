@@ -154,7 +154,7 @@ input {
   border: 1px solid #6c63ff;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
+  border-radius: 5px; 
   padding: 0px 1rem;
   font-size: 16px;
   text-align: start;

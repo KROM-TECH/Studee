@@ -43,12 +43,20 @@ export default {
             firebase.auth().currentUser.Email
           }`;
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log(error.message);
           this.loader = false;
           this.btn = false;
           this.msg = `Something went wrong, check your network and then reload the page`;
         });
     },
+  },
+  created() {
+    if (!firebase.auth().currentUser) {
+      this.$router.push({ path: "login" });
+    } else {
+      return;
+    }
   },
 };
 </script>

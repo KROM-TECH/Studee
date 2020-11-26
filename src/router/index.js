@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 // import firebase from "firebase/app";
+import store from "@/store";
 // import "firebase/auth";
 import tutorRoutes from './tutor'
 import askQuestionsRoutes from './askQuestions'
@@ -36,7 +37,7 @@ const routes = [
     },
   },
 
-];
+]; 
 
 const router = new VueRouter({
   mode: "history",
@@ -46,26 +47,29 @@ const router = new VueRouter({
 
 
 
-// router.beforeEach(async (to, from, next) => {
-//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-//   if (requiresAuth && !await firebase.getCurrentUser()){
-//     console.log(firebase.getCurrentUser())
-//     next({name: "Login"});
-//   }else if (
-//         to.matched.some((record) => record.meta.requiresAuth) &&
-//         !firebase.auth().currentUser.emailVerified
-//       ) {
-//         next({
-//           name: "Verify",
-//         });
-//       } else if (
-//         to.matched.some((record) => record.meta.requiresGuest) &&
-//         await firebase.getCurrentUser()
-//       ) {
-//         next({
-//           name: "Home",
-//         });
-//       } else next();
-//     });
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth && !store.getters.isloggedin){
+    console.log('1')
+    next({name: "Login"});
+  }else if (
+    requiresAuth && !store.getters.verified
+      ) {
+        console.log('2')
+        next({
+          name: "Verify",
+        });
+      } else if (
+        to.matched.some((record) => record.meta.requiresGuest) &&
+        store.getters.isloggedin
+      ) {
+        console.log('3')
+        next({
+          name: "Home",
+        });
+      } else {
+        console.log('4')
+        next();}
+    });
 
 export default router;

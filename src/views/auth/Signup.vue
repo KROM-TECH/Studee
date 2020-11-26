@@ -88,8 +88,9 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.Email, this.Password)
-        .then(() => {
-          this.$router.push({ path: "/verify" });
+        .then((user) => {
+          this.$store.commit("setUser", user);
+          this.$router.go({ path: "/verify" });
         })
         .catch((error) => {
           this.loader = false;
