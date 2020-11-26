@@ -23,6 +23,14 @@ export default [
           requiresAuth: true,
         },
       },
+    {
+        path: "/tte/todo",
+        name: "Todo",
+        component: () => import("@/views/tte/Todo"),
+        meta: {
+          requiresAuth: true,
+        },
+      },
 
       
 ]
