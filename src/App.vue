@@ -13,6 +13,7 @@
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
   overflow-x: hidden;
+  outline: none !important;
 }
 .badge {
   border-radius: 0.2rem;

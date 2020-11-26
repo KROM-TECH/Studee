@@ -1,16 +1,10 @@
 <template>
-  <div class="togglebutton-wrapper" v-bind:class="isactive ? 'togglebutton-checked' : ''">
-    <label v-bind:for="name">
+  <div class="togglebutton-wrapper" :class="isactive ? 'togglebutton-checked' : ''">
+    <label :for="name">
       <span class="togglebutton-label">{{ label }}</span>
       <span class="tooglebutton-box"></span>
     </label>
-    <input
-      v-bind:id="name"
-      type="checkbox"
-      v-bind:name="name"
-      v-model="isactive"
-      v-on:change="onToogle"
-    />
+    <input :id="name" type="checkbox" :name="name" v-model="isactive" @change="onToogle" />
   </div>
 </template>
 
@@ -24,10 +18,7 @@ export default {
       isactive: false,
     };
   },
-  model: {
-    prop: "checked",
-    event: "change",
-  },
+
   methods: {
     onToogle() {
       this.$emit("clicked", this.isactive);
@@ -59,7 +50,7 @@ export default {
   margin-left: 0.6em;
   width: 38px;
   height: 22px;
-  background: white;
+  background: #6c63ff;
   /*border:1px solid black;*/
   border-radius: 999px;
   cursor: pointer;
@@ -74,12 +65,12 @@ export default {
   height: 18px;
   /*border:1px solid #FF6666;*/
   border-radius: 50%;
-  background: #ff6666;
+  background: #372faf;
   opacity: 0.7;
   transition: all 0.2s ease-in-out;
 }
 .togglebutton-wrapper.togglebutton-focus .tooglebutton-box {
-  box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.8);
 }
 .togglebutton-wrapper.togglebutton-checked .tooglebutton-box:before {
   left: calc(100% - 4px - 16px);
