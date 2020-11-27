@@ -22,6 +22,14 @@ const firebaseConfig = {
   appId: "1:1081739793929:web:94b5fcb9f42e728cd54ad8",
   measurementId: "G-TRVMWW6FEP"
 };
+
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('../public/sw.js');
+  });
+}
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
