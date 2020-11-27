@@ -78,6 +78,8 @@
 
 <script>
 import Loader from "@/components/Loader";
+import firebase from "firebase/app";
+import "firebase/auth";
 export default {
   components: {
     Loader,
