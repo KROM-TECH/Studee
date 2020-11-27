@@ -81,19 +81,10 @@
         </div>
 
         <div class="row">
-          <button
-            v-if="auth"
-            @click="signOut"
-            class="btn Obtn but sign"
-            style="margin: 1rem;"
-          >
+          <button v-if="auth" @click="signOut" class="btn Obtn but sign" style="margin: 1rem;">
             Sign Out
           </button>
-          <router-link
-            v-else
-            class="btn Obtn but sign"
-            to="/login"
-            style="margin: 1rem;"
+          <router-link v-else class="btn Obtn but sign" to="/login" style="margin: 1rem;"
             >Sign In
           </router-link>
         </div>
@@ -111,7 +102,7 @@ export default {
   data() {
     return {
       sideNav: { show: "false", sign: "menu" },
-      auth: ""
+      auth: "",
     };
   },
   methods: {
@@ -136,16 +127,16 @@ export default {
       }
     },
     checkauth() {
-      if (this.$store.getters.isloggedin) {
+      if (firebase.auth().currentUser) {
         this.auth = true;
       } else {
         this.auth = false;
       }
-    }
+    },
   },
   created() {
     this.checkauth();
-  }
+  },
 };
 </script>
 
@@ -215,8 +206,8 @@ a {
 .menu {
   color: #6c63ff;
   background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 1px 4px 2px 0 rgba(0, 0, 0, 0.14),
-    -3px 4px 1px -2px rgba(0, 0, 0, 0.12), 1px 3px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 4px 2px 0 rgba(0, 0, 0, 0.14), -3px 4px 1px -2px rgba(0, 0, 0, 0.12),
+    1px 3px 5px 2px rgba(0, 0, 0, 0.2);
   border-radius: 20%;
   padding: 0.8rem;
   position: fixed;
