@@ -3,7 +3,12 @@
     <Menu />
     <Fab type="timetable" />
     <main>
-      <div class="card" v-for="n in content" :key="n.text" @click="changePage(n.text)">
+      <div
+        class="card"
+        v-for="n in content"
+        :key="n.text"
+        @click="changePage(n.text)"
+      >
         <img :src="n.image" class="img" />
         <span class="text">{{ n.text }}</span>
       </div>
@@ -26,18 +31,18 @@ export default {
         { image: require("@/assets/tte/thur.svg"), text: "Thursday" },
         { image: require("@/assets/tte/fri.svg"), text: "Friday" },
         { image: require("@/assets/tte/sat.svg"), text: "Saturday" },
-        { image: require("@/assets/tte/sun.svg"), text: "Sunday" },
-      ],
+        { image: require("@/assets/tte/sun.svg"), text: "Sunday" }
+      ]
     };
   },
   methods: {
     changePage(day) {
       this.$router.push({
         name: "ViewTimetable",
-        query: { day: day },
+        query: { day: day }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -24,11 +24,11 @@
 import Menu from "@/components/Menu";
 export default {
   components: {
-    Menu,
+    Menu
   },
   data() {
     return {
-      active: false,
+      active: false
     };
   },
   methods: {
@@ -37,8 +37,8 @@ export default {
     },
     answer() {
       this.$router.push({ name: "Answer" });
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -7,8 +7,12 @@
             <div class="input_elem">
               <label for="day">Day</label>
               <select v-model="day" id="day" required>
-                <option value="" disabled selected>What day of the week ?</option>
-                <option v-for="day in days" :key="day" :value="day">{{ day }}</option>
+                <option value="" disabled selected
+                  >What day of the week ?</option
+                >
+                <option v-for="day in days" :key="day" :value="day">{{
+                  day
+                }}</option>
               </select>
             </div>
             <div class="input_elem">
@@ -42,8 +46,12 @@
             <div class="input_elem">
               <label for="day">Importance</label>
               <select v-model="Importance" id="" required>
-                <option value="" disabled selected>how important is this subject</option>
-                <option v-for="item in important" :key="item" :value="item">{{ item }}</option>
+                <option value="" disabled selected
+                  >how important is this subject</option
+                >
+                <option v-for="item in important" :key="item" :value="item">{{
+                  item
+                }}</option>
               </select>
             </div>
 
@@ -67,8 +75,16 @@ export default {
       Start_Time: "",
       End_Time: "",
       Importance: "",
-      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      important: ["Extremely", "Normal", "Not"],
+      days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      important: ["Extremely", "Normal", "Not"]
     };
   },
   computed: {
@@ -79,9 +95,9 @@ export default {
         subject: this.subject,
         start: this.Start_Time,
         end: this.End_Time,
-        importance: this.Importance,
+        importance: this.Importance
       };
-    },
+    }
   },
   methods: {
     close(e) {
@@ -118,8 +134,8 @@ export default {
       this.$emit("close");
       this.$store.commit("updateTimetable");
       this.reset();
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -153,7 +169,7 @@ input {
   border: 1px solid #6c63ff;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px; 
+  border-radius: 5px;
   padding: 0px 1rem;
   font-size: 16px;
   text-align: start;

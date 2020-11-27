@@ -14,7 +14,6 @@
             <option value="remote">Remote</option>
           </select>
         </div>
-      
 
         <div v-show="type == 'university'">
           <div class="input-field">
@@ -65,9 +64,13 @@
             <label>Select Your State</label>
             <select v-model="state">
               <option value="" disabled selected>Choose your option</option>
-              <option v-for="state in States" :key="state.name" :value="state.name" class="left">{{
-                state.name
-              }}</option>
+              <option
+                v-for="state in States"
+                :key="state.name"
+                :value="state.name"
+                class="left"
+                >{{ state.name }}</option
+              >
             </select>
           </div>
 
@@ -163,7 +166,7 @@ import Loader from "@/components/Loader";
 export default {
   components: {
     Menu,
-    Loader,
+    Loader
     // Query,
   },
   data() {
@@ -184,7 +187,7 @@ export default {
       subject: "",
       showModal: false,
       loader: false,
-      tutors: [],
+      tutors: []
     };
   },
   methods: {
@@ -197,9 +200,9 @@ export default {
         .where("faculty", "==", this.faculty)
         .where("level", "==", this.level)
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           console.log(querySnapshot.docs);
-          querySnapshot.forEach((doc) => {
+          querySnapshot.forEach(doc => {
             this.tutors.push(doc.data());
           });
           console.log(this.tutors);
@@ -207,12 +210,12 @@ export default {
           this.$router.push({ name: "QueriedTutors" });
           this.loader = false;
         })
-        .catch((error) => {
+        .catch(error => {
           this.loader = false;
           console.log("Error getting documents: ", error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -277,8 +280,8 @@ details {
   border: none;
   height: fit-content;
   margin: 0.3rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
-    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   color: #6c63ff;
   transition: 0.5s;
 }

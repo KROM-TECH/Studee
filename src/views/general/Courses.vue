@@ -33,9 +33,13 @@
           <label>Select Your Level</label>
           <select v-model="level" id="level">
             <option value="" disabled selected>Choose your option</option>
-            <option v-for="Level in Levels" :key="Level.value" :value="Level.value" class="left">{{
-              Level.name
-            }}</option>
+            <option
+              v-for="Level in Levels"
+              :key="Level.value"
+              :value="Level.value"
+              class="left"
+              >{{ Level.name }}</option
+            >
           </select>
         </div>
 
@@ -105,7 +109,7 @@ import Faculties from "@/helpers/faculties";
 export default {
   components: {
     Menu,
-    Loader,
+    Loader
   },
   data() {
     return {
@@ -117,7 +121,7 @@ export default {
       level: "",
       showModal: false,
       loader: false,
-      course_Outline: [],
+      course_Outline: []
     };
   },
   methods: {
@@ -127,26 +131,26 @@ export default {
       this.showModal = true;
       console.log(this.university, this.faculty, this.level);
       firebase
-        .firestore() 
+        .firestore()
         .collection(`course_outline`)
         .doc(this.university)
         .collection(this.faculty)
         .where("level", "==", this.level)
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
           console.log(querySnapshot.docs);
-          querySnapshot.forEach((doc) => {
+          querySnapshot.forEach(doc => {
             this.course_Outline.push(doc.data());
           });
           console.log(this.course_Outline);
           this.loader = false;
         })
-        .catch((error) => {
+        .catch(error => {
           this.loader = false;
           console.log("Error getting documents: ", error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -210,8 +214,8 @@ details {
   border: none;
   height: fit-content;
   margin: 0.3rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
-    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   color: #6c63ff;
   transition: 0.5s;
 }

@@ -20,12 +20,16 @@
             <option value="" disabled selected>Choose your option</option>
             <option value="art" class="left">Arts</option>
             <option value="bms" class="left">Basic Medical Sciences</option>
-            <option value="business" class="left">Business Administration</option>
+            <option value="business" class="left"
+              >Business Administration</option
+            >
             <option value="clinical" class="left">Clinical Sciences</option>
             <option value="dental" class="left">Dental Sciences</option>
             <option value="education" class="left">Education</option>
             <option value="engineering" class="left">Engineering</option>
-            <option value="environmental" class="left">Environmental Science</option>
+            <option value="environmental" class="left"
+              >Environmental Science</option
+            >
             <option value="law" class="left">Law</option>
             <option value="pharmacy" class="left">Pharmacy</option>
             <option value="science" class="left">Science</option>
@@ -68,13 +72,15 @@
                 <h5>first</h5></summary
               >
               <p>
-                representation of vectors:resultant of several vectors in Euclidean space:lines,
-                planes and spheres , the dot and cross products, direction cosines, differentiation
-                of vector functions, lami's theorem, polygon of forces, conditions of equilibrium of
-                coplanar forces, newton's laws of motion, analytical treatment of static equilibrium
-                of particles and rigid bodies, distributed forces, centroids and centres of gravity,
-                moments of inertia, analysis of structures and trusses, forces in beams and tables,
-                friction.
+                representation of vectors:resultant of several vectors in
+                Euclidean space:lines, planes and spheres , the dot and cross
+                products, direction cosines, differentiation of vector
+                functions, lami's theorem, polygon of forces, conditions of
+                equilibrium of coplanar forces, newton's laws of motion,
+                analytical treatment of static equilibrium of particles and
+                rigid bodies, distributed forces, centroids and centres of
+                gravity, moments of inertia, analysis of structures and trusses,
+                forces in beams and tables, friction.
               </p>
             </details>
             <details>
@@ -83,9 +89,10 @@
                 <h5>first</h5></summary
               >
               <p>
-                Axiomatic set theory.Operations on set,Boolean Algebra , switching circuits,logic
-                circuits,and propositional logic.Transfinite induction and recursion.
-                Sequences.Monotonic sequences and Convergence.Cauchy criteria.series.power
+                Axiomatic set theory.Operations on set,Boolean Algebra ,
+                switching circuits,logic circuits,and propositional
+                logic.Transfinite induction and recursion. Sequences.Monotonic
+                sequences and Convergence.Cauchy criteria.series.power
                 series.Tests for convergence.operations on power series.
               </p>
             </details>
@@ -95,11 +102,13 @@
                 <h5>first</h5></summary
               >
               <p>
-                Functions, limits, Continuity and Differentiability. Mean Value theorems. Techniques
-                of differentiation for derivatives of algebraic, trigonometric, exponential and
-                logarithmic functions; Curve sketching. L'Hospital rule. McLaurin's and Taylor's
-                series. Applications of differentiation to rates of changes, maximum and minimum
-                problems, application to rectilinear motion.,
+                Functions, limits, Continuity and Differentiability. Mean Value
+                theorems. Techniques of differentiation for derivatives of
+                algebraic, trigonometric, exponential and logarithmic functions;
+                Curve sketching. L'Hospital rule. McLaurin's and Taylor's
+                series. Applications of differentiation to rates of changes,
+                maximum and minimum problems, application to rectilinear
+                motion.,
               </p>
             </details>
             <details>
@@ -108,11 +117,12 @@
                 <h5>first</h5></summary
               >
               <p>
-                Introduction to basic equipment in wood, machine, fitting and welding
-                workshop.Element of safety practice with the various tools used in the
-                workshop.General safety precautions.Principle governing the various workshop
-                machines. Selection and use of tools for specific operations in the various
-                workshop.Practical demonstration of use of tools and machines in performing basic
+                Introduction to basic equipment in wood, machine, fitting and
+                welding workshop.Element of safety practice with the various
+                tools used in the workshop.General safety precautions.Principle
+                governing the various workshop machines. Selection and use of
+                tools for specific operations in the various workshop.Practical
+                demonstration of use of tools and machines in performing basic
                 workshop processes.
               </p>
             </details>
@@ -137,14 +147,14 @@
 import Menu from "@/components/Menu";
 export default {
   components: {
-    Menu,
+    Menu
   },
   data() {
     return {
-      showModal: false,
+      showModal: false
     };
   },
-  methods: {},
+  methods: {}
 };
 </script>
 
@@ -208,8 +218,8 @@ details {
   border: none;
   height: fit-content;
   margin: 0.3rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
-    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   color: #6c63ff;
   transition: 0.5s;
 }

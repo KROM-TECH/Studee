@@ -21,13 +21,13 @@ import Menu from "@/components/Menu";
 export default {
   components: {
     Loader,
-    Menu,
+    Menu
   },
   data() {
     return {
       msg: "",
       loader: false,
-      user: null,
+      user: null
     };
   },
   methods: {
@@ -42,13 +42,13 @@ export default {
           this.btn = false;
           this.msg = `A Verification Link has been sent to Your Email `;
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.message);
           this.loader = false;
           this.user = false;
           this.msg = `Something went wrong, check your network and then reload the page`;
         });
-    },
+    }
   },
   created() {
     if (!firebase.auth().currentUser) {
@@ -57,7 +57,7 @@ export default {
       this.user = firebase.auth().currentUser;
       console.log(this.user);
     }
-  },
+  }
 };
 </script>
 

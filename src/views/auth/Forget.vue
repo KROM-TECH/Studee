@@ -9,7 +9,11 @@
         <form @submit.prevent="handleSubmit">
           <div class="form-input">
             <label> Username</label>
-            <input type="text" v-model="Email" placeholder="Enter your Username" />
+            <input
+              type="text"
+              v-model="Email"
+              placeholder="Enter your Username"
+            />
           </div>
 
           <div class="extra">
@@ -23,7 +27,12 @@
         </form>
       </div>
       <div class="rowTwo">
-        <img src="@/assets/auth/book.svg" style="width:100%" class="res-img book" alt="" />
+        <img
+          src="@/assets/auth/book.svg"
+          style="width:100%"
+          class="res-img book"
+          alt=""
+        />
       </div>
     </div>
   </div>
@@ -35,14 +44,14 @@ import "firebase/auth";
 import Loader from "@/components/Loader";
 export default {
   components: {
-    Loader,
+    Loader
   },
   data() {
     return {
       Email: "",
       Msg: "",
       Error: "",
-      loader: false,
+      loader: false
     };
   },
   methods: {
@@ -55,13 +64,13 @@ export default {
         .then(() => {
           this.Msg = `A Reset Password Link has been sent to your mail`;
         })
-        .catch((error) => {
+        .catch(error => {
           this.loader = false;
           console.log(error.message);
           this.Error = error.message;
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

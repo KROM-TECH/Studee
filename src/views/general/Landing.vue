@@ -7,34 +7,40 @@
         <img src="@/assets/general/Logo.svg" class="res-img" alt="logo" />
         <div style="max-width:100rem">
           <p style="padding:1rem; max-width:30rem">
-            Studee is a platform created by Kromtech to help out students in their academic
-            endeavours. <br />
+            Studee is a platform created by Kromtech to help out students in
+            their academic endeavours. <br />
             It has various features like
           </p>
         </div>
 
         <div class="case">
           <h4 class="header">Course Outline and Past Question</h4>
-          <p class="det">get your various course outlines and past Questions all in one spot.</p>
+          <p class="det">
+            get your various course outlines and past Questions all in one spot.
+          </p>
         </div>
 
         <div class="case">
           <h4 class="header">Find Local Tutors</h4>
           <p class="det">
-            hire local tutors to help you out in that subjuct that has been proving difficult
+            hire local tutors to help you out in that subjuct that has been
+            proving difficult
           </p>
         </div>
 
         <div class="case">
           <h4 class="header">Create Timetables and Reminder</h4>
-          <p class="det">Create timetables and reminders to plan your day/week/month</p>
+          <p class="det">
+            Create timetables and reminders to plan your day/week/month
+          </p>
         </div>
 
         <div class="case">
           <h4 class="header">Share Notes & Resources</h4>
           <p class="det">
-            Instead of carrying large books or snapping your notes to send to your friends, use our
-            Share notes feature to keep your books up to date and share among friends
+            Instead of carrying large books or snapping your notes to send to
+            your friends, use our Share notes feature to keep your books up to
+            date and share among friends
           </p>
         </div>
       </div>
@@ -45,7 +51,9 @@
         <p class="more-min">So what are you waiting for</p>
 
         <div>
-          <a href="/signup"> <button class="btn Bbtn">Create an Account</button></a>
+          <a href="/signup">
+            <button class="btn Bbtn">Create an Account</button></a
+          >
           <button class="btn Wbtn">Tell a Friend</button>
         </div>
       </div>
@@ -58,9 +66,9 @@ import Menu from "@/components/Menu";
 // import Loader from "@/components/Loader";
 export default {
   components: {
-    Menu,
+    Menu
     // Loader,
-  },
+  }
 };
 </script>
 

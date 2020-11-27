@@ -1,8 +1,13 @@
 <template>
   <div>
-    <add-timetable :show="TimetableModal" @close="TimetableModal = !TimetableModal" />
+    <add-timetable
+      :show="TimetableModal"
+      @close="TimetableModal = !TimetableModal"
+    />
     <transition name="slide" appear>
-      <span v-show="fab" class="fab" @click="Show_Modal"><i class="material-icons">add</i></span>
+      <span v-show="fab" class="fab" @click="Show_Modal"
+        ><i class="material-icons">add</i></span
+      >
     </transition>
   </div>
 </template>
@@ -18,13 +23,12 @@ export default {
       TimetableModal: false,
       fab: true,
       prevScrollpos: window.pageYOffset,
-      currentScrollPos: window.pageYOffset,
+      currentScrollPos: window.pageYOffset
     };
   },
   methods: {
     Show_Modal() {
       if (this.type == "timetable") {
-        
         this.TimetableModal = true;
       }
     },
@@ -40,11 +44,11 @@ export default {
         }
         this.prevScrollpos = this.currentScrollPos;
       });
-    },
+    }
   },
   mounted() {
     (this.fab = true), this.scroll();
-  },
+  }
 };
 </script>
 
@@ -65,8 +69,8 @@ export default {
   text-align: center;
   letter-spacing: 0.5px;
   color: white;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
-    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #6c63ff;
   display: flex;
   justify-content: center;

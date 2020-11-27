@@ -31,11 +31,11 @@
 import Menu from "@/components/Menu";
 export default {
   components: {
-    Menu,
+    Menu
   },
   data() {
     return {
-      active: false,
+      active: false
     };
   },
   methods: {
@@ -44,8 +44,8 @@ export default {
     },
     todo() {
       this.$router.push({ name: "Todo" });
-    },
-  },
+    }
+  }
 };
 </script>
 

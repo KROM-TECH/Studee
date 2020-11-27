@@ -6,7 +6,8 @@ import store from "./store";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
-import "firebase/analytics"; 
+import "firebase/analytics";
+import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
 
@@ -19,7 +20,7 @@ const firebaseConfig = {
   storageBucket: "studee-45f4b.appspot.com",
   messagingSenderId: "1081739793929",
   appId: "1:1081739793929:web:94b5fcb9f42e728cd54ad8",
-  measurementId: "G-TRVMWW6FEP",
+  measurementId: "G-TRVMWW6FEP"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -27,15 +28,15 @@ firebase.analytics();
 
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-      const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-          unsubscribe();
-          resolve(user);
-      }, reject);
-  })
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      unsubscribe();
+      resolve(user);
+    }, reject);
+  });
 };
 
- new Vue({
-      router,
-      store,
-      render: (h) => h(App),
-    }).$mount("body");
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("body");

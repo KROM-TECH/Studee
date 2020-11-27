@@ -6,9 +6,10 @@
       <Rating :selected="5" style="margin-top:4px" />
       <p class="rate">5.0 / 5.0</p>
       <p class="bio">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, quae ab nam ipsa fugiat
-        molestiae dolor quisquam dolore dignissimos illum, autem cum eum inventore accusantium esse
-        quas atque corrupti. Ipsam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
+        quae ab nam ipsa fugiat molestiae dolor quisquam dolore dignissimos
+        illum, autem cum eum inventore accusantium esse quas atque corrupti.
+        Ipsam!
       </p>
       <!-- <img src="https://miro.medium.com/max/587/1*JeI9eP6upNk-1uQ3Z62Tvw.png" /> -->
       <div class="contain">
@@ -61,13 +62,13 @@ export default {
   components: {
     Menu,
     Rating,
-    Review,
+    Review
   },
   data() {
     return {
-      active: false,
+      active: false
     };
-  },
+  }
 };
 </script>
 

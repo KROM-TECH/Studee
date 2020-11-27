@@ -17,34 +17,36 @@ export default {
   name: "Timetable_view",
   data() {
     return {
-      schedule: [],
+      schedule: []
     };
   },
 
   computed: {
     timetable() {
       return this.$store.state.timetable;
-    },
+    }
   },
 
   watch: {
     timetable() {
-      this.getSchedules(); 
-    },
+      this.getSchedules();
+    }
   },
 
   methods: {
     getSchedules() {
       console.log(this.timetable);
-      this.schedule = this.timetable.filter((item) => item.day == this.$route.query.day);
+      this.schedule = this.timetable.filter(
+        item => item.day == this.$route.query.day
+      );
       console.log(this.schedule);
-    },
+    }
   },
 
   created() {
     this.$store.commit("updateTimetable");
 
     this.getSchedules();
-  },
+  }
 };
 </script>

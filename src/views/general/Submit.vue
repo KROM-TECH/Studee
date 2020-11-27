@@ -20,12 +20,16 @@
             <option value="" disabled selected>Choose your option</option>
             <option value="art" class="left">Arts</option>
             <option value="bms" class="left">Basic Medical Sciences</option>
-            <option value="business" class="left">Business Administration</option>
+            <option value="business" class="left"
+              >Business Administration</option
+            >
             <option value="clinical" class="left">Clinical Sciences</option>
             <option value="dental" class="left">Dental Sciences</option>
             <option value="education" class="left">Education</option>
             <option value="engineering" class="left">Engineering</option>
-            <option value="environmental" class="left">Environmental Science</option>
+            <option value="environmental" class="left"
+              >Environmental Science</option
+            >
             <option value="law" class="left">Law</option>
             <option value="pharmacy" class="left">Pharmacy</option>
             <option value="science" class="left">Science</option>
@@ -104,7 +108,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 export default {
   components: {
-    Menu,
+    Menu
   },
   data() {
     return {
@@ -115,7 +119,7 @@ export default {
       course_code: "",
       course_title: "",
       course_outline: "",
-      course_unit: "",
+      course_unit: ""
     };
   },
   methods: {
@@ -128,7 +132,7 @@ export default {
         this.course_code,
         this.course_title,
         this.course_outline,
-        this.course_unit,
+        this.course_unit
       );
       firebase
         .firestore()
@@ -142,13 +146,13 @@ export default {
           title: this.course_title,
           outline: this.course_outline,
           semester: this.semester,
-          Unit: this.course_unit.toLowerCase(),
+          Unit: this.course_unit.toLowerCase()
         })
         .then(() => {
           location.reload();
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -172,8 +176,8 @@ details {
   border: none;
   height: auto;
   margin: 0.1rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
-    0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   color: #6c63ff;
   transition: 0.5s;
 }

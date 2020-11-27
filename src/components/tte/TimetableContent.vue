@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       delModal: false,
-      delete_item: "",
+      delete_item: ""
     };
   },
 
@@ -62,7 +62,7 @@ export default {
     remove() {
       let whole = JSON.parse(localStorage.getItem("timeTable"));
 
-      const index = whole.findIndex((x) => x.id === this.delete_item.id);
+      const index = whole.findIndex(x => x.id === this.delete_item.id);
       if (index > -1) {
         whole.splice(index, 1);
       }
@@ -79,11 +79,11 @@ export default {
       } else {
         return "Not";
       }
-    },
+    }
   },
   created() {
     console.log(this.data);
-  },
+  }
 };
 </script>
 

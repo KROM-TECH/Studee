@@ -40,12 +40,12 @@
 import Menu from "@/components/Menu";
 export default {
   components: {
-    Menu,
+    Menu
   },
   data() {
     return {};
   },
-  methods: {},
+  methods: {}
 };
 </script>
 

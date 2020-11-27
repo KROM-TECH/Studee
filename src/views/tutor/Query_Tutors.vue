@@ -28,18 +28,18 @@ import Rating from "@/components/Rating";
 export default {
   components: {
     Menu,
-    Rating,
+    Rating
   },
   data() {
     return {
       show: true,
-      queriedtutors: [],
+      queriedtutors: []
     };
   },
   created() {
     this.queriedtutors = JSON.parse(localStorage.getItem("querytutor"));
     console.log(this.queriedtutors);
-  },
+  }
 };
 </script>
 

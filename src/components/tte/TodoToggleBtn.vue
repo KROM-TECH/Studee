@@ -1,10 +1,19 @@
 <template>
-  <div class="togglebutton-wrapper" :class="isactive ? 'togglebutton-checked' : ''">
+  <div
+    class="togglebutton-wrapper"
+    :class="isactive ? 'togglebutton-checked' : ''"
+  >
     <label :for="name">
       <span class="togglebutton-label">{{ label }}</span>
       <span class="tooglebutton-box"></span>
     </label>
-    <input :id="name" type="checkbox" :name="name" v-model="isactive" @change="onToogle" />
+    <input
+      :id="name"
+      type="checkbox"
+      :name="name"
+      v-model="isactive"
+      @change="onToogle"
+    />
   </div>
 </template>
 
@@ -15,15 +24,15 @@ export default {
 
   data() {
     return {
-      isactive: false,
+      isactive: false
     };
   },
 
   methods: {
     onToogle() {
       this.$emit("clicked", this.isactive);
-    },
-  },
+    }
+  }
 };
 </script>
 

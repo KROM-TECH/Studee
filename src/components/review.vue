@@ -12,9 +12,10 @@
     </div>
 
     <p class="details">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe magnam dignissimos mollitia
-      reprehenderit debitis optio adipisci ut corporis, sunt deleniti est tempora fugiat sapiente
-      eaque voluptatum, culpa, cum tempore odio?
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe magnam
+      dignissimos mollitia reprehenderit debitis optio adipisci ut corporis,
+      sunt deleniti est tempora fugiat sapiente eaque voluptatum, culpa, cum
+      tempore odio?
     </p>
   </div>
 </template>
@@ -23,8 +24,8 @@
 import Rating from "@/components/Rating";
 export default {
   components: {
-    Rating,
-  },
+    Rating
+  }
 };
 </script>
 

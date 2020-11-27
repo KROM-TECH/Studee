@@ -10,12 +10,20 @@
         <form @submit.prevent="handleSubmit">
           <div class="form-input">
             <label> Username</label>
-            <input type="text" v-model="Email" placeholder="Enter your Username" />
+            <input
+              type="text"
+              v-model="Email"
+              placeholder="Enter your Username"
+            />
           </div>
 
           <div class="form-input">
             <label> password</label>
-            <input type="password" v-model="Password" placeholder="Enter Your password" />
+            <input
+              type="password"
+              v-model="Password"
+              placeholder="Enter Your password"
+            />
           </div>
 
           <div class="extra">
@@ -28,7 +36,10 @@
           <p class="alt-text">Login With</p>
 
           <div class="social">
-            <button class="btn-large" style="border: 2px solid #b23121; color:#b23121">
+            <button
+              class="btn-large"
+              style="border: 2px solid #b23121; color:#b23121"
+            >
               <img
                 src="@/assets/auth/google-icon.svg"
                 class="res-img book"
@@ -37,7 +48,10 @@
               />
               Google
             </button>
-            <button class="btn-large" style="border: 2px solid #00acee; color:#00acee">
+            <button
+              class="btn-large"
+              style="border: 2px solid #00acee; color:#00acee"
+            >
               <img
                 src="@/assets/auth/twitter-icon.svg"
                 class="res-img book"
@@ -46,7 +60,10 @@
               />
               Twitter
             </button>
-            <button class="btn-large" style="border: 1px solid #3b5998; color:#3b5998">
+            <button
+              class="btn-large"
+              style="border: 1px solid #3b5998; color:#3b5998"
+            >
               <img
                 src="@/assets/auth/facebook-icon.svg"
                 class="res-img book"
@@ -71,14 +88,14 @@ import "firebase/auth";
 import Loader from "@/components/Loader";
 export default {
   components: {
-    Loader,
+    Loader
   },
   data() {
     return {
       Email: "",
       Password: "",
       Error: "",
-      loader: false,
+      loader: false
     };
   },
   methods: {
@@ -88,17 +105,17 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.Email, this.Password)
-        .then((user) => {
+        .then(user => {
           this.$store.commit("setUser", user);
           this.$router.go({ path: "/verify" });
         })
-        .catch((error) => {
+        .catch(error => {
           this.loader = false;
           console.log(error.message);
           this.Error = error.message;
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

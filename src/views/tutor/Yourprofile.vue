@@ -7,9 +7,15 @@
       <transition name="slide" appear>
         <div class="modall" v-if="showModal">
           <div class="modal_box">
-            <h3 class="modal_text">Are you sure you want to edit your profile ?</h3>
+            <h3 class="modal_text">
+              Are you sure you want to edit your profile ?
+            </h3>
             <div class="modal_button">
-              <button class="btn bb Obtn" style="border:2px solid; margin-top:1rem;" @click="edit">
+              <button
+                class="btn bb Obtn"
+                style="border:2px solid; margin-top:1rem;"
+                @click="edit"
+              >
                 Yes
               </button>
               <button
@@ -28,7 +34,12 @@
       <img class="img" src="@/assets/general/profile.png" />
       <p class="err">{{ err }}</p>
       <label class="toggle">
-        <input class="toggle-checkbox" type="checkbox" :disabled="!active" v-model="available" />
+        <input
+          class="toggle-checkbox"
+          type="checkbox"
+          :disabled="!active"
+          v-model="available"
+        />
         <div class="toggle-switch"></div>
         <span class="toggle-label" :class="{ NA: !available }">Available</span>
       </label>
@@ -80,11 +91,18 @@
           </div>
           <div class="box">
             <p class="head">Select the Faculty you teach</p>
-            <select :disabled="!active" :class="active ? 'active' : ''" v-model="faculty">
+            <select
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="faculty"
+            >
               <option value="" disabled selected>Choose your option</option>
-              <option v-for="faculty in Faculties" :key="faculty.value" :value="faculty.value">{{
-                faculty.name
-              }}</option>
+              <option
+                v-for="faculty in Faculties"
+                :key="faculty.value"
+                :value="faculty.value"
+                >{{ faculty.name }}</option
+              >
             </select>
           </div>
         </div>
@@ -92,11 +110,18 @@
         <div class="contain" v-show="type == 'university'">
           <div class="box">
             <p class="head">Select the Level you teach</p>
-            <select :disabled="!active" :class="active ? 'active' : ''" v-model="level">
+            <select
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="level"
+            >
               <option value="" disabled selected>Choose your option</option>
-              <option v-for="level in Levels" :key="level.value" :value="level.value">{{
-                level.name
-              }}</option>
+              <option
+                v-for="level in Levels"
+                :key="level.value"
+                :value="level.value"
+                >{{ level.name }}</option
+              >
             </select>
           </div>
           <div class="box">
@@ -117,20 +142,34 @@
         <div class="contain">
           <div class="box">
             <p class="head">Select the state you at</p>
-            <select :disabled="!active" :class="active ? 'active' : ''" v-model="uni_location">
+            <select
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="uni_location"
+            >
               <option value="" disabled selected>Choose your option</option>
-              <option v-for="state in States" :key="state.name" :value="state.name">{{
-                state.name
-              }}</option>
+              <option
+                v-for="state in States"
+                :key="state.name"
+                :value="state.name"
+                >{{ state.name }}</option
+              >
             </select>
           </div>
           <div class="box">
             <p class="head">Select the Classes you teach</p>
-            <select :disabled="!active" :class="active ? 'active' : ''" v-model="Class">
+            <select
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="Class"
+            >
               <option value="" disabled selected>Choose your option</option>
-              <option v-for="Class in Classes" :key="Class.name" :value="Class.value">{{
-                Class.name
-              }}</option>
+              <option
+                v-for="Class in Classes"
+                :key="Class.name"
+                :value="Class.value"
+                >{{ Class.name }}</option
+              >
             </select>
           </div>
         </div>
@@ -138,11 +177,18 @@
         <div class="contain" v-show="type == 'state'">
           <div class="box">
             <p class="head">Select the Subject you teach</p>
-            <select :disabled="!active" :class="active ? 'active' : ''" v-model="subject">
+            <select
+              :disabled="!active"
+              :class="active ? 'active' : ''"
+              v-model="subject"
+            >
               <option value="" disabled selected>Choose your option</option>
-              <option v-for="subject in Subjects" :key="subject.name" :value="subject.name">{{
-                subject.name
-              }}</option>
+              <option
+                v-for="subject in Subjects"
+                :key="subject.name"
+                :value="subject.name"
+                >{{ subject.name }}</option
+              >
             </select>
           </div>
           <div class="box">
@@ -212,7 +258,7 @@ export default {
   components: {
     Menu,
     Loader,
-    Error,
+    Error
   },
   data() {
     return {
@@ -241,7 +287,7 @@ export default {
       uni_location: "",
       courses_subjects: "",
       rate: "",
-      bio: "",
+      bio: ""
     };
   },
   methods: {
@@ -261,7 +307,7 @@ export default {
         Class: this.Class,
         subject: this.subject,
         rate: this.rate,
-        bio: this.bio,
+        bio: this.bio
       };
       console.log(profile);
 
@@ -274,7 +320,7 @@ export default {
           this.active = !this.active;
           this.loader = false;
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
           this.loader = false;
           this.err = `Oop Something went wrong  try again`;
@@ -287,7 +333,7 @@ export default {
         .collection(`tutors`)
         .doc(firebase.auth().currentUser.uid)
         .get()
-        .then((snapshot) => {
+        .then(snapshot => {
           if (snapshot.exists) {
             this.available = snapshot.data().available;
             this.display_name = snapshot.data().display_name;
@@ -305,17 +351,17 @@ export default {
             this.loader = false;
           }
         })
-        .catch((error) => {
+        .catch(error => {
           this.error = true;
-          this.loader = false; 
+          this.loader = false;
           console.log("Error getting documents: ", error);
         });
-    },
+    }
   },
 
   created() {
     this.fetch_tutor();
-  },
+  }
 };
 </script>
 

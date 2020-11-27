@@ -3,7 +3,11 @@
     <Menu />
     <Fab type="todo" />
     <div class="container">
-      <li v-for="item in todoByStatus" :class="item.done ? 'done' : ''" :key="item.id">
+      <li
+        v-for="item in todoByStatus"
+        :class="item.done ? 'done' : ''"
+        :key="item.id"
+      >
         <span class="label">{{ item.label }}</span>
         <div class="actions">
           <button
@@ -52,8 +56,8 @@ export default {
       todo: [
         { id: 1, label: "Learn VueJs", done: true },
         { id: 2, label: "Code a todo list", done: false },
-        { id: 3, label: "Learn something else", done: false },
-      ],
+        { id: 3, label: "Learn something else", done: false }
+      ]
     };
   },
 
@@ -62,7 +66,7 @@ export default {
       this.todo.push({
         id: Math.floor(Math.random() * 9999) + 10,
         label: this.newitem,
-        done: false,
+        done: false
       });
       this.newitem = "";
     },
@@ -75,7 +79,7 @@ export default {
     },
     clickontoogle: function(active) {
       this.sortByStatus = active;
-    },
+    }
   },
 
   computed: {
@@ -94,8 +98,8 @@ export default {
 
       sortedArray = [...notDoneArray, ...doneArray];
       return sortedArray;
-    },
-  },
+    }
+  }
 };
 </script>
 

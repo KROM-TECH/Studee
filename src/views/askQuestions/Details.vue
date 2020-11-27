@@ -7,9 +7,10 @@
       <p class="p2">20th November 2016</p>
       <p class="p3">Quadratic equations involving Fractions</p>
       <p class="bio">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, quae ab nam ipsa fugiat
-        molestiae dolor quisquam dolore dignissimos illum, autem cum eum inventore accusantium esse
-        quas atque corrupti. Ipsam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
+        quae ab nam ipsa fugiat molestiae dolor quisquam dolore dignissimos
+        illum, autem cum eum inventore accusantium esse quas atque corrupti.
+        Ipsam!
       </p>
       <div class="badges">
         <p class="badge">Math</p>
@@ -51,13 +52,13 @@ import Review from "@/components/review";
 export default {
   components: {
     Menu,
-    Review,
+    Review
   },
   data() {
     return {
-      active: false,
+      active: false
     };
-  },
+  }
 };
 </script>
 

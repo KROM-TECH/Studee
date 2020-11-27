@@ -31,18 +31,18 @@
 import Menu from "@/components/Menu";
 export default {
   components: {
-    Menu,
+    Menu
   },
   data() {
     return {
-      listening: false,
+      listening: false
     };
   },
   methods: {
     listen() {
       this.listening = !this.listening;
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>

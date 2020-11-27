@@ -1,10 +1,15 @@
 <template>
   <div>
-    <add-timetable :show="TimetableModal" @close="TimetableModal = !TimetableModal" />
+    <add-timetable
+      :show="TimetableModal"
+      @close="TimetableModal = !TimetableModal"
+    />
     <transition name="slide" appear>
       <div class="body">
         <img src="@/assets/tte/no_time.svg" class="res-img grow" alt="" />
-        <p class="text">it seem's like there isn't any Subject set for {{ $route.query.day }}</p>
+        <p class="text">
+          it seem's like there isn't any Subject set for {{ $route.query.day }}
+        </p>
         <button
           class="btn Obtn btn-large"
           style="border:2px solid; margin-top:1rem;"
@@ -24,10 +29,9 @@ export default {
   components: { AddTimetable },
   data() {
     return {
-      TimetableModal: false,
+      TimetableModal: false
     };
-  },
-
+  }
 };
 </script>
 
