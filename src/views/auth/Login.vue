@@ -9,22 +9,12 @@
         <form @submit.prevent="handleSubmit">
           <div class="form-input">
             <label> Username</label>
-            <input
-              type="text"
-              v-model="email"
-              required
-              placeholder="Enter your Username"
-            />
+            <input type="text" v-model="email" required placeholder="Enter your Username" />
           </div>
 
           <div class="form-input">
             <label> password</label>
-            <input
-              type="password"
-              v-model="password"
-              required
-              placeholder="Enter Your password"
-            />
+            <input type="password" v-model="password" required placeholder="Enter Your password" />
           </div>
 
           <div class="extra">
@@ -80,12 +70,7 @@
         </form>
       </div>
       <div class="rowTwo">
-        <img
-          src="@/assets/auth/book.svg"
-          style="width:100%"
-          class="res-img book"
-          alt=""
-        />
+        <img src="@/assets/auth/book.svg" style="width:100%" class="res-img book" alt="" />
       </div>
     </div>
   </div>
@@ -95,43 +80,32 @@
 import Loader from "@/components/Loader";
 export default {
   components: {
-    Loader
+    Loader,
   },
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
     };
   },
-  computed: {
-    user() {
-      return this.$store.getters.user;
-    },
-    error() {
-      return this.$store.getters.error;
-    },
-    loader() {
-      return this.$store.getters.loading;
-    }
-  },
-  watch: {
-    user(value) {
-      this.$router.go({ path: "/verify" });
-      if (value !== null && value !== undefined) {
-        this.$router.go({ path: "/home" });
-      }
-    }
-  },
+
   methods: {
-    async handleSubmit() {
-      console.log("32");
-      await this.$store.dispatch("signUserIn", {
-        email: this.email,
-        password: this.password
-      });
-      console.log("23");
-    }
-  }
+    handleSubmit() {
+      this.loader = true;
+      console.log(this.Email, this.Password);
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          this.$router.go({ path: "/home" });
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log(error.message);
+          this.Error = error.message;
+        });
+    },
+  },
 };
 </script>
 
