@@ -209,10 +209,10 @@ a {
   box-shadow: 1px 4px 2px 0 rgba(0, 0, 0, 0.14), -3px 4px 1px -2px rgba(0, 0, 0, 0.12),
     1px 3px 5px 2px rgba(0, 0, 0, 0.2);
   border-radius: 20%;
-  padding: 0.8rem;
+  padding: 0.8rem; 
   position: fixed;
-  right: 1.5rem;
-  top: 1rem;
+  left: 1rem;
+  top: 0.7rem;
   z-index: 500000;
 }
 .menu:hover {
@@ -248,6 +248,6 @@ a {
 
 .slide-enter,
 .slide-leave-to {
-  transform: translateX(100vw);
+  transform: translateX(-100vw);
 }
 </style>

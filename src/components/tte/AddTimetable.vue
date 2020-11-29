@@ -166,6 +166,7 @@ form {
 input {
   width: 212px !important;
   height: 34px;
+  min-height: 34px;
   border: 1px solid #6c63ff;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

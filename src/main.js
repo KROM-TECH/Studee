@@ -23,12 +23,7 @@ const firebaseConfig = {
   measurementId: "G-TRVMWW6FEP"
 };
 
-if ('serviceWorker' in navigator) {
-  // Use the window load event to keep the page load performant
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js');
-  });
-}
+
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
