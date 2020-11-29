@@ -6,7 +6,7 @@ module.exports = {
       msTileColor: '#000000',
       appleMobileWebAppCapable: 'yes',
       appleMobileWebAppStatusBarStyle: 'black',
-      assetsVersion:'1',
+      assetsVersion:'2',
       manifestPath:'public/manifest.json',
   
       // configure the workbox plugin

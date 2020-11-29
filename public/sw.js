@@ -1,8 +1,8 @@
 importScripts("/precache-manifest.9502cf4d9eea862b295d616a3d88eef2.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 importScripts('./precache.js') 
 
-const staticCacheName = 'site-static-v2';
-const dynamicCacheName = 'site-dynamic-v2';
+const staticCacheName = 'site-static-v3';
+const dynamicCacheName = 'site-dynamic-v3';
 
 const asset = [precache]
 
