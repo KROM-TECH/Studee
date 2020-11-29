@@ -30,5 +30,21 @@ export default [
     meta: {
       requiresAuth: true
     }
-  }
+  },
+  {
+    path: "/tte/event",
+    name: "Event",
+    component: () => import("@/views/tte/Event"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/tte/goal",
+    name: "Goal",
+    component: () => import("@/views/tte/Goal"),
+    meta: {
+      requiresAuth: true
+    }
+  },
 ];

@@ -14,11 +14,11 @@
           <img src="@/assets/tte/todo.svg" class="box-img" />
           <p class="box-text">To-do</p>
         </div>
-        <div class="box">
+        <div class="box" @click="event">
           <img src="@/assets/tte/reminder.svg" class="box-img" />
           <p class="box-text">Events</p>
         </div>
-        <div class="box">
+        <div class="box" @click="goal">
           <img src="@/assets/tte/goals.svg" class="box-img" />
           <p class="box-text">Goals</p>
         </div>
@@ -31,11 +31,11 @@
 import Menu from "@/components/Menu";
 export default {
   components: {
-    Menu
+    Menu,
   },
   data() {
     return {
-      active: false
+      active: false,
     };
   },
   methods: {
@@ -44,8 +44,14 @@ export default {
     },
     todo() {
       this.$router.push({ name: "Todo" });
-    }
-  }
+    },
+    event() {
+      this.$router.push({ name: "Event" });
+    },
+    goal() {
+      this.$router.push({ name: "Goal" });
+    },
+  },
 };
 </script>
 
