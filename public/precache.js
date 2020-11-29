@@ -2,10 +2,7 @@
 
 
 const precache = [
-    {
-      "revision": "d38a2b58df330c85e0029eecf71d7c26",
-      "url": "/_redirects"
-    },
+ 
     {
       "revision": "764e631d2367718b8b21",
       "url": "/css/app.a3340347.css"

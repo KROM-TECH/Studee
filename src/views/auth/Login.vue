@@ -1,11 +1,11 @@
 <template>
   <div>
-    <Loader v-show="loader" />
+    <Loader v-if="loader" />
     <div class="container">
       <div class="rowOne">
         <img src="@/assets/general/Logo.svg" class="res-img" alt="" />
         <h1 class="title">Login</h1>
-        <p class="err">{{ error }}</p>
+        <p class="err">{{ Error }}</p>
         <form @submit.prevent="handleSubmit">
           <div class="form-input">
             <label> Username</label>
@@ -88,13 +88,15 @@ export default {
     return {
       email: "",
       password: "",
+      Error: "",
+      loader: false,
     };
   },
 
   methods: {
     handleSubmit() {
       this.loader = true;
-      console.log(this.Email, this.Password);
+      console.log(this.email, this.password);
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
