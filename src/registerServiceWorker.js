@@ -22,6 +22,9 @@ if (true) {
     },
     updated() {
       console.log("New content is available; please refresh.");
+      caches.keys().then(function(names) {
+        for (let name of names) caches.delete(name);
+      });
     },
     offline() {
       console.log(

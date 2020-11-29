@@ -66,10 +66,10 @@
           </div>
 
           <div>
-            <router-link class="box" to="/note" style="margin: 1rem;">
-              <img src="@/assets/menu/notes.svg" class="res-img" alt="" />
+            <router-link class="box" to="/market" style="margin: 1rem;">
+              <img src="@/assets/menu/market.svg" class="res-img" alt="" />
             </router-link>
-            <h3 class="box-text">Notes</h3>
+            <h3 class="box-text">Market place</h3>
           </div>
 
           <div>
@@ -209,7 +209,7 @@ a {
   box-shadow: 1px 4px 2px 0 rgba(0, 0, 0, 0.14), -3px 4px 1px -2px rgba(0, 0, 0, 0.12),
     1px 3px 5px 2px rgba(0, 0, 0, 0.2);
   border-radius: 20%;
-  padding: 0.8rem; 
+  padding: 0.8rem;
   position: fixed;
   left: 1rem;
   top: 0.7rem;
