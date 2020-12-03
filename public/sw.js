@@ -1,10 +1,9 @@
 importScripts("/precache-manifest.9502cf4d9eea862b295d616a3d88eef2.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-importScripts('./precache.js') 
 
-const staticCacheName = 'site-static-v3';
-const dynamicCacheName = 'site-dynamic-v3';
 
-const asset = [precache]
+const staticCacheName = 'site-static-v4';
+const dynamicCacheName = 'site-dynamic-v4';
+
 
 self.addEventListener('install', (evt) => {
     // console.log('service worker has been installed' )
@@ -61,16 +60,19 @@ self.addEventListener('install', (evt) => {
             })
           });
         }).catch(() => {
-          if (evt.request.url.indexOf('.html') > -1) {
-            return caches.match('/pages/fallback.html');
+          if (
+            evt.request.url.indexOf('.html') > -1 ||
+            evt.request.url.indexOf('.js') > -1 ||
+            evt.request.url.indexOf('.cs') > -1
+          
+          
+          ) {
+            return caches.match('./fallback.html');
           }
         })
       );
     }
   });
-
-  workbox.setConfig({ debug: true });
-  workbox.precaching.precacheAndRoute(precache);
   
 //Background Sync
 const backgroundSync = new workbox.backgroundSync.Plugin('myQueueName', {
@@ -82,7 +84,7 @@ const backgroundSync = new workbox.backgroundSync.Plugin('myQueueName', {
 // Cache images:
 workbox.routing.registerRoute(
  /\.(?:png|gif|jpg|jpeg|svg|js|css)$/,
- new workbox.strategies.CacheFirst({
+ new workbox.strategies.StaleWhileRevalidate({
    cacheName: "all",
    plugins: [
     backgroundSync,
@@ -97,7 +99,7 @@ workbox.routing.registerRoute(
 // Cache Google fonts:
 workbox.routing.registerRoute(
  new RegExp("https://(.*)"),
- new workbox.strategies.CacheFirst({
+ new workbox.strategies.StaleWhileRevalidate({
    cacheName: "all",
    plugins: [
      new workbox.expiration.Plugin({

@@ -1,110 +1,89 @@
 <template>
   <div>
-    <Menu></Menu>
-    <main class="fade">
-      <img src="@/assets/chat/Cchat.svg" class="img" />
+    <Menu />
+    <transition name="slide" appear>
+      <div class="body">
+        <img src="@/assets/chat/comingChat.svg" class="res-img grow" alt="" />
+        <div class="case">
+          <span class="CS">Anonymous chat</span> <span class="CS">Geo-location chat</span>
+          <span class="CS">Voice and Video chat</span>
+          <span class="CS">And Much More</span>
+        </div>
 
-      <div class="contain">
-        <div class="box">
-          <img src="@/assets/chat/message.svg" class="box-img" />
-          <p class="box-text">Message</p>
-          <div></div>
-        </div>
-        <div class="box">
-          <img src="@/assets/chat/voice.svg" class="box-img" />
-          <p class="box-text">Voice</p>
-        </div>
-        <div class="box">
-          <img src="@/assets/chat/video.svg" class="box-img" />
-          <p class="box-text">Video</p>
-        </div>
+        <h1>Coming Soon</h1>
       </div>
-    </main>
+    </transition>
   </div>
 </template>
 
 <script>
-import Menu from "@/components/Menu";
+import Menu from "@/components/Menu.vue";
 export default {
-  components: {
-    Menu
-  },
-  data() {
-    return {
-      active: false
-    };
-  }
+  components: { Menu },
+  name: "CSMarket",
 };
 </script>
 
 <style scoped>
-.box-text {
-  text-align: center;
-  color: #372faf;
-  font-size: 20px;
-}
-.box-img {
-  max-width: 4.5rem;
-  height: auto;
-  margin: 1rem;
-}
-.box {
-  background-color: #ffffff;
-  border-radius: 10px;
-  width: 130px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.case {
+  margin-top: 2rem;
+  overflow: hidden;
   padding: 1rem;
-  margin: 2rem;
-  cursor: pointer;
-  box-shadow: 1px 1px 4px rgba(104, 104, 104, 0.3);
-}
-.box:hover {
-  background-color: #6c63ff34;
-}
-@media screen and (max-width: 580px) {
-  .box {
-    flex-direction: row;
-    width: 200px;
-    height: 15px;
-    justify-content: flex-start;
-  }
-  .box-img {
-    max-width: 2rem;
-    height: auto;
-    margin: 1rem;
-  }
-}
-.contain {
-  margin-top: 3rem;
-  width: 100%;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
-
-.head {
-  line-height: 47px;
-  text-align: center;
+h1 {
+  margin-top: 2rem;
   color: #6c63ff;
-  text-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  font-weight: 700;
+  font-size: 7.5vh;
+}
+.CS {
+  margin: 5px 9px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #6c63ff;
+  font-weight: 600;
+  background-color: #2f2e41;
+  padding: 1.5vh;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
-.img {
-  max-width: 12rem;
-  height: auto;
-  border-radius: 50%;
-}
-
-main {
-  width: 100vw;
+.body {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3rem;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: fixed;
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+  background-color: rgb(220, 220, 220);
+}
+.grow {
+  width: 35%;
+  height: auto;
+}
+
+@media screen and (max-width: 640px) {
+  .grow {
+    width: 65%;
+  }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: 1s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: scale(1);
 }
 </style>

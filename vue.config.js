@@ -18,5 +18,12 @@ module.exports = {
         // swDest: 'service-worker.js',
         // ...other Workbox options...
       }
+    },
+
+    chainWebpack: (config) => {
+
+      // A, remove the plugin
+      config.plugins.delete('prefetch')
     }
   }
+
